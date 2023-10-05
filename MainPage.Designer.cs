@@ -2457,6 +2457,7 @@
             this.resetBtn.Size = new System.Drawing.Size(113, 27);
             this.resetBtn.TabIndex = 8;
             this.resetBtn.Text = "Reset All";
+            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
             // advsearchBtn
             // 

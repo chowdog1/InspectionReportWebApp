@@ -687,5 +687,10 @@ namespace InspectionReportWebApp
             }
             return string.Empty;
         }
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+            PopulateDataGridView();
+        }
     }
 }

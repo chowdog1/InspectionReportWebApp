@@ -12,7 +12,7 @@ namespace InspectionReportWebApp
         {
             Application.Desktop = new MyDesktop();
 
-            inspectionReport window = new inspectionReport();
+            Loginpage window = new Loginpage();
             window.Show();
         }
 
