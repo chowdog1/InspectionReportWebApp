@@ -237,6 +237,10 @@
             this.menuItem7 = new Wisej.Web.MenuItem();
             this.menuItem8 = new Wisej.Web.MenuItem();
             this.menuItem9 = new Wisej.Web.MenuItem();
+            this.menuItem10 = new Wisej.Web.MenuItem();
+            this.menuItem11 = new Wisej.Web.MenuItem();
+            this.menuItem12 = new Wisej.Web.MenuItem();
+            this.menuItem13 = new Wisej.Web.MenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -2461,6 +2465,7 @@
             this.deleteBtn.Size = new System.Drawing.Size(109, 27);
             this.deleteBtn.TabIndex = 7;
             this.deleteBtn.Text = "Delete";
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // resetBtn
             // 
@@ -2480,6 +2485,7 @@
             this.advsearchBtn.Size = new System.Drawing.Size(113, 27);
             this.advsearchBtn.TabIndex = 9;
             this.advsearchBtn.Text = "Advanced Search";
+            this.advsearchBtn.Click += new System.EventHandler(this.advsearchBtn_Click);
             // 
             // mainMenu1
             // 
@@ -2511,7 +2517,11 @@
             this.menuItem3.MenuItems.AddRange(new Wisej.Web.MenuItem[] {
             this.menuItem7,
             this.menuItem8,
-            this.menuItem9});
+            this.menuItem9,
+            this.menuItem10,
+            this.menuItem11,
+            this.menuItem12,
+            this.menuItem13});
             this.menuItem3.Name = "menuItem3";
             this.menuItem3.Text = "Option";
             // 
@@ -2554,6 +2564,30 @@
             this.menuItem9.Name = "menuItem9";
             this.menuItem9.Text = "Audit Trail";
             this.menuItem9.Click += new System.EventHandler(this.menuItem9_Click);
+            // 
+            // menuItem10
+            // 
+            this.menuItem10.Index = 3;
+            this.menuItem10.Name = "menuItem10";
+            this.menuItem10.Text = "Create New User";
+            // 
+            // menuItem11
+            // 
+            this.menuItem11.Index = 4;
+            this.menuItem11.Name = "menuItem11";
+            this.menuItem11.Text = "Manage Registered Users";
+            // 
+            // menuItem12
+            // 
+            this.menuItem12.Index = 5;
+            this.menuItem12.Name = "menuItem12";
+            this.menuItem12.Text = "Import Data From Excel";
+            // 
+            // menuItem13
+            // 
+            this.menuItem13.Index = 6;
+            this.menuItem13.Name = "menuItem13";
+            this.menuItem13.Text = "Change Password";
             // 
             // inspectionReport
             // 
@@ -2848,6 +2882,10 @@
         private Wisej.Web.MenuItem menuItem7;
         private Wisej.Web.MenuItem menuItem8;
         private Wisej.Web.MenuItem menuItem9;
+        private Wisej.Web.MenuItem menuItem10;
+        private Wisej.Web.MenuItem menuItem11;
+        private Wisej.Web.MenuItem menuItem12;
+        private Wisej.Web.MenuItem menuItem13;
     }
 }
 

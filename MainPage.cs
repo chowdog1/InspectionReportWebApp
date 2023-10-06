@@ -399,6 +399,28 @@ namespace InspectionReportWebApp
             reinspectdateTimePicker.Format = DateTimePickerFormat.Custom;
             reinspectdateTimePicker.CustomFormat = "dd/MM/yyyy";
         }
+        public void DisableMainMenuItem()
+        {
+            menuItem9.Enabled = false;
+            menuItem9.Visible = false;
+            menuItem10.Enabled = false;
+            menuItem10.Visible = false;
+            menuItem11.Enabled = false;
+            menuItem11.Visible = false;
+            menuItem12.Enabled = false;
+            menuItem12.Visible = false;
+        }
+        public void EnableMainMenuItem()
+        {
+            menuItem9.Enabled = true;
+            menuItem9.Visible = true;
+            menuItem10.Enabled = true;
+            menuItem10.Visible = true;
+            menuItem11.Enabled = true;
+            menuItem11.Visible = true;
+            menuItem12.Enabled = true;
+            menuItem12.Visible = true;
+        }
         private void PopulateDataGridView()
         {
             string connectionString = "Data Source=DESKTOP-HTKIB76\\SQLEXPRESS01;Initial Catalog=InspectionReport;Integrated Security=True";
@@ -1096,6 +1118,115 @@ namespace InspectionReportWebApp
                     }
                 }
             }
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            string accountNo = accttxtBox.Text;
+
+            if (string.IsNullOrEmpty(accountNo))
+            {
+                MessageBox.Show("Please fill in the Account No. you want to delete", "Required Field Missing", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                string connectionString = "Data Source=DESKTOP-HTKIB76\\SQLEXPRESS01;Initial Catalog=InspectionReport;Integrated Security=True";
+
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    string DeleteQuery = "DELETE InspectionReport where AccountNo=@AccountNo";
+
+                    using (SqlCommand cmd = new SqlCommand(DeleteQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@AccountNo", accttxtBox.Text);
+
+                        try
+                        {
+                            int rowsAffected = cmd.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Successfully Deleted!");
+                                LogEvent("Deleted Data");
+                                ClearForm();
+                                PopulateDataGridView();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No record found for the specified Account No.", "Record Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                        catch (SqlException ex)
+                        {
+                            Console.WriteLine("Sql Error: " + ex.Message);
+                        }
+                    }
+                }
+            }
+        }
+        private void PerformDataBaseSearch(string sqlQuery)
+        {
+            try
+            {
+                string connectionString = "Data Source=DESKTOP-HTKIB76\\SQLEXPRESS01;Initial Catalog=InspectionReport;Integrated Security=True";
+
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    using (SqlCommand command = new SqlCommand(sqlQuery, con))
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        if (dataTable.Rows.Count > 0)
+                        {
+                            dataGridView1.DataSource = dataTable;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No Results found");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
+        private void ShowAdvancedSearchForm()
+        {
+            using (AdvancedSearch advancedSearch = new AdvancedSearch())
+            {
+                if (advancedSearch.ShowDialog() == DialogResult.OK)
+                {
+                    string sqlQuery = advancedSearch.SearchQuery;
+                    if (!string.IsNullOrWhiteSpace(sqlQuery))
+                    {
+                        PerformDataBaseSearch(sqlQuery);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Search query is null or empty");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Advanced search dialog was canceled");
+                }
+            }
+        }
+
+        private void advsearchBtn_Click(object sender, EventArgs e)
+        {
+            ShowAdvancedSearchForm();
         }
     }
 }

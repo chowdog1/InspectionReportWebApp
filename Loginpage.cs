@@ -56,12 +56,12 @@ namespace InspectionReportWebApp
                             if (!IsAdmin)
                             {
                                 RegularLoggedIn?.Invoke(this, EventArgs.Empty);
-                                //mainPage.DisableTrailMenuItem();
+                                mainPage.DisableMainMenuItem();
                             }
                             else if (IsAdmin)
                             {
                                 AdminLoggedIn?.Invoke(this, EventArgs.Empty);
-                                //mainPage.EnableTrailMenuItem();
+                                mainPage.EnableMainMenuItem();
                             }
                             mainPage.Show();
                             this.Hide();

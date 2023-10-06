@@ -104,6 +104,7 @@
             // 
             // loginBtn
             // 
+            this.loginBtn.BackColor = System.Drawing.Color.FromArgb(51, 122, 183);
             this.loginBtn.Font = new System.Drawing.Font("default, Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.loginBtn.Location = new System.Drawing.Point(23, 329);
             this.loginBtn.Name = "loginBtn";
@@ -115,9 +116,9 @@
             // 
             // clrBtn
             // 
-            this.clrBtn.BackColor = System.Drawing.Color.FromName("@activeCaptionText");
+            this.clrBtn.BackColor = System.Drawing.Color.FromName("@invalid");
             this.clrBtn.Font = new System.Drawing.Font("default, Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.clrBtn.ForeColor = System.Drawing.Color.FromName("@appWorkspace");
+            this.clrBtn.ForeColor = System.Drawing.Color.FromName("@activeCaptionText");
             this.clrBtn.Location = new System.Drawing.Point(23, 378);
             this.clrBtn.Name = "clrBtn";
             this.clrBtn.ResponsiveProfiles.Add(((Wisej.Base.ResponsiveProfile)(resources.GetObject("clrBtn.ResponsiveProfiles"))));
