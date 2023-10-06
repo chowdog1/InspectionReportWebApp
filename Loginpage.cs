@@ -129,5 +129,23 @@ namespace InspectionReportWebApp
                 }
             }
         }
+
+        private void showchkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showchkBox.Checked)
+            {
+                passwordtxtBox.PasswordChar = '\0';
+            }
+            else
+            {
+                passwordtxtBox.PasswordChar = '•';
+            }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            new Request().Show();
+            this.Hide();
+        }
     }
 }

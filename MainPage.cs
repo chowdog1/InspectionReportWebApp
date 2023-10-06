@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Net;
 using System.Linq;
+using System.IO;
 
 namespace InspectionReportWebApp
 {
@@ -21,9 +22,9 @@ namespace InspectionReportWebApp
         private DateTime? wdpdate;
         private DateTime? hwiddate;
         private DateTime? reinspectdate;
-        //private LogForm? logform;
+        private LogForm logform;
         private List<string> logEntries = new List<string>();
-        private string logFilePath = "log.txt";
+        private string logFilePath = "E:\\CENRO\\Inspection Report\\bin\\Debug\\net6.0-windows\\log.txt";
         public inspectionReport()
         {
             InitializeComponent();
@@ -664,7 +665,7 @@ namespace InspectionReportWebApp
                     {
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Successfully Saved!");
-                        //LogEvent("Added Data");
+                        LogEvent("Added Data");
                         ClearForm();
                         PopulateDataGridView();
                     }
@@ -691,6 +692,52 @@ namespace InspectionReportWebApp
         {
             ClearForm();
             PopulateDataGridView();
+        }
+        private void menuItem4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Loginpage Loginpage = new Loginpage();
+            Loginpage.Show();
+        }
+        private void menuItem5_Click(object sender, EventArgs e)
+        {
+            Loginpage loginForm = new Loginpage();
+            loginForm.AdminLoggedIn += (s, args) =>
+            {
+                this.Close(); // Close the current MainForm
+            };
+            loginForm.RegularLoggedIn += (s, args) =>
+            {
+                this.Close(); // Close the current MainForm
+            };
+            loginForm.ShowDialog();
+        }
+        private void menuItem6_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void ShowLogForm()
+        {
+            if (logform == null || logform.IsDisposed)
+            {
+                logform = new LogForm(logEntries, logFilePath);
+            }
+            logform.Show();
+        }
+        private void LogEvent(string eventDescription)
+        {
+            string logEntry = $"{DateTime.Now} - {accttxtBox.Text} {AuthenticatedUser.UserName}: {eventDescription}";
+            if (logform != null)
+            {
+                logform.AppendLog(logEntry);
+            }
+            logEntries.Add(logEntry);
+            File.AppendAllText(logFilePath, logEntry + Environment.NewLine);
+        }
+
+        private void menuItem9_Click(object sender, EventArgs e)
+        {
+            ShowLogForm();  
         }
     }
 }

@@ -36,6 +36,8 @@
             this.showchkBox = new Wisej.Web.CheckBox();
             this.loginBtn = new Wisej.Web.Button();
             this.clrBtn = new Wisej.Web.Button();
+            this.label3 = new Wisej.Web.Label();
+            this.label4 = new Wisej.Web.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -92,12 +94,13 @@
             // 
             this.showchkBox.AllowHtml = true;
             this.showchkBox.Font = new System.Drawing.Font("default, Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.showchkBox.Location = new System.Drawing.Point(188, 270);
+            this.showchkBox.Location = new System.Drawing.Point(185, 279);
             this.showchkBox.Name = "showchkBox";
             this.showchkBox.ResponsiveProfiles.Add(((Wisej.Base.ResponsiveProfile)(resources.GetObject("showchkBox.ResponsiveProfiles"))));
             this.showchkBox.Size = new System.Drawing.Size(129, 22);
             this.showchkBox.TabIndex = 4;
             this.showchkBox.Text = "Show Password";
+            this.showchkBox.CheckedChanged += new System.EventHandler(this.showchkBox_CheckedChanged);
             // 
             // loginBtn
             // 
@@ -122,12 +125,39 @@
             this.clrBtn.TabIndex = 6;
             this.clrBtn.Text = "CLEAR";
             // 
+            // label3
+            // 
+            this.label3.AllowHtml = true;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("default, Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label3.Location = new System.Drawing.Point(127, 433);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "No account?";
+            // 
+            // label4
+            // 
+            this.label4.AllowHtml = true;
+            this.label4.AutoSize = true;
+            this.label4.Cursor = Wisej.Web.Cursors.Hand;
+            this.label4.Font = new System.Drawing.Font("default, Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label4.ForeColor = System.Drawing.Color.FromName("@activeCaption");
+            this.label4.Location = new System.Drawing.Point(118, 454);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 15);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Contact Admin";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
             // Loginpage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = Wisej.Web.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 542);
             this.CloseBox = false;
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.clrBtn);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.showchkBox);
@@ -157,5 +187,7 @@
         private Wisej.Web.CheckBox showchkBox;
         private Wisej.Web.Button loginBtn;
         private Wisej.Web.Button clrBtn;
+        private Wisej.Web.Label label3;
+        private Wisej.Web.Label label4;
     }
 }
