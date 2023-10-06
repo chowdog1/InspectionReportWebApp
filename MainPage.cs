@@ -739,5 +739,363 @@ namespace InspectionReportWebApp
         {
             ShowLogForm();  
         }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            string connectionString = "Data Source=DESKTOP-HTKIB76\\SQLEXPRESS01;Initial Catalog=InspectionReport;Integrated Security=True";
+            string accountNo = accttxtBox.Text;
+
+            if (string.IsNullOrEmpty(accountNo))
+            {
+                MessageBox.Show("Please fill in the Account No.", "Required Field Missing", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DialogResult result = MessageBox.Show("Are you sure do you want to update this record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    string updateQuery = "UPDATE InspectionReport SET " +
+                                    "BusinessName = COALESCE(@BusinessName, BusinessName), " +
+                                    "Address = COALESCE(@Address, Address), " +
+                                    "Barangay = COALESCE(@Barangay, Barangay), " +
+                                    "Date = COALESCE(@Date, Date), " +
+                                    "NatureOfBusiness = COALESCE(@NatureOfBusiness, NatureOfBusiness), " +
+                                    "EstablishmentHas = COALESCE(@EstablishmentHas, EstablishmentHas), " +
+                                    "BusinessStatus = COALESCE(@BusinessStatus, BusinessStatus), " +
+                                    "EstablishmentIs = COALESCE(@EstablishmentIs, EstablishmentIs), " +
+                                    "Violations = CASE " +
+                                    "WHEN LEN(ISNULL(@Violations, '')) > 0 AND LEN(ISNULL(Violations, '')) > 0 " +
+                                    "THEN COALESCE(Violations + ', ', '') + @Violations " +
+                                    "WHEN LEN(ISNULL(@Violations, '')) > 0 " +
+                                    "THEN @Violations " +
+                                    "ELSE Violations " +
+                                    "END, " +
+                                    "ComplyWithin = COALESCE(@ComplyWithin, ComplyWithin), " +
+                                    "SecuretheFF = CASE " +
+                                    "WHEN LEN(ISNULL(@SecuretheFF, '')) > 0 AND LEN(ISNULL(SecuretheFF, '')) > 0 " +
+                                    "THEN COALESCE(SecuretheFF + ', ', '') + @SecuretheFF " +
+                                    "WHEN LEN(ISNULL(@SecuretheFF, '')) > 0 " +
+                                    "THEN @SecuretheFF " +
+                                    "ELSE SecuretheFF " +
+                                    "END, " +
+                                    "AttendSeminar = COALESCE(@AttendSeminar, AttendSeminar), " +
+                                    "MayorsPermit = COALESCE(@MayorsPermit, MayorsPermit), " +
+                                    "EPPFee = COALESCE(@EPPFee, EPPFee), " +
+                                    "ECCCNC = COALESCE(@ECCCNC, ECCCNC), " +
+                                    "ECCCNCNo = COALESCE(@ECCCNCNo, ECCCNCNo), " +
+                                    "ECCDateIssued = COALESCE(@ECCDateIssued, ECCDateIssued), " +
+                                    "WDP = COALESCE(@WDP, WDP), " +
+                                    "WDPNo = COALESCE(@WDPNo, WDPNo), " +
+                                    "WDPDateIssued = COALESCE(@WDPDateIssued, WDPDateIssued), " +
+                                    "PTO = COALESCE(@PTO, PTO), " +
+                                    "PTONo = COALESCE(@PTONo, PTONo), " +
+                                    "PTODateIssued = COALESCE(@PTODateIssued, PTODateIssued), " +
+                                    "HWID = COALESCE(@HWID, HWID), " +
+                                    "HWIDNo = COALESCE(@HWIDNo, HWIDNo), " +
+                                    "HWIDDateIssued = COALESCE(@HWIDDateIssued, HWIDDateIssued), " +
+                                    "HasPollutionOfficer = COALESCE(@HasPollutionOfficer, HasPollutionOfficer), " +
+                                    "PollutionOfficer = COALESCE(@PollutionOfficer, PollutionOfficer), " +
+                                    "Accreditation = COALESCE(@Accreditation, Accreditation), " +
+                                    "ValidityOfPOC = COALESCE(@ValidityOfPOC, ValidityOfPOC), " +
+                                    "ContactNo = COALESCE(@ContactNo, ContactNo), " +
+                                    "Email = COALESCE(@Email, Email), " +
+                                    "HasWasteBin = COALESCE(@HasWasteBin, HasWasteBin), " +
+                                    "BinsLabeled = COALESCE(@BinsLabeled, BinsLabeled), " +
+                                    "BinsCovered = COALESCE(@BinsCovered, BinsCovered), " +
+                                    "BinsSegregated = COALESCE(@BinsSegregated, BinsSegregated), " +
+                                    "MRF = COALESCE(@MRF, MRF), " +
+                                    "WasteCollected = COALESCE(@WasteCollected, WasteCollected), " +
+                                    "FrequencyHauling = COALESCE(@FrequencyHauling, FrequencyHauling), " +
+                                    "Hauler = COALESCE(@Hauler, Hauler), " +
+                                    "HasSeptic = COALESCE(@HasSeptic, HasSeptic), " +
+                                    "LocationSeptic = COALESCE(@LocationSeptic, LocationSeptic), " +
+                                    "FrequencyDesludge = COALESCE(@FrequencyDesludge, FrequencyDesludge), " +
+                                    "DateDesludge = COALESCE(@DateDesludge, DateDesludge), " +
+                                    "ServiceProvider = COALESCE(@ServiceProvider, ServiceProvider), " +
+                                    "HasGreaseTrap = COALESCE(@HasGreaseTrap, HasGreaseTrap), " +
+                                    "LocationGrease = COALESCE(@LocationGrease, LocationGrease), " +
+                                    "CapacityGreaseTrap = COALESCE(@CapacityGreaseTrap, CapacityGreaseTrap), " +
+                                    "FrequencyGrease = COALESCE(@FrequencyGrease, FrequencyGrease), " +
+                                    "HaulerGrease = COALESCE(@HaulerGrease, HaulerGrease), " +
+                                    "HasWasteWater = COALESCE(@HasWasteWater, HasWasteWater), " +
+                                    "UsedOilProperlyDisposed = COALESCE(@UsedOilProperlyDisposed, UsedOilProperlyDisposed), " +
+                                    "TypeofOil = COALESCE(@TypeofOil, TypeofOil), " +
+                                    "FrequencyofHaulingOil = COALESCE(@FrequencyofHaulingOil, FrequencyofHaulingOil), " +
+                                    "HaulerOil = COALESCE(@HaulerOil, HaulerOil), " +
+                                    "HasAirPollutionManager = COALESCE(@HasAirPollutionManager, HasAirPollutionManager), " +
+                                    "DeviceType = COALESCE(@DeviceType, DeviceType), " +
+                                    "MaintenanceProvider = COALESCE(@MaintenanceProvider, MaintenanceProvider), " +
+                                    "PurposeOfInspection = COALESCE(@PurposeOfInspection, PurposeOfInspection), " +
+                                    "ReinspectDate = COALESCE(@ReinspectDate, ReinspectDate), " +
+                                    "LevelofInspection = " +
+                                    "CASE " +
+                                    "WHEN LEN(ISNULL(@LevelofInspection, '')) > 0 AND LEN(ISNULL(LevelofInspection, '')) > 0 " +
+                                    "THEN COALESCE(LevelofInspection + ', ', '') + @LevelofInspection " +
+                                    "WHEN LEN(ISNULL(@LevelofInspection, '')) > 0 " +
+                                    "THEN @LevelofInspection " +
+                                    "ELSE LevelofInspection " +
+                                    "END, " +
+                                    "LandUse = COALESCE(@LandUse, LandUse), " +
+                                    "OwnershipTerms = COALESCE(@OwnershipTerms, OwnershipTerms), " +
+                                    "Lessee = COALESCE(@Lessee, Lessee), " +
+                                    "StandAlone = COALESCE(@StandAlone, StandAlone), " +
+                                    "EstablishmentStatus = COALESCE(@EstablishmentStatus, EstablishmentStatus), " +
+
+                                    "InspectorObservation = " +
+                                    "CASE " +
+                                    "WHEN LEN(ISNULL(@InspectorObservation, '')) > 0 AND LEN(ISNULL(InspectorObservation, '')) > 0 " +
+                                    "THEN COALESCE(InspectorObservation + '\n', '') + @InspectorObservation " +
+                                    "WHEN LEN(ISNULL(@InspectorObservation, '')) > 0 " +
+                                    "THEN @InspectorObservation " +
+                                    "ELSE InspectorObservation " +
+                                    "END, " +
+
+                                    "Directives = " +
+                                    "CASE " +
+                                    "WHEN LEN(ISNULL(@Directives, '')) > 0 AND LEN(ISNULL(Directives, '')) > 0 " +
+                                    "THEN COALESCE(Directives + '\n', '') + @Directives " +
+                                    "WHEN LEN(ISNULL(@Directives, '')) > 0 " +
+                                    "THEN @Directives " +
+                                    "ELSE Directives " +
+                                    "END, " +
+
+                                    "OVR = " +
+                                    "CASE " +
+                                    "WHEN LEN(ISNULL(@OVR, '')) > 0 AND LEN(ISNULL(OVR, '')) > 0 " +
+                                    "THEN COALESCE(OVR + '\n', '') + @OVR " +
+                                    "WHEN LEN(ISNULL(@OVR, '')) > 0 " +
+                                    "THEN @OVR " +
+                                    "ELSE OVR " +
+                                    "END, " +
+
+                                    "Recommendations = " +
+                                    "CASE " +
+                                    "WHEN LEN(ISNULL(@Recommendations, '')) > 0 AND LEN(ISNULL(Recommendations, '')) > 0 " +
+                                    "THEN COALESCE(Recommendations + ', ', '') + @Recommendations " +
+                                    "WHEN LEN(ISNULL(@Recommendations, '')) > 0 " +
+                                    "THEN @Recommendations " +
+                                    "ELSE Recommendations " +
+                                    "END, " +
+
+                                    "Inspector = " +
+                                    "CASE " +
+                                    "WHEN LEN(ISNULL(@Inspector, '')) > 0 AND LEN(ISNULL(Inspector, '')) > 0 " +
+                                    "THEN COALESCE(Inspector + ', ', '') + @Inspector " +
+                                    "WHEN LEN(ISNULL(@Inspector, '')) > 0 " +
+                                    "THEN @Inspector " +
+                                    "ELSE Inspector " +
+                                    "END " +
+
+                                    "WHERE AccountNo = @AccountNo";
+
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@AccountNo", accttxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@BusinessName", businesstxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@Address", addresstxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@Barangay", brgycmbBox.Text);
+                        if (doidate.HasValue)
+                        {
+                            cmd.Parameters.AddWithValue("@Date", doidateTimePicker.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@Date", DBNull.Value);
+                        }
+                        AddParameterIfNotEmpty(cmd, "@NatureOfBusiness", natureofbusinesscmbBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@EstablishmentHas", string.Join(", ", establishmenthaschklistBox.CheckedItems.Cast<string>()));
+                        AddParameterIfNotEmpty(cmd, "@BusinessStatus", GetSelectedRadioButtonText(lowriskRadioBtn, highriskRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@EstablishmentIs", establishmentiscmbBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@Violations", string.Join(", ", violationschklistBox.CheckedItems.Cast<string>()));
+                        AddParameterIfNotEmpty(cmd, "@ComplyWithin", complywithincmbBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@SecuretheFF", string.Join(", ", securetheffchklistBox.CheckedItems.Cast<string>()));
+                        AddParameterIfNotEmpty(cmd, "@AttendSeminar", seminartxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@MayorsPermit", GetSelectedRadioButtonText(mayoryesRadioBtn, mayornoRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@EPPFee", GetSelectedRadioButtonText(eppyesRadioBtn, eppnoRadioBtn, eppnaRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@ECCCNC", GetSelectedRadioButtonText(ecccncyesRadioBtn, ecccncnoRadioBtn, ecccncnaRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@ECCCNCNo", ecccnctxtBox.Text);
+                        if (ecccncdate.HasValue)
+                        {
+                            cmd.Parameters.AddWithValue("@ECCDateIssued", ecccncdateTimePicker.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@ECCDateIssued", DBNull.Value);
+                        }
+                        AddParameterIfNotEmpty(cmd, "@WDP", GetSelectedRadioButtonText(wdpyesRadioBtn, wdpnoRadioBtn, wdpnaRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@WDPNo", wdptxtBox.Text);
+                        if (wdpdate.HasValue)
+                        {
+                            cmd.Parameters.AddWithValue("@WDPDateIssued", wdpdateTimePicker.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@WDPDateIssued", DBNull.Value);
+                        }
+                        AddParameterIfNotEmpty(cmd, "@PTO", GetSelectedRadioButtonText(ptoyesRadioBtn, ptonoRadioBtn, ptonaRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@PTONo", ptotxtBox.Text);
+                        if (ptodate.HasValue)
+                        {
+                            cmd.Parameters.AddWithValue("@PTODateIssued", ptodateTimePicker.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@PTODateIssued", DBNull.Value);
+                        }
+                        AddParameterIfNotEmpty(cmd, "@HWID", GetSelectedRadioButtonText(hwyesRadioBtn, hwnoRadioBtn, hwnaRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@HWIDNo", hwidtxtBox.Text);
+                        if (hwiddate.HasValue)
+                        {
+                            cmd.Parameters.AddWithValue("@HWIDDateIssued", hwiddateTimePicker.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@HWIDDateIssued", DBNull.Value);
+                        }
+                        cmd.Parameters.AddWithValue("@HasPollutionOfficer", GetSelectedRadioButtonText(pcoyesRadioBtn, pconoRadioBtn, pconaRadioBtn));
+                        cmd.Parameters.AddWithValue("@PollutionOfficer", pollutionofficertxtBox.Text);
+                        cmd.Parameters.AddWithValue("@Accreditation", accreditationtxtBox.Text);
+                        if (validitypcodate.HasValue)
+                        {
+                            cmd.Parameters.AddWithValue("@ValidityOfPOC", validitypcodateTimePicker.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@ValidityOfPOC", DBNull.Value);
+                        }
+                        AddParameterIfNotEmpty(cmd, "@ContactNo", contacttxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@Email", emailaddtxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@HasWasteBin", GetSelectedRadioButtonText(wastebinyesRadioBtn, wastebinnoRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@BinsLabeled", GetSelectedRadioButtonText(binproperyesRadioBtn, binpropernoRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@BinsCovered", GetSelectedRadioButtonText(bincoveryesRadioBtn, bincovernoRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@BinsSegregated", GetSelectedRadioButtonText(wastesegyesRadioBtn, wastesegnoRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@MRF", GetSelectedRadioButtonText(mrfyesRadioBtn, mrfnoRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@WasteCollected", GetSelectedRadioButtonText(wastecollectyesRadioBtn, wastecollectnoRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@FrequencyHauling", frequencycmbBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@Hauler", haulertxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@HasSeptic", GetSelectedRadioButtonText(septicyesRadioBtn, septicnoRadioBtn, septicnaRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@LocationSeptic", locationSeptictxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@FrequencyDesludge", frequencysepticcmbBox.Text);
+                        if (septicdate.HasValue)
+                        {
+                            cmd.Parameters.AddWithValue("@DateDesludge", septicdateTimePicker.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@DateDesludge", DBNull.Value);
+                        }
+                        AddParameterIfNotEmpty(cmd, "@ServiceProvider", serviceseptictxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@HasGreaseTrap", GetSelectedRadioButtonText(greaseyesRadioBtn, greasenoRadioBtn, greasenaRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@LocationGrease", locationgreasetxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@CapacityGreaseTrap", capacitygreasetxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@FrequencyGrease", greasefrequencycmbBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@HaulerGrease", haulergreasetxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@HasWasteWater", GetSelectedRadioButtonText(wastewateryesRadioBtn, wastewaternoRadioBtn, wastewaternaRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@UsedOilProperlyDisposed", GetSelectedRadioButtonText(usedoilyesRadioBtn, usedoilnoRadioBtn, usedoilnaRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@TypeofOil", oiltxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@FrequencyofHaulingOil", oilfrequencycmbBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@HaulerOil", hauleroiltxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@HasAirPollutionManager", GetSelectedRadioButtonText(pcdyesRadioBtn, pcdnoRadioBtn, pcdnaRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@DeviceType", pcdtxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@MaintenanceProvider", providertxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@PurposeOfInspection", purposecmbBox.Text);
+                        if (reinspectdate.HasValue)
+                        {
+                            cmd.Parameters.AddWithValue("@ReinspectDate", reinspectdateTimePicker.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@ReinspectDate", DBNull.Value);
+                        }
+                        AddParameterIfNotEmpty(cmd, "@LevelofInspection", string.Join(", ", levelofinspectionchklistBox.CheckedItems.Cast<string>()));
+                        AddParameterIfNotEmpty(cmd, "@LandUse", GetSelectedRadioButtonText(landusecommercialRadioBtn, landuseresidentialRadioBtn, landuseindustrialRadioBtn, landuseinstitutionalRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@OwnershipTerms", GetSelectedRadioButtonText(proprietorshipRadioBtn, privatecorpRadioBtn, multinationalRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@Lessee", GetSelectedRadioButtonText(lesseeyesRadioBtn, lesseenoRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@StandAlone", GetSelectedRadioButtonText(standaloneyesRadioBtn, standalonenoRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@EstablishmentStatus", GetSelectedRadioButtonText(statusoperationalRadioBtn, statusnooperationRadioBtn, statusclosedRadioBtn, statuswfhRadioBtn));
+                        AddParameterIfNotEmpty(cmd, "@InspectorObservation", obstxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@Directives", directivestxtBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@OVR", ovrtextBox.Text);
+                        AddParameterIfNotEmpty(cmd, "@Recommendations", string.Join(", ", recommendationchklistBox.CheckedItems.Cast<string>()));
+                        AddParameterIfNotEmpty(cmd, "@Inspector", string.Join(", ", inspectorschklistBox.CheckedItems.Cast<string>()));
+
+                        try
+                        {
+                            int rowsAffected = cmd.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Successfully Updated!");
+                                LogEvent("Updated Data");
+                                ClearForm();
+                                PopulateDataGridView();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No record found for the specified Account No.", "Record Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                        catch (SqlException ex)
+                        {
+                            Console.WriteLine("Sql Error: " + ex.Message);
+                        }
+                    }
+                }
+            }
+        }
+        private void AddParameterIfNotEmpty(SqlCommand cmd, string paramName, string value)
+        {
+            if (!string.IsNullOrWhiteSpace(value))
+            {
+                cmd.Parameters.AddWithValue(paramName, value);
+            }
+            else
+            {
+                // Check if the parameter already exists in the command
+                if (cmd.Parameters.Contains(paramName))
+                {
+                    // If it exists, set the parameter to an empty string to prevent data deletion
+                    cmd.Parameters[paramName].Value = "";
+                }
+                else
+                {
+                    // If it doesn't exist, add it as DBNull.Value
+                    cmd.Parameters.AddWithValue(paramName, DBNull.Value);
+                }
+            }
+        }
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            string connectionString = "Data Source=DESKTOP-HTKIB76\\SQLEXPRESS01;Initial Catalog=InspectionReport;Integrated Security=True";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                string searchQuery = "SELECT * FROM InspectionReport where AccountNo=@AccountNo";
+
+                using (SqlCommand cmd = new SqlCommand(searchQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@AccountNo", accttxtBox.Text);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        dataGridView1.DataSource = dt;
+                        MessageBox.Show("Record Found!");
+                        ClearForm();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No record found!");
+                    }
+                }
+            }
+        }
     }
 }

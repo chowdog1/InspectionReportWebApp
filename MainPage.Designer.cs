@@ -2441,6 +2441,7 @@
             this.searchBtn.Size = new System.Drawing.Size(113, 27);
             this.searchBtn.TabIndex = 5;
             this.searchBtn.Text = "Search";
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // editBtn
             // 
@@ -2450,6 +2451,7 @@
             this.editBtn.Size = new System.Drawing.Size(109, 27);
             this.editBtn.TabIndex = 6;
             this.editBtn.Text = "Edit";
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // deleteBtn
             // 
