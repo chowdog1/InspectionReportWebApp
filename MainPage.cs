@@ -2,12 +2,20 @@
 using System.Data.SqlClient;
 using System.Data;
 using Wisej.Web;
+using OfficeOpenXml;
+using PdfSharp.Pdf;
+using PdfSharp.Pdf.IO;
+using PdfSharp;
+using PdfSharp.Drawing.Layout;
+using PdfSharp.Drawing;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Net;
 using System.Linq;
 using System.IO;
+using Wisej.Core;
+using System.Globalization;
 
 namespace InspectionReportWebApp
 {
@@ -70,7 +78,7 @@ namespace InspectionReportWebApp
             reinspectdateTimePicker.Format = DateTimePickerFormat.Custom;
             reinspectdateTimePicker.CustomFormat = "dd/MM/yyyy";
 
-            //ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
         }
         private void levelofinspectionchklistBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
@@ -1227,6 +1235,230 @@ namespace InspectionReportWebApp
         private void advsearchBtn_Click(object sender, EventArgs e)
         {
             ShowAdvancedSearchForm();
+        }
+
+        private void menuItem11_Click(object sender, EventArgs e)
+        {
+            new UserManagement().Show();
+        }
+
+        private void menuItem13_Click(object sender, EventArgs e)
+        {
+            new ChangePassword().Show();
+        }
+
+        private void menuItem10_Click(object sender, EventArgs e)
+        {
+            new registerForm().Show();
+        }
+        private void menuItem8_Click(object sender, EventArgs e)//Pulling Reports to Excel
+        {
+            string connectionString = "Data Source=DESKTOP-HTKIB76\\SQLEXPRESS01;Initial Catalog=InspectionReport;Integrated Security=True";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                string sqlQuery = "SELECT * FROM InspectionReport";
+                using (SqlCommand cmd = new SqlCommand(sqlQuery, con))
+                {
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+
+                        using (ExcelPackage excelPackage = new ExcelPackage())
+                        {
+
+                            ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Data");
+
+
+                            worksheet.Cells["A1"].LoadFromDataTable(dt, true);
+
+
+                            SaveFileDialog saveFileDialog = new SaveFileDialog();
+                            saveFileDialog.Roots.Add(new FileSystemProvider("E:\\", "Main_Directory"));
+                            saveFileDialog.Filter = "Excel Files|*.xlsx";
+                            saveFileDialog.Title = "Save Excel File";
+                            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                            {
+                                string filePath = saveFileDialog.FileName;
+                                excelPackage.SaveAs(new FileInfo(filePath));
+                                MessageBox.Show("Report generated successfully!");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void menuItem7_Click(object sender, EventArgs e)
+        {
+            new GeneratePDF().Show();
+        }
+
+        private void menuItem12_Click(object sender, EventArgs e)
+        {
+            List<string> dateColumns = new List<string>
+            {
+            "Date", "ECCDateIssued", "WDPDateIssued", "PTODateIssued", "HWIDDateIssued", "ValidityOfPOC", "DateDesludge", "ReinspectDate"
+            };
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Excel Files|*.xlsx;*.xls",
+                Title = "Select an Excel File"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string excelFilePath = openFileDialog.FileName;
+
+                using (var package = new ExcelPackage(new System.IO.FileInfo(excelFilePath)))
+                {
+                    var worksheet = package.Workbook.Worksheets[0];
+
+                    string connectionString = "Data Source=DESKTOP-HTKIB76\\SQLEXPRESS01;Initial Catalog=InspectionReport;Integrated Security=True";
+
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+
+                        using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                        {
+                            bulkCopy.DestinationTableName = "InspectionReport";
+
+
+                            bulkCopy.ColumnMappings.Add("AccountNo", "AccountNo");
+                            bulkCopy.ColumnMappings.Add("BusinessName", "BusinessName");
+                            bulkCopy.ColumnMappings.Add("Address", "Address");
+                            bulkCopy.ColumnMappings.Add("Barangay", "Barangay");
+                            bulkCopy.ColumnMappings.Add("Date", "Date");
+                            bulkCopy.ColumnMappings.Add("NatureOfBusiness", "NatureOfBusiness");
+                            bulkCopy.ColumnMappings.Add("EstablishmentHas", "EstablishmentHas");
+                            bulkCopy.ColumnMappings.Add("BusinessStatus", "BusinessStatus");
+                            bulkCopy.ColumnMappings.Add("EstablishmentIs", "EstablishmentIs");
+                            bulkCopy.ColumnMappings.Add("Violations", "Violations");
+                            bulkCopy.ColumnMappings.Add("ComplyWithin", "ComplyWithin");
+                            bulkCopy.ColumnMappings.Add("SecuretheFF", "SecuretheFF");
+                            bulkCopy.ColumnMappings.Add("AttendSeminar", "AttendSeminar");
+                            bulkCopy.ColumnMappings.Add("MayorsPermit", "MayorsPermit");
+                            bulkCopy.ColumnMappings.Add("EPPFee", "EPPFee");
+                            bulkCopy.ColumnMappings.Add("ECCCNC", "ECCCNC");
+                            bulkCopy.ColumnMappings.Add("ECCCNCNo", "ECCCNCNo");
+                            bulkCopy.ColumnMappings.Add("ECCDateIssued", "ECCDateIssued");
+                            bulkCopy.ColumnMappings.Add("WDP", "WDP");
+                            bulkCopy.ColumnMappings.Add("WDPNo", "WDPNo");
+                            bulkCopy.ColumnMappings.Add("WDPDateIssued", "WDPDateIssued");
+                            bulkCopy.ColumnMappings.Add("PTO", "PTO");
+                            bulkCopy.ColumnMappings.Add("PTONo", "PTONo");
+                            bulkCopy.ColumnMappings.Add("PTODateIssued", "PTODateIssued");
+                            bulkCopy.ColumnMappings.Add("HWID", "HWID");
+                            bulkCopy.ColumnMappings.Add("HWIDNo", "HWIDNo");
+                            bulkCopy.ColumnMappings.Add("HWIDDateIssued", "HWIDDateIssued");
+                            bulkCopy.ColumnMappings.Add("HasPollutionOfficer", "HasPollutionOfficer");
+                            bulkCopy.ColumnMappings.Add("PollutionOfficer", "PollutionOfficer");
+                            bulkCopy.ColumnMappings.Add("Accreditation", "Accreditation");
+                            bulkCopy.ColumnMappings.Add("ValidityOfPOC", "ValidityOfPOC");
+                            bulkCopy.ColumnMappings.Add("Email", "Email");
+                            bulkCopy.ColumnMappings.Add("HasWasteBin", "HasWasteBin");
+                            bulkCopy.ColumnMappings.Add("BinsLabeled", "BinsLabeled");
+                            bulkCopy.ColumnMappings.Add("BinsCovered", "BinsCovered");
+                            bulkCopy.ColumnMappings.Add("BinsSegregated", "BinsSegregated");
+                            bulkCopy.ColumnMappings.Add("MRF", "MRF");
+                            bulkCopy.ColumnMappings.Add("WasteCollected", "WasteCollected");
+                            bulkCopy.ColumnMappings.Add("FrequencyHauling", "FrequencyHauling");
+                            bulkCopy.ColumnMappings.Add("Hauler", "Hauler");
+                            bulkCopy.ColumnMappings.Add("HasSeptic", "HasSeptic");
+                            bulkCopy.ColumnMappings.Add("LocationSeptic", "LocationSeptic");
+                            bulkCopy.ColumnMappings.Add("FrequencyDesludge", "FrequencyDesludge");
+                            bulkCopy.ColumnMappings.Add("DateDesludge", "DateDesludge");
+                            bulkCopy.ColumnMappings.Add("ServiceProvider", "ServiceProvider");
+                            bulkCopy.ColumnMappings.Add("HasGreaseTrap", "HasGreaseTrap");
+                            bulkCopy.ColumnMappings.Add("LocationGrease", "LocationGrease");
+                            bulkCopy.ColumnMappings.Add("CapacityGreaseTrap", "CapacityGreaseTrap");
+                            bulkCopy.ColumnMappings.Add("FrequencyGrease", "FrequencyGrease");
+                            bulkCopy.ColumnMappings.Add("HaulerGrease", "HaulerGrease");
+                            bulkCopy.ColumnMappings.Add("HasWasteWater", "HasWasteWater");
+                            bulkCopy.ColumnMappings.Add("UsedOilProperlyDisposed", "UsedOilProperlyDisposed");
+                            bulkCopy.ColumnMappings.Add("TypeofOil", "TypeofOil");
+                            bulkCopy.ColumnMappings.Add("FrequencyofHaulingOil", "FrequencyofHaulingOil");
+                            bulkCopy.ColumnMappings.Add("HaulerOil", "HaulerOil");
+                            bulkCopy.ColumnMappings.Add("HasAirPollutionManager", "HasAirPollutionManager");
+                            bulkCopy.ColumnMappings.Add("DeviceType", "DeviceType");
+                            bulkCopy.ColumnMappings.Add("MaintenanceProvider", "MaintenanceProvider");
+                            bulkCopy.ColumnMappings.Add("PurposeOfInspection", "PurposeOfInspection");
+                            bulkCopy.ColumnMappings.Add("ReinspectDate", "ReinspectDate");
+                            bulkCopy.ColumnMappings.Add("LevelofInspection", "LevelofInspection");
+                            bulkCopy.ColumnMappings.Add("LandUse", "LandUse");
+                            bulkCopy.ColumnMappings.Add("OwnershipTerms", "OwnershipTerms");
+                            bulkCopy.ColumnMappings.Add("Lessee", "Lessee");
+                            bulkCopy.ColumnMappings.Add("StandAlone", "StandAlone");
+                            bulkCopy.ColumnMappings.Add("InspectorObservation", "InspectorObservation");
+                            bulkCopy.ColumnMappings.Add("Directives", "Directives");
+                            bulkCopy.ColumnMappings.Add("Recommendations", "Recommendations");
+                            bulkCopy.ColumnMappings.Add("Inspector", "Inspector");
+                            bulkCopy.ColumnMappings.Add("Encoder", "Encoder");
+
+                            DataTable dt = new DataTable();
+
+                            foreach (var firstRowCell in worksheet.Cells[1, 1, 1, worksheet.Dimension.End.Column])
+                            {
+                                dt.Columns.Add(firstRowCell.Text);
+                            }
+
+                            for (var rowNumber = 2; rowNumber <= worksheet.Dimension.End.Row; rowNumber++)
+                            {
+                                var worksheetRow = worksheet.Cells[rowNumber, 1, rowNumber, worksheet.Dimension.End.Column];
+                                var row = dt.NewRow();
+                                foreach (var cell in worksheetRow)
+                                {
+                                    if (cell.Text != null && dateColumns.Contains(cell.Text)) // Check if it's a date column
+                                    {
+                                        if (string.IsNullOrEmpty(cell.Text))
+                                        {
+                                            // Handle empty date values, e.g., set it to DBNull.Value
+                                            row[cell.Start.Column - 1] = DBNull.Value;
+                                        }
+                                        else
+                                        {
+                                            if (DateTime.TryParseExact(cell.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dateValue))
+                                            {
+                                                row[cell.Start.Column - 1] = dateValue;
+                                            }
+                                            else
+                                            {
+                                                // Handle invalid date format here, e.g., set it to DBNull.Value
+                                                row[cell.Start.Column - 1] = DBNull.Value;
+
+                                                // Print debug information to identify the problematic cell
+                                                Console.WriteLine($"Invalid date format in cell {cell.Address}. Value: {cell.Text}");
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (cell.Text == null)
+                                        {
+                                            // Handle the case where cell.Text is null, e.g., set it to an empty string or another default value
+                                            row[cell.Start.Column - 1] = DBNull.Value; // or set it to another default value
+                                        }
+                                        else
+                                        {
+                                            row[cell.Start.Column - 1] = cell.Text;
+                                        }
+                                    }
+                                }
+                                dt.Rows.Add(row);
+                            }
+                            bulkCopy.WriteToServer(dt);
+                        }
+                    }
+
+                    MessageBox.Show("Data imported successfully!");
+                }
+            }
         }
     }
 }

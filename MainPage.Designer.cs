@@ -229,11 +229,11 @@
             this.advsearchBtn = new Wisej.Web.Button();
             this.mainMenu1 = new Wisej.Web.MainMenu(this.components);
             this.menuItem1 = new Wisej.Web.MenuItem();
-            this.menuItem2 = new Wisej.Web.MenuItem();
-            this.menuItem3 = new Wisej.Web.MenuItem();
             this.menuItem4 = new Wisej.Web.MenuItem();
             this.menuItem5 = new Wisej.Web.MenuItem();
             this.menuItem6 = new Wisej.Web.MenuItem();
+            this.menuItem2 = new Wisej.Web.MenuItem();
+            this.menuItem3 = new Wisej.Web.MenuItem();
             this.menuItem7 = new Wisej.Web.MenuItem();
             this.menuItem8 = new Wisej.Web.MenuItem();
             this.menuItem9 = new Wisej.Web.MenuItem();
@@ -327,7 +327,7 @@
             // 
             this.seminartxtBox.Location = new System.Drawing.Point(10, 884);
             this.seminartxtBox.Name = "seminartxtBox";
-            this.seminartxtBox.Size = new System.Drawing.Size(397, 22);
+            this.seminartxtBox.Size = new System.Drawing.Size(397, 30);
             this.seminartxtBox.TabIndex = 25;
             // 
             // groupBox1
@@ -345,7 +345,7 @@
             this.highriskRadioBtn.AllowHtml = true;
             this.highriskRadioBtn.Location = new System.Drawing.Point(13, 63);
             this.highriskRadioBtn.Name = "highriskRadioBtn";
-            this.highriskRadioBtn.Size = new System.Drawing.Size(95, 22);
+            this.highriskRadioBtn.Size = new System.Drawing.Size(87, 23);
             this.highriskRadioBtn.TabIndex = 1;
             this.highriskRadioBtn.TabStop = true;
             this.highriskRadioBtn.Text = "HIGHRISK";
@@ -355,7 +355,7 @@
             this.lowriskRadioBtn.AllowHtml = true;
             this.lowriskRadioBtn.Location = new System.Drawing.Point(13, 30);
             this.lowriskRadioBtn.Name = "lowriskRadioBtn";
-            this.lowriskRadioBtn.Size = new System.Drawing.Size(92, 22);
+            this.lowriskRadioBtn.Size = new System.Drawing.Size(84, 23);
             this.lowriskRadioBtn.TabIndex = 0;
             this.lowriskRadioBtn.TabStop = true;
             this.lowriskRadioBtn.Text = "LOWRISK";
@@ -366,7 +366,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(10, 862);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(412, 15);
+            this.label13.Size = new System.Drawing.Size(401, 18);
             this.label13.TabIndex = 24;
             this.label13.Text = "Attend Business Establishment Environmental Awareness Seminar on:";
             // 
@@ -414,7 +414,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 188);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(139, 15);
+            this.label6.Size = new System.Drawing.Size(135, 18);
             this.label6.TabIndex = 10;
             this.label6.Text = "The establishment has:";
             // 
@@ -424,7 +424,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(10, 660);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(125, 15);
+            this.label12.Size = new System.Drawing.Size(125, 18);
             this.label12.TabIndex = 22;
             this.label12.Text = "Secure the following:";
             // 
@@ -433,7 +433,7 @@
             this.doidateTimePicker.Format = Wisej.Web.DateTimePickerFormat.Custom;
             this.doidateTimePicker.Location = new System.Drawing.Point(149, 147);
             this.doidateTimePicker.Name = "doidateTimePicker";
-            this.doidateTimePicker.Size = new System.Drawing.Size(259, 22);
+            this.doidateTimePicker.Size = new System.Drawing.Size(259, 30);
             this.doidateTimePicker.TabIndex = 9;
             this.doidateTimePicker.ValueChanged += new System.EventHandler(this.doidateTimePicker_ValueChanged);
             // 
@@ -464,7 +464,7 @@
             "West Crame"});
             this.brgycmbBox.Location = new System.Drawing.Point(149, 111);
             this.brgycmbBox.Name = "brgycmbBox";
-            this.brgycmbBox.Size = new System.Drawing.Size(259, 22);
+            this.brgycmbBox.Size = new System.Drawing.Size(259, 30);
             this.brgycmbBox.Sorted = true;
             this.brgycmbBox.TabIndex = 8;
             // 
@@ -474,7 +474,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(363, 628);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(196, 15);
+            this.label11.Size = new System.Drawing.Size(199, 18);
             this.label11.TabIndex = 21;
             this.label11.Text = "from the actual date of inspection";
             // 
@@ -482,14 +482,14 @@
             // 
             this.addresstxtBox.Location = new System.Drawing.Point(149, 75);
             this.addresstxtBox.Name = "addresstxtBox";
-            this.addresstxtBox.Size = new System.Drawing.Size(259, 22);
+            this.addresstxtBox.Size = new System.Drawing.Size(259, 30);
             this.addresstxtBox.TabIndex = 7;
             // 
             // businesstxtBox
             // 
             this.businesstxtBox.Location = new System.Drawing.Point(149, 41);
             this.businesstxtBox.Name = "businesstxtBox";
-            this.businesstxtBox.Size = new System.Drawing.Size(259, 22);
+            this.businesstxtBox.Size = new System.Drawing.Size(259, 30);
             this.businesstxtBox.TabIndex = 6;
             // 
             // complywithincmbBox
@@ -505,14 +505,14 @@
             "3 months"});
             this.complywithincmbBox.Location = new System.Drawing.Point(237, 628);
             this.complywithincmbBox.Name = "complywithincmbBox";
-            this.complywithincmbBox.Size = new System.Drawing.Size(120, 22);
+            this.complywithincmbBox.Size = new System.Drawing.Size(120, 30);
             this.complywithincmbBox.TabIndex = 20;
             // 
             // accttxtBox
             // 
             this.accttxtBox.Location = new System.Drawing.Point(149, 10);
             this.accttxtBox.Name = "accttxtBox";
-            this.accttxtBox.Size = new System.Drawing.Size(259, 22);
+            this.accttxtBox.Size = new System.Drawing.Size(259, 30);
             this.accttxtBox.TabIndex = 5;
             // 
             // label7
@@ -521,7 +521,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(12, 331);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(127, 15);
+            this.label7.Size = new System.Drawing.Size(124, 18);
             this.label7.TabIndex = 13;
             this.label7.Text = "The establishment is:";
             // 
@@ -531,7 +531,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(10, 633);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(224, 15);
+            this.label10.Size = new System.Drawing.Size(225, 18);
             this.label10.TabIndex = 19;
             this.label10.Text = "The establishment must comply within";
             // 
@@ -541,7 +541,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 153);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 15);
+            this.label5.Size = new System.Drawing.Size(110, 18);
             this.label5.TabIndex = 4;
             this.label5.Text = "Date of Inspection";
             // 
@@ -557,7 +557,7 @@
             "Moveout/Pull-out/Unlocated/Others"});
             this.establishmentiscmbBox.Location = new System.Drawing.Point(11, 358);
             this.establishmentiscmbBox.Name = "establishmentiscmbBox";
-            this.establishmentiscmbBox.Size = new System.Drawing.Size(176, 22);
+            this.establishmentiscmbBox.Size = new System.Drawing.Size(176, 30);
             this.establishmentiscmbBox.TabIndex = 14;
             // 
             // label4
@@ -568,7 +568,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 82);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 15);
+            this.label4.Size = new System.Drawing.Size(53, 18);
             this.label4.TabIndex = 3;
             this.label4.Text = "Address:";
             // 
@@ -604,7 +604,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 117);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 15);
+            this.label3.Size = new System.Drawing.Size(60, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Barangay:";
             // 
@@ -614,7 +614,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(208, 331);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(118, 15);
+            this.label8.Size = new System.Drawing.Size(114, 18);
             this.label8.TabIndex = 15;
             this.label8.Text = "Nature of Business:";
             // 
@@ -624,7 +624,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 15);
+            this.label2.Size = new System.Drawing.Size(94, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Business Name:";
             // 
@@ -634,7 +634,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(12, 397);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(125, 15);
+            this.label9.Size = new System.Drawing.Size(123, 18);
             this.label9.TabIndex = 17;
             this.label9.Text = "Violated Ordinances:";
             // 
@@ -644,7 +644,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 15);
+            this.label1.Size = new System.Drawing.Size(78, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Account No.:";
             // 
@@ -717,7 +717,7 @@
             "WHOLESALER - N-2"});
             this.natureofbusinesscmbBox.Location = new System.Drawing.Point(208, 358);
             this.natureofbusinesscmbBox.Name = "natureofbusinesscmbBox";
-            this.natureofbusinesscmbBox.Size = new System.Drawing.Size(199, 22);
+            this.natureofbusinesscmbBox.Size = new System.Drawing.Size(199, 30);
             this.natureofbusinesscmbBox.Sorted = true;
             this.natureofbusinesscmbBox.TabIndex = 16;
             // 
@@ -775,7 +775,7 @@
             "Every 2 weeks"});
             this.oilfrequencycmbBox.Location = new System.Drawing.Point(115, 63);
             this.oilfrequencycmbBox.Name = "oilfrequencycmbBox";
-            this.oilfrequencycmbBox.Size = new System.Drawing.Size(175, 22);
+            this.oilfrequencycmbBox.Size = new System.Drawing.Size(175, 30);
             this.oilfrequencycmbBox.TabIndex = 25;
             // 
             // hauleroiltxtBox
@@ -783,7 +783,7 @@
             this.hauleroiltxtBox.Enabled = false;
             this.hauleroiltxtBox.Location = new System.Drawing.Point(115, 90);
             this.hauleroiltxtBox.Name = "hauleroiltxtBox";
-            this.hauleroiltxtBox.Size = new System.Drawing.Size(175, 22);
+            this.hauleroiltxtBox.Size = new System.Drawing.Size(175, 30);
             this.hauleroiltxtBox.TabIndex = 23;
             // 
             // oiltxtBox
@@ -791,7 +791,7 @@
             this.oiltxtBox.Enabled = false;
             this.oiltxtBox.Location = new System.Drawing.Point(115, 35);
             this.oiltxtBox.Name = "oiltxtBox";
-            this.oiltxtBox.Size = new System.Drawing.Size(175, 22);
+            this.oiltxtBox.Size = new System.Drawing.Size(175, 30);
             this.oiltxtBox.TabIndex = 20;
             // 
             // label41
@@ -802,7 +802,7 @@
             this.label41.AutoSize = true;
             this.label41.Location = new System.Drawing.Point(6, 93);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(46, 15);
+            this.label41.Size = new System.Drawing.Size(45, 18);
             this.label41.TabIndex = 18;
             this.label41.Text = "Hauler:";
             // 
@@ -812,7 +812,7 @@
             this.label42.AutoSize = true;
             this.label42.Location = new System.Drawing.Point(6, 68);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(70, 15);
+            this.label42.Size = new System.Drawing.Size(66, 18);
             this.label42.TabIndex = 17;
             this.label42.Text = "Frequency:";
             // 
@@ -822,7 +822,7 @@
             this.label44.AutoSize = true;
             this.label44.Location = new System.Drawing.Point(6, 41);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(71, 15);
+            this.label44.Size = new System.Drawing.Size(70, 18);
             this.label44.TabIndex = 15;
             this.label44.Text = "Type of Oil:";
             // 
@@ -831,7 +831,7 @@
             this.usedoilnaRadioBtn.AllowHtml = true;
             this.usedoilnaRadioBtn.Location = new System.Drawing.Point(115, 14);
             this.usedoilnaRadioBtn.Name = "usedoilnaRadioBtn";
-            this.usedoilnaRadioBtn.Size = new System.Drawing.Size(54, 22);
+            this.usedoilnaRadioBtn.Size = new System.Drawing.Size(54, 23);
             this.usedoilnaRadioBtn.TabIndex = 14;
             this.usedoilnaRadioBtn.TabStop = true;
             this.usedoilnaRadioBtn.Text = "N/A";
@@ -841,7 +841,7 @@
             this.usedoilyesRadioBtn.AllowHtml = true;
             this.usedoilyesRadioBtn.Location = new System.Drawing.Point(6, 14);
             this.usedoilyesRadioBtn.Name = "usedoilyesRadioBtn";
-            this.usedoilyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.usedoilyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.usedoilyesRadioBtn.TabIndex = 13;
             this.usedoilyesRadioBtn.TabStop = true;
             this.usedoilyesRadioBtn.Text = "Yes";
@@ -852,7 +852,7 @@
             this.usedoilnoRadioBtn.AllowHtml = true;
             this.usedoilnoRadioBtn.Location = new System.Drawing.Point(62, 14);
             this.usedoilnoRadioBtn.Name = "usedoilnoRadioBtn";
-            this.usedoilnoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.usedoilnoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.usedoilnoRadioBtn.TabIndex = 12;
             this.usedoilnoRadioBtn.TabStop = true;
             this.usedoilnoRadioBtn.Text = "No";
@@ -873,7 +873,7 @@
             this.wastewaternaRadioBtn.AllowHtml = true;
             this.wastewaternaRadioBtn.Location = new System.Drawing.Point(115, 24);
             this.wastewaternaRadioBtn.Name = "wastewaternaRadioBtn";
-            this.wastewaternaRadioBtn.Size = new System.Drawing.Size(54, 22);
+            this.wastewaternaRadioBtn.Size = new System.Drawing.Size(54, 23);
             this.wastewaternaRadioBtn.TabIndex = 27;
             this.wastewaternaRadioBtn.TabStop = true;
             this.wastewaternaRadioBtn.Text = "N/A";
@@ -883,7 +883,7 @@
             this.wastewaternoRadioBtn.AllowHtml = true;
             this.wastewaternoRadioBtn.Location = new System.Drawing.Point(60, 24);
             this.wastewaternoRadioBtn.Name = "wastewaternoRadioBtn";
-            this.wastewaternoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.wastewaternoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.wastewaternoRadioBtn.TabIndex = 1;
             this.wastewaternoRadioBtn.TabStop = true;
             this.wastewaternoRadioBtn.Text = "No";
@@ -893,7 +893,7 @@
             this.wastewateryesRadioBtn.AllowHtml = true;
             this.wastewateryesRadioBtn.Location = new System.Drawing.Point(4, 24);
             this.wastewateryesRadioBtn.Name = "wastewateryesRadioBtn";
-            this.wastewateryesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.wastewateryesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.wastewateryesRadioBtn.TabIndex = 0;
             this.wastewateryesRadioBtn.TabStop = true;
             this.wastewateryesRadioBtn.Text = "Yes";
@@ -922,7 +922,7 @@
             this.capacitygreasetxtBox.Enabled = false;
             this.capacitygreasetxtBox.Location = new System.Drawing.Point(115, 65);
             this.capacitygreasetxtBox.Name = "capacitygreasetxtBox";
-            this.capacitygreasetxtBox.Size = new System.Drawing.Size(175, 22);
+            this.capacitygreasetxtBox.Size = new System.Drawing.Size(175, 30);
             this.capacitygreasetxtBox.TabIndex = 26;
             // 
             // greasefrequencycmbBox
@@ -935,7 +935,7 @@
             "Every 2 weeks"});
             this.greasefrequencycmbBox.Location = new System.Drawing.Point(115, 91);
             this.greasefrequencycmbBox.Name = "greasefrequencycmbBox";
-            this.greasefrequencycmbBox.Size = new System.Drawing.Size(175, 22);
+            this.greasefrequencycmbBox.Size = new System.Drawing.Size(175, 30);
             this.greasefrequencycmbBox.TabIndex = 25;
             // 
             // haulergreasetxtBox
@@ -943,7 +943,7 @@
             this.haulergreasetxtBox.Enabled = false;
             this.haulergreasetxtBox.Location = new System.Drawing.Point(115, 118);
             this.haulergreasetxtBox.Name = "haulergreasetxtBox";
-            this.haulergreasetxtBox.Size = new System.Drawing.Size(175, 22);
+            this.haulergreasetxtBox.Size = new System.Drawing.Size(175, 30);
             this.haulergreasetxtBox.TabIndex = 23;
             // 
             // locationgreasetxtBox
@@ -951,7 +951,7 @@
             this.locationgreasetxtBox.Enabled = false;
             this.locationgreasetxtBox.Location = new System.Drawing.Point(115, 38);
             this.locationgreasetxtBox.Name = "locationgreasetxtBox";
-            this.locationgreasetxtBox.Size = new System.Drawing.Size(175, 22);
+            this.locationgreasetxtBox.Size = new System.Drawing.Size(175, 30);
             this.locationgreasetxtBox.TabIndex = 20;
             // 
             // label33
@@ -962,7 +962,7 @@
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(6, 123);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(46, 15);
+            this.label33.Size = new System.Drawing.Size(45, 18);
             this.label33.TabIndex = 18;
             this.label33.Text = "Hauler:";
             // 
@@ -972,7 +972,7 @@
             this.label38.AutoSize = true;
             this.label38.Location = new System.Drawing.Point(6, 95);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(70, 15);
+            this.label38.Size = new System.Drawing.Size(66, 18);
             this.label38.TabIndex = 17;
             this.label38.Text = "Frequency:";
             // 
@@ -982,7 +982,7 @@
             this.label39.AutoSize = true;
             this.label39.Location = new System.Drawing.Point(6, 69);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(59, 15);
+            this.label39.Size = new System.Drawing.Size(56, 18);
             this.label39.TabIndex = 16;
             this.label39.Text = "Capacity:";
             // 
@@ -992,7 +992,7 @@
             this.label40.AutoSize = true;
             this.label40.Location = new System.Drawing.Point(7, 43);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(57, 15);
+            this.label40.Size = new System.Drawing.Size(56, 18);
             this.label40.TabIndex = 15;
             this.label40.Text = "Location:";
             // 
@@ -1001,7 +1001,7 @@
             this.greasenaRadioBtn.AllowHtml = true;
             this.greasenaRadioBtn.Location = new System.Drawing.Point(115, 14);
             this.greasenaRadioBtn.Name = "greasenaRadioBtn";
-            this.greasenaRadioBtn.Size = new System.Drawing.Size(54, 22);
+            this.greasenaRadioBtn.Size = new System.Drawing.Size(54, 23);
             this.greasenaRadioBtn.TabIndex = 14;
             this.greasenaRadioBtn.TabStop = true;
             this.greasenaRadioBtn.Text = "N/A";
@@ -1011,7 +1011,7 @@
             this.greaseyesRadioBtn.AllowHtml = true;
             this.greaseyesRadioBtn.Location = new System.Drawing.Point(6, 14);
             this.greaseyesRadioBtn.Name = "greaseyesRadioBtn";
-            this.greaseyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.greaseyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.greaseyesRadioBtn.TabIndex = 13;
             this.greaseyesRadioBtn.TabStop = true;
             this.greaseyesRadioBtn.Text = "Yes";
@@ -1022,7 +1022,7 @@
             this.greasenoRadioBtn.AllowHtml = true;
             this.greasenoRadioBtn.Location = new System.Drawing.Point(62, 14);
             this.greasenoRadioBtn.Name = "greasenoRadioBtn";
-            this.greasenoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.greasenoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.greasenoRadioBtn.TabIndex = 12;
             this.greasenoRadioBtn.TabStop = true;
             this.greasenoRadioBtn.Text = "No";
@@ -1057,7 +1057,7 @@
             "Not yet"});
             this.frequencysepticcmbBox.Location = new System.Drawing.Point(115, 61);
             this.frequencysepticcmbBox.Name = "frequencysepticcmbBox";
-            this.frequencysepticcmbBox.Size = new System.Drawing.Size(175, 22);
+            this.frequencysepticcmbBox.Size = new System.Drawing.Size(175, 30);
             this.frequencysepticcmbBox.TabIndex = 24;
             // 
             // serviceseptictxtBox
@@ -1065,7 +1065,7 @@
             this.serviceseptictxtBox.Enabled = false;
             this.serviceseptictxtBox.Location = new System.Drawing.Point(115, 117);
             this.serviceseptictxtBox.Name = "serviceseptictxtBox";
-            this.serviceseptictxtBox.Size = new System.Drawing.Size(175, 22);
+            this.serviceseptictxtBox.Size = new System.Drawing.Size(175, 30);
             this.serviceseptictxtBox.TabIndex = 23;
             // 
             // septicdateTimePicker
@@ -1073,7 +1073,7 @@
             this.septicdateTimePicker.Enabled = false;
             this.septicdateTimePicker.Location = new System.Drawing.Point(115, 89);
             this.septicdateTimePicker.Name = "septicdateTimePicker";
-            this.septicdateTimePicker.Size = new System.Drawing.Size(175, 22);
+            this.septicdateTimePicker.Size = new System.Drawing.Size(175, 30);
             this.septicdateTimePicker.TabIndex = 22;
             this.septicdateTimePicker.ValueChanged += new System.EventHandler(this.septicdateTimePicker_ValueChanged);
             // 
@@ -1082,7 +1082,7 @@
             this.locationSeptictxtBox.Enabled = false;
             this.locationSeptictxtBox.Location = new System.Drawing.Point(115, 34);
             this.locationSeptictxtBox.Name = "locationSeptictxtBox";
-            this.locationSeptictxtBox.Size = new System.Drawing.Size(175, 22);
+            this.locationSeptictxtBox.Size = new System.Drawing.Size(175, 30);
             this.locationSeptictxtBox.TabIndex = 20;
             // 
             // label34
@@ -1093,7 +1093,7 @@
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(6, 119);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(103, 15);
+            this.label34.Size = new System.Drawing.Size(99, 18);
             this.label34.TabIndex = 18;
             this.label34.Text = "Service Provider:";
             // 
@@ -1103,7 +1103,7 @@
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(6, 93);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(109, 15);
+            this.label35.Size = new System.Drawing.Size(107, 18);
             this.label35.TabIndex = 17;
             this.label35.Text = "Date of Desludge:";
             // 
@@ -1113,7 +1113,7 @@
             this.label36.AutoSize = true;
             this.label36.Location = new System.Drawing.Point(6, 66);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(70, 15);
+            this.label36.Size = new System.Drawing.Size(66, 18);
             this.label36.TabIndex = 16;
             this.label36.Text = "Frequency:";
             // 
@@ -1123,7 +1123,7 @@
             this.label37.AutoSize = true;
             this.label37.Location = new System.Drawing.Point(7, 41);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(57, 15);
+            this.label37.Size = new System.Drawing.Size(56, 18);
             this.label37.TabIndex = 15;
             this.label37.Text = "Location:";
             // 
@@ -1132,7 +1132,7 @@
             this.septicnaRadioBtn.AllowHtml = true;
             this.septicnaRadioBtn.Location = new System.Drawing.Point(115, 14);
             this.septicnaRadioBtn.Name = "septicnaRadioBtn";
-            this.septicnaRadioBtn.Size = new System.Drawing.Size(54, 22);
+            this.septicnaRadioBtn.Size = new System.Drawing.Size(54, 23);
             this.septicnaRadioBtn.TabIndex = 14;
             this.septicnaRadioBtn.TabStop = true;
             this.septicnaRadioBtn.Text = "N/A";
@@ -1142,7 +1142,7 @@
             this.septicyesRadioBtn.AllowHtml = true;
             this.septicyesRadioBtn.Location = new System.Drawing.Point(6, 14);
             this.septicyesRadioBtn.Name = "septicyesRadioBtn";
-            this.septicyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.septicyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.septicyesRadioBtn.TabIndex = 13;
             this.septicyesRadioBtn.TabStop = true;
             this.septicyesRadioBtn.Text = "Yes";
@@ -1153,7 +1153,7 @@
             this.septicnoRadioBtn.AllowHtml = true;
             this.septicnoRadioBtn.Location = new System.Drawing.Point(62, 14);
             this.septicnoRadioBtn.Name = "septicnoRadioBtn";
-            this.septicnoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.septicnoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.septicnoRadioBtn.TabIndex = 12;
             this.septicnoRadioBtn.TabStop = true;
             this.septicnoRadioBtn.Text = "No";
@@ -1184,7 +1184,7 @@
             this.emailaddtxtBox.Enabled = false;
             this.emailaddtxtBox.Location = new System.Drawing.Point(115, 140);
             this.emailaddtxtBox.Name = "emailaddtxtBox";
-            this.emailaddtxtBox.Size = new System.Drawing.Size(175, 22);
+            this.emailaddtxtBox.Size = new System.Drawing.Size(175, 30);
             this.emailaddtxtBox.TabIndex = 24;
             // 
             // contacttxtBox
@@ -1192,7 +1192,7 @@
             this.contacttxtBox.Enabled = false;
             this.contacttxtBox.Location = new System.Drawing.Point(115, 114);
             this.contacttxtBox.Name = "contacttxtBox";
-            this.contacttxtBox.Size = new System.Drawing.Size(175, 22);
+            this.contacttxtBox.Size = new System.Drawing.Size(175, 30);
             this.contacttxtBox.TabIndex = 23;
             // 
             // validitypcodateTimePicker
@@ -1200,7 +1200,7 @@
             this.validitypcodateTimePicker.Enabled = false;
             this.validitypcodateTimePicker.Location = new System.Drawing.Point(115, 88);
             this.validitypcodateTimePicker.Name = "validitypcodateTimePicker";
-            this.validitypcodateTimePicker.Size = new System.Drawing.Size(175, 22);
+            this.validitypcodateTimePicker.Size = new System.Drawing.Size(175, 30);
             this.validitypcodateTimePicker.TabIndex = 22;
             this.validitypcodateTimePicker.ValueChanged += new System.EventHandler(this.validitypcodateTimePicker_ValueChanged);
             // 
@@ -1210,7 +1210,7 @@
             this.accreditationtxtBox.Enabled = false;
             this.accreditationtxtBox.Location = new System.Drawing.Point(115, 65);
             this.accreditationtxtBox.Name = "accreditationtxtBox";
-            this.accreditationtxtBox.Size = new System.Drawing.Size(175, 22);
+            this.accreditationtxtBox.Size = new System.Drawing.Size(175, 30);
             this.accreditationtxtBox.TabIndex = 21;
             // 
             // pollutionofficertxtBox
@@ -1218,7 +1218,7 @@
             this.pollutionofficertxtBox.Enabled = false;
             this.pollutionofficertxtBox.Location = new System.Drawing.Point(115, 35);
             this.pollutionofficertxtBox.Name = "pollutionofficertxtBox";
-            this.pollutionofficertxtBox.Size = new System.Drawing.Size(175, 22);
+            this.pollutionofficertxtBox.Size = new System.Drawing.Size(175, 30);
             this.pollutionofficertxtBox.TabIndex = 20;
             // 
             // label32
@@ -1227,7 +1227,7 @@
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(6, 142);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(92, 15);
+            this.label32.Size = new System.Drawing.Size(88, 18);
             this.label32.TabIndex = 19;
             this.label32.Text = "Email Address:";
             // 
@@ -1239,7 +1239,7 @@
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(6, 116);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(77, 15);
+            this.label31.Size = new System.Drawing.Size(75, 18);
             this.label31.TabIndex = 18;
             this.label31.Text = "Contact No.:";
             // 
@@ -1249,7 +1249,7 @@
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(6, 91);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(50, 15);
+            this.label30.Size = new System.Drawing.Size(50, 18);
             this.label30.TabIndex = 17;
             this.label30.Text = "Validity:";
             // 
@@ -1259,7 +1259,7 @@
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(6, 65);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(107, 15);
+            this.label29.Size = new System.Drawing.Size(107, 18);
             this.label29.TabIndex = 16;
             this.label29.Text = "Accreditation No.:";
             // 
@@ -1269,7 +1269,7 @@
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(7, 40);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(43, 15);
+            this.label28.Size = new System.Drawing.Size(42, 18);
             this.label28.TabIndex = 15;
             this.label28.Text = "Name:";
             // 
@@ -1278,7 +1278,7 @@
             this.pconaRadioBtn.AllowHtml = true;
             this.pconaRadioBtn.Location = new System.Drawing.Point(115, 14);
             this.pconaRadioBtn.Name = "pconaRadioBtn";
-            this.pconaRadioBtn.Size = new System.Drawing.Size(54, 22);
+            this.pconaRadioBtn.Size = new System.Drawing.Size(54, 23);
             this.pconaRadioBtn.TabIndex = 14;
             this.pconaRadioBtn.TabStop = true;
             this.pconaRadioBtn.Text = "N/A";
@@ -1288,7 +1288,7 @@
             this.pcoyesRadioBtn.AllowHtml = true;
             this.pcoyesRadioBtn.Location = new System.Drawing.Point(6, 14);
             this.pcoyesRadioBtn.Name = "pcoyesRadioBtn";
-            this.pcoyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.pcoyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.pcoyesRadioBtn.TabIndex = 13;
             this.pcoyesRadioBtn.TabStop = true;
             this.pcoyesRadioBtn.Text = "Yes";
@@ -1299,7 +1299,7 @@
             this.pconoRadioBtn.AllowHtml = true;
             this.pconoRadioBtn.Location = new System.Drawing.Point(62, 14);
             this.pconoRadioBtn.Name = "pconoRadioBtn";
-            this.pconoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.pconoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.pconoRadioBtn.TabIndex = 12;
             this.pconoRadioBtn.TabStop = true;
             this.pconoRadioBtn.Text = "No";
@@ -1324,7 +1324,7 @@
             this.pcdtxtBox.Enabled = false;
             this.pcdtxtBox.Location = new System.Drawing.Point(9, 66);
             this.pcdtxtBox.Name = "pcdtxtBox";
-            this.pcdtxtBox.Size = new System.Drawing.Size(203, 22);
+            this.pcdtxtBox.Size = new System.Drawing.Size(203, 30);
             this.pcdtxtBox.TabIndex = 11;
             // 
             // pcdnaRadioBtn
@@ -1332,7 +1332,7 @@
             this.pcdnaRadioBtn.AllowHtml = true;
             this.pcdnaRadioBtn.Location = new System.Drawing.Point(113, 21);
             this.pcdnaRadioBtn.Name = "pcdnaRadioBtn";
-            this.pcdnaRadioBtn.Size = new System.Drawing.Size(54, 22);
+            this.pcdnaRadioBtn.Size = new System.Drawing.Size(54, 23);
             this.pcdnaRadioBtn.TabIndex = 10;
             this.pcdnaRadioBtn.TabStop = true;
             this.pcdnaRadioBtn.Text = "N/A";
@@ -1342,7 +1342,7 @@
             this.providertxtBox.Enabled = false;
             this.providertxtBox.Location = new System.Drawing.Point(64, 97);
             this.providertxtBox.Name = "providertxtBox";
-            this.providertxtBox.Size = new System.Drawing.Size(148, 22);
+            this.providertxtBox.Size = new System.Drawing.Size(148, 30);
             this.providertxtBox.TabIndex = 7;
             // 
             // label26
@@ -1351,7 +1351,7 @@
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(9, 101);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(57, 15);
+            this.label26.Size = new System.Drawing.Size(55, 18);
             this.label26.TabIndex = 9;
             this.label26.Text = "Provider:";
             // 
@@ -1362,7 +1362,7 @@
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(9, 47);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(80, 15);
+            this.label27.Size = new System.Drawing.Size(77, 18);
             this.label27.TabIndex = 7;
             this.label27.Text = "Device Type:";
             // 
@@ -1371,7 +1371,7 @@
             this.pcdnoRadioBtn.AllowHtml = true;
             this.pcdnoRadioBtn.Location = new System.Drawing.Point(60, 21);
             this.pcdnoRadioBtn.Name = "pcdnoRadioBtn";
-            this.pcdnoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.pcdnoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.pcdnoRadioBtn.TabIndex = 2;
             this.pcdnoRadioBtn.TabStop = true;
             this.pcdnoRadioBtn.Text = "No";
@@ -1381,7 +1381,7 @@
             this.pcdyesRadioBtn.AllowHtml = true;
             this.pcdyesRadioBtn.Location = new System.Drawing.Point(4, 21);
             this.pcdyesRadioBtn.Name = "pcdyesRadioBtn";
-            this.pcdyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.pcdyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.pcdyesRadioBtn.TabIndex = 2;
             this.pcdyesRadioBtn.TabStop = true;
             this.pcdyesRadioBtn.Text = "Yes";
@@ -1405,7 +1405,7 @@
             // 
             this.haulertxtBox.Location = new System.Drawing.Point(60, 99);
             this.haulertxtBox.Name = "haulertxtBox";
-            this.haulertxtBox.Size = new System.Drawing.Size(148, 22);
+            this.haulertxtBox.Size = new System.Drawing.Size(148, 30);
             this.haulertxtBox.TabIndex = 7;
             // 
             // label25
@@ -1414,7 +1414,7 @@
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(9, 102);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(46, 15);
+            this.label25.Size = new System.Drawing.Size(45, 18);
             this.label25.TabIndex = 9;
             this.label25.Text = "Hauler:";
             // 
@@ -1426,7 +1426,7 @@
             "Every month"});
             this.frequencycmbBox.Location = new System.Drawing.Point(9, 67);
             this.frequencycmbBox.Name = "frequencycmbBox";
-            this.frequencycmbBox.Size = new System.Drawing.Size(199, 22);
+            this.frequencycmbBox.Size = new System.Drawing.Size(199, 30);
             this.frequencycmbBox.TabIndex = 8;
             // 
             // label24
@@ -1435,7 +1435,7 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(9, 49);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(132, 15);
+            this.label24.Size = new System.Drawing.Size(130, 18);
             this.label24.TabIndex = 7;
             this.label24.Text = "Frequency of Hauling:";
             // 
@@ -1444,7 +1444,7 @@
             this.wastecollectnoRadioBtn.AllowHtml = true;
             this.wastecollectnoRadioBtn.Location = new System.Drawing.Point(60, 21);
             this.wastecollectnoRadioBtn.Name = "wastecollectnoRadioBtn";
-            this.wastecollectnoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.wastecollectnoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.wastecollectnoRadioBtn.TabIndex = 2;
             this.wastecollectnoRadioBtn.TabStop = true;
             this.wastecollectnoRadioBtn.Text = "No";
@@ -1454,7 +1454,7 @@
             this.wastecollectyesRadioBtn.AllowHtml = true;
             this.wastecollectyesRadioBtn.Location = new System.Drawing.Point(4, 21);
             this.wastecollectyesRadioBtn.Name = "wastecollectyesRadioBtn";
-            this.wastecollectyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.wastecollectyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.wastecollectyesRadioBtn.TabIndex = 2;
             this.wastecollectyesRadioBtn.TabStop = true;
             this.wastecollectyesRadioBtn.Text = "Yes";
@@ -1475,7 +1475,7 @@
             this.mrfnoRadioBtn.AllowHtml = true;
             this.mrfnoRadioBtn.Location = new System.Drawing.Point(60, 24);
             this.mrfnoRadioBtn.Name = "mrfnoRadioBtn";
-            this.mrfnoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.mrfnoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.mrfnoRadioBtn.TabIndex = 1;
             this.mrfnoRadioBtn.TabStop = true;
             this.mrfnoRadioBtn.Text = "No";
@@ -1485,7 +1485,7 @@
             this.mrfyesRadioBtn.AllowHtml = true;
             this.mrfyesRadioBtn.Location = new System.Drawing.Point(4, 24);
             this.mrfyesRadioBtn.Name = "mrfyesRadioBtn";
-            this.mrfyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.mrfyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.mrfyesRadioBtn.TabIndex = 0;
             this.mrfyesRadioBtn.TabStop = true;
             this.mrfyesRadioBtn.Text = "Yes";
@@ -1505,7 +1505,7 @@
             this.bincovernoRadioBtn.AllowHtml = true;
             this.bincovernoRadioBtn.Location = new System.Drawing.Point(60, 24);
             this.bincovernoRadioBtn.Name = "bincovernoRadioBtn";
-            this.bincovernoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.bincovernoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.bincovernoRadioBtn.TabIndex = 1;
             this.bincovernoRadioBtn.TabStop = true;
             this.bincovernoRadioBtn.Text = "No";
@@ -1515,7 +1515,7 @@
             this.bincoveryesRadioBtn.AllowHtml = true;
             this.bincoveryesRadioBtn.Location = new System.Drawing.Point(4, 24);
             this.bincoveryesRadioBtn.Name = "bincoveryesRadioBtn";
-            this.bincoveryesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.bincoveryesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.bincoveryesRadioBtn.TabIndex = 0;
             this.bincoveryesRadioBtn.TabStop = true;
             this.bincoveryesRadioBtn.Text = "Yes";
@@ -1535,7 +1535,7 @@
             this.wastesegnoRadioBtn.AllowHtml = true;
             this.wastesegnoRadioBtn.Location = new System.Drawing.Point(60, 24);
             this.wastesegnoRadioBtn.Name = "wastesegnoRadioBtn";
-            this.wastesegnoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.wastesegnoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.wastesegnoRadioBtn.TabIndex = 1;
             this.wastesegnoRadioBtn.TabStop = true;
             this.wastesegnoRadioBtn.Text = "No";
@@ -1545,7 +1545,7 @@
             this.wastesegyesRadioBtn.AllowHtml = true;
             this.wastesegyesRadioBtn.Location = new System.Drawing.Point(4, 24);
             this.wastesegyesRadioBtn.Name = "wastesegyesRadioBtn";
-            this.wastesegyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.wastesegyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.wastesegyesRadioBtn.TabIndex = 0;
             this.wastesegyesRadioBtn.TabStop = true;
             this.wastesegyesRadioBtn.Text = "Yes";
@@ -1565,7 +1565,7 @@
             this.binpropernoRadioBtn.AllowHtml = true;
             this.binpropernoRadioBtn.Location = new System.Drawing.Point(60, 24);
             this.binpropernoRadioBtn.Name = "binpropernoRadioBtn";
-            this.binpropernoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.binpropernoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.binpropernoRadioBtn.TabIndex = 1;
             this.binpropernoRadioBtn.TabStop = true;
             this.binpropernoRadioBtn.Text = "No";
@@ -1575,7 +1575,7 @@
             this.binproperyesRadioBtn.AllowHtml = true;
             this.binproperyesRadioBtn.Location = new System.Drawing.Point(4, 24);
             this.binproperyesRadioBtn.Name = "binproperyesRadioBtn";
-            this.binproperyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.binproperyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.binproperyesRadioBtn.TabIndex = 0;
             this.binproperyesRadioBtn.TabStop = true;
             this.binproperyesRadioBtn.Text = "Yes";
@@ -1595,7 +1595,7 @@
             this.wastebinnoRadioBtn.AllowHtml = true;
             this.wastebinnoRadioBtn.Location = new System.Drawing.Point(60, 24);
             this.wastebinnoRadioBtn.Name = "wastebinnoRadioBtn";
-            this.wastebinnoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.wastebinnoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.wastebinnoRadioBtn.TabIndex = 1;
             this.wastebinnoRadioBtn.TabStop = true;
             this.wastebinnoRadioBtn.Text = "No";
@@ -1605,7 +1605,7 @@
             this.wastebinyesRadioBtn.AllowHtml = true;
             this.wastebinyesRadioBtn.Location = new System.Drawing.Point(4, 24);
             this.wastebinyesRadioBtn.Name = "wastebinyesRadioBtn";
-            this.wastebinyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.wastebinyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.wastebinyesRadioBtn.TabIndex = 0;
             this.wastebinyesRadioBtn.TabStop = true;
             this.wastebinyesRadioBtn.Text = "Yes";
@@ -1631,7 +1631,7 @@
             this.hwiddateTimePicker.Format = Wisej.Web.DateTimePickerFormat.Custom;
             this.hwiddateTimePicker.Location = new System.Drawing.Point(108, 54);
             this.hwiddateTimePicker.Name = "hwiddateTimePicker";
-            this.hwiddateTimePicker.Size = new System.Drawing.Size(163, 22);
+            this.hwiddateTimePicker.Size = new System.Drawing.Size(163, 30);
             this.hwiddateTimePicker.TabIndex = 6;
             this.hwiddateTimePicker.ValueChanged += new System.EventHandler(this.hwiddateTimePicker_ValueChanged);
             // 
@@ -1640,7 +1640,7 @@
             this.hwidtxtBox.Enabled = false;
             this.hwidtxtBox.Location = new System.Drawing.Point(108, 17);
             this.hwidtxtBox.Name = "hwidtxtBox";
-            this.hwidtxtBox.Size = new System.Drawing.Size(163, 22);
+            this.hwidtxtBox.Size = new System.Drawing.Size(163, 30);
             this.hwidtxtBox.TabIndex = 5;
             // 
             // label22
@@ -1649,7 +1649,7 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(8, 58);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(77, 15);
+            this.label22.Size = new System.Drawing.Size(74, 18);
             this.label22.TabIndex = 4;
             this.label22.Text = "Date Issued:";
             // 
@@ -1659,7 +1659,7 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(7, 22);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(67, 15);
+            this.label23.Size = new System.Drawing.Size(65, 18);
             this.label23.TabIndex = 3;
             this.label23.Text = "HWID No.:";
             // 
@@ -1668,7 +1668,7 @@
             this.hwnaRadioBtn.AllowHtml = true;
             this.hwnaRadioBtn.Location = new System.Drawing.Point(102, 98);
             this.hwnaRadioBtn.Name = "hwnaRadioBtn";
-            this.hwnaRadioBtn.Size = new System.Drawing.Size(54, 22);
+            this.hwnaRadioBtn.Size = new System.Drawing.Size(54, 23);
             this.hwnaRadioBtn.TabIndex = 2;
             this.hwnaRadioBtn.TabStop = true;
             this.hwnaRadioBtn.Text = "N/A";
@@ -1678,7 +1678,7 @@
             this.hwnoRadioBtn.AllowHtml = true;
             this.hwnoRadioBtn.Location = new System.Drawing.Point(57, 98);
             this.hwnoRadioBtn.Name = "hwnoRadioBtn";
-            this.hwnoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.hwnoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.hwnoRadioBtn.TabIndex = 1;
             this.hwnoRadioBtn.TabStop = true;
             this.hwnoRadioBtn.Text = "No";
@@ -1688,7 +1688,7 @@
             this.hwyesRadioBtn.AllowHtml = true;
             this.hwyesRadioBtn.Location = new System.Drawing.Point(6, 98);
             this.hwyesRadioBtn.Name = "hwyesRadioBtn";
-            this.hwyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.hwyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.hwyesRadioBtn.TabIndex = 0;
             this.hwyesRadioBtn.TabStop = true;
             this.hwyesRadioBtn.Text = "Yes";
@@ -1715,7 +1715,7 @@
             this.ptodateTimePicker.Format = Wisej.Web.DateTimePickerFormat.Custom;
             this.ptodateTimePicker.Location = new System.Drawing.Point(108, 54);
             this.ptodateTimePicker.Name = "ptodateTimePicker";
-            this.ptodateTimePicker.Size = new System.Drawing.Size(163, 22);
+            this.ptodateTimePicker.Size = new System.Drawing.Size(163, 30);
             this.ptodateTimePicker.TabIndex = 6;
             this.ptodateTimePicker.ValueChanged += new System.EventHandler(this.ptodateTimePicker_ValueChanged);
             // 
@@ -1724,7 +1724,7 @@
             this.ptotxtBox.Enabled = false;
             this.ptotxtBox.Location = new System.Drawing.Point(108, 17);
             this.ptotxtBox.Name = "ptotxtBox";
-            this.ptotxtBox.Size = new System.Drawing.Size(163, 22);
+            this.ptotxtBox.Size = new System.Drawing.Size(163, 30);
             this.ptotxtBox.TabIndex = 5;
             // 
             // label20
@@ -1733,7 +1733,7 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(8, 58);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(50, 15);
+            this.label20.Size = new System.Drawing.Size(50, 18);
             this.label20.TabIndex = 4;
             this.label20.Text = "Validity:";
             // 
@@ -1743,7 +1743,7 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(7, 22);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(59, 15);
+            this.label21.Size = new System.Drawing.Size(55, 18);
             this.label21.TabIndex = 3;
             this.label21.Text = "PTO No.:";
             // 
@@ -1752,7 +1752,7 @@
             this.ptonaRadioBtn.AllowHtml = true;
             this.ptonaRadioBtn.Location = new System.Drawing.Point(102, 98);
             this.ptonaRadioBtn.Name = "ptonaRadioBtn";
-            this.ptonaRadioBtn.Size = new System.Drawing.Size(54, 22);
+            this.ptonaRadioBtn.Size = new System.Drawing.Size(54, 23);
             this.ptonaRadioBtn.TabIndex = 2;
             this.ptonaRadioBtn.TabStop = true;
             this.ptonaRadioBtn.Text = "N/A";
@@ -1762,7 +1762,7 @@
             this.ptonoRadioBtn.AllowHtml = true;
             this.ptonoRadioBtn.Location = new System.Drawing.Point(57, 98);
             this.ptonoRadioBtn.Name = "ptonoRadioBtn";
-            this.ptonoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.ptonoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.ptonoRadioBtn.TabIndex = 1;
             this.ptonoRadioBtn.TabStop = true;
             this.ptonoRadioBtn.Text = "No";
@@ -1772,7 +1772,7 @@
             this.ptoyesRadioBtn.AllowHtml = true;
             this.ptoyesRadioBtn.Location = new System.Drawing.Point(6, 98);
             this.ptoyesRadioBtn.Name = "ptoyesRadioBtn";
-            this.ptoyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.ptoyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.ptoyesRadioBtn.TabIndex = 0;
             this.ptoyesRadioBtn.TabStop = true;
             this.ptoyesRadioBtn.Text = "Yes";
@@ -1799,7 +1799,7 @@
             this.wdpdateTimePicker.Format = Wisej.Web.DateTimePickerFormat.Custom;
             this.wdpdateTimePicker.Location = new System.Drawing.Point(108, 55);
             this.wdpdateTimePicker.Name = "wdpdateTimePicker";
-            this.wdpdateTimePicker.Size = new System.Drawing.Size(163, 22);
+            this.wdpdateTimePicker.Size = new System.Drawing.Size(163, 30);
             this.wdpdateTimePicker.TabIndex = 6;
             this.wdpdateTimePicker.ValueChanged += new System.EventHandler(this.wdpdateTimePicker_ValueChanged);
             // 
@@ -1808,7 +1808,7 @@
             this.wdptxtBox.Enabled = false;
             this.wdptxtBox.Location = new System.Drawing.Point(108, 19);
             this.wdptxtBox.Name = "wdptxtBox";
-            this.wdptxtBox.Size = new System.Drawing.Size(163, 22);
+            this.wdptxtBox.Size = new System.Drawing.Size(163, 30);
             this.wdptxtBox.TabIndex = 5;
             // 
             // label18
@@ -1817,7 +1817,7 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(8, 58);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(50, 15);
+            this.label18.Size = new System.Drawing.Size(50, 18);
             this.label18.TabIndex = 4;
             this.label18.Text = "Validity:";
             // 
@@ -1827,7 +1827,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(7, 22);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(62, 15);
+            this.label19.Size = new System.Drawing.Size(60, 18);
             this.label19.TabIndex = 3;
             this.label19.Text = "WDP No.:";
             // 
@@ -1836,7 +1836,7 @@
             this.wdpnaRadioBtn.AllowHtml = true;
             this.wdpnaRadioBtn.Location = new System.Drawing.Point(102, 98);
             this.wdpnaRadioBtn.Name = "wdpnaRadioBtn";
-            this.wdpnaRadioBtn.Size = new System.Drawing.Size(54, 22);
+            this.wdpnaRadioBtn.Size = new System.Drawing.Size(54, 23);
             this.wdpnaRadioBtn.TabIndex = 2;
             this.wdpnaRadioBtn.TabStop = true;
             this.wdpnaRadioBtn.Text = "N/A";
@@ -1846,7 +1846,7 @@
             this.wdpnoRadioBtn.AllowHtml = true;
             this.wdpnoRadioBtn.Location = new System.Drawing.Point(57, 98);
             this.wdpnoRadioBtn.Name = "wdpnoRadioBtn";
-            this.wdpnoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.wdpnoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.wdpnoRadioBtn.TabIndex = 1;
             this.wdpnoRadioBtn.TabStop = true;
             this.wdpnoRadioBtn.Text = "No";
@@ -1856,7 +1856,7 @@
             this.wdpyesRadioBtn.AllowHtml = true;
             this.wdpyesRadioBtn.Location = new System.Drawing.Point(6, 98);
             this.wdpyesRadioBtn.Name = "wdpyesRadioBtn";
-            this.wdpyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.wdpyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.wdpyesRadioBtn.TabIndex = 0;
             this.wdpyesRadioBtn.TabStop = true;
             this.wdpyesRadioBtn.Text = "Yes";
@@ -1883,7 +1883,7 @@
             this.ecccncdateTimePicker.Format = Wisej.Web.DateTimePickerFormat.Custom;
             this.ecccncdateTimePicker.Location = new System.Drawing.Point(108, 54);
             this.ecccncdateTimePicker.Name = "ecccncdateTimePicker";
-            this.ecccncdateTimePicker.Size = new System.Drawing.Size(163, 22);
+            this.ecccncdateTimePicker.Size = new System.Drawing.Size(163, 30);
             this.ecccncdateTimePicker.TabIndex = 6;
             this.ecccncdateTimePicker.ValueChanged += new System.EventHandler(this.ecccncdateTimePicker_ValueChanged);
             // 
@@ -1892,7 +1892,7 @@
             this.ecccnctxtBox.Enabled = false;
             this.ecccnctxtBox.Location = new System.Drawing.Point(108, 17);
             this.ecccnctxtBox.Name = "ecccnctxtBox";
-            this.ecccnctxtBox.Size = new System.Drawing.Size(163, 22);
+            this.ecccnctxtBox.Size = new System.Drawing.Size(163, 30);
             this.ecccnctxtBox.TabIndex = 5;
             // 
             // label17
@@ -1901,7 +1901,7 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(8, 58);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(77, 15);
+            this.label17.Size = new System.Drawing.Size(74, 18);
             this.label17.TabIndex = 4;
             this.label17.Text = "Date Issued:";
             // 
@@ -1911,7 +1911,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(7, 22);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(91, 15);
+            this.label16.Size = new System.Drawing.Size(85, 18);
             this.label16.TabIndex = 3;
             this.label16.Text = "ECC/CNC No.:";
             // 
@@ -1920,7 +1920,7 @@
             this.ecccncnaRadioBtn.AllowHtml = true;
             this.ecccncnaRadioBtn.Location = new System.Drawing.Point(102, 98);
             this.ecccncnaRadioBtn.Name = "ecccncnaRadioBtn";
-            this.ecccncnaRadioBtn.Size = new System.Drawing.Size(54, 22);
+            this.ecccncnaRadioBtn.Size = new System.Drawing.Size(54, 23);
             this.ecccncnaRadioBtn.TabIndex = 2;
             this.ecccncnaRadioBtn.TabStop = true;
             this.ecccncnaRadioBtn.Text = "N/A";
@@ -1930,7 +1930,7 @@
             this.ecccncnoRadioBtn.AllowHtml = true;
             this.ecccncnoRadioBtn.Location = new System.Drawing.Point(57, 98);
             this.ecccncnoRadioBtn.Name = "ecccncnoRadioBtn";
-            this.ecccncnoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.ecccncnoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.ecccncnoRadioBtn.TabIndex = 1;
             this.ecccncnoRadioBtn.TabStop = true;
             this.ecccncnoRadioBtn.Text = "No";
@@ -1940,7 +1940,7 @@
             this.ecccncyesRadioBtn.AllowHtml = true;
             this.ecccncyesRadioBtn.Location = new System.Drawing.Point(6, 98);
             this.ecccncyesRadioBtn.Name = "ecccncyesRadioBtn";
-            this.ecccncyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.ecccncyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.ecccncyesRadioBtn.TabIndex = 0;
             this.ecccncyesRadioBtn.TabStop = true;
             this.ecccncyesRadioBtn.Text = "Yes";
@@ -1962,7 +1962,7 @@
             this.eppnaRadioBtn.AllowHtml = true;
             this.eppnaRadioBtn.Location = new System.Drawing.Point(96, 24);
             this.eppnaRadioBtn.Name = "eppnaRadioBtn";
-            this.eppnaRadioBtn.Size = new System.Drawing.Size(54, 22);
+            this.eppnaRadioBtn.Size = new System.Drawing.Size(54, 23);
             this.eppnaRadioBtn.TabIndex = 4;
             this.eppnaRadioBtn.TabStop = true;
             this.eppnaRadioBtn.Text = "N/A";
@@ -1972,7 +1972,7 @@
             this.eppnoRadioBtn.AllowHtml = true;
             this.eppnoRadioBtn.Location = new System.Drawing.Point(53, 24);
             this.eppnoRadioBtn.Name = "eppnoRadioBtn";
-            this.eppnoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.eppnoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.eppnoRadioBtn.TabIndex = 3;
             this.eppnoRadioBtn.TabStop = true;
             this.eppnoRadioBtn.Text = "No";
@@ -1982,7 +1982,7 @@
             this.eppyesRadioBtn.AllowHtml = true;
             this.eppyesRadioBtn.Location = new System.Drawing.Point(6, 24);
             this.eppyesRadioBtn.Name = "eppyesRadioBtn";
-            this.eppyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.eppyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.eppyesRadioBtn.TabIndex = 2;
             this.eppyesRadioBtn.TabStop = true;
             this.eppyesRadioBtn.Text = "Yes";
@@ -2002,7 +2002,7 @@
             this.mayornoRadioBtn.AllowHtml = true;
             this.mayornoRadioBtn.Location = new System.Drawing.Point(54, 24);
             this.mayornoRadioBtn.Name = "mayornoRadioBtn";
-            this.mayornoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.mayornoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.mayornoRadioBtn.TabIndex = 1;
             this.mayornoRadioBtn.TabStop = true;
             this.mayornoRadioBtn.Text = "No";
@@ -2012,7 +2012,7 @@
             this.mayoryesRadioBtn.AllowHtml = true;
             this.mayoryesRadioBtn.Location = new System.Drawing.Point(4, 24);
             this.mayoryesRadioBtn.Name = "mayoryesRadioBtn";
-            this.mayoryesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.mayoryesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.mayoryesRadioBtn.TabIndex = 0;
             this.mayoryesRadioBtn.TabStop = true;
             this.mayoryesRadioBtn.Text = "Yes";
@@ -2022,7 +2022,7 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(317, 8);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(148, 15);
+            this.label15.Size = new System.Drawing.Size(137, 18);
             this.label15.TabIndex = 1;
             this.label15.Text = "WASTE MANAGEMENT";
             // 
@@ -2032,7 +2032,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(10, 9);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(205, 15);
+            this.label14.Size = new System.Drawing.Size(185, 18);
             this.label14.TabIndex = 0;
             this.label14.Text = "PERMITS AND CERTIFICATIONS";
             // 
@@ -2085,7 +2085,7 @@
             this.label51.AutoSize = true;
             this.label51.Location = new System.Drawing.Point(13, 837);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(68, 15);
+            this.label51.Size = new System.Drawing.Size(66, 18);
             this.label51.TabIndex = 20;
             this.label51.Text = "Inspectors:";
             // 
@@ -2111,7 +2111,7 @@
             this.label50.AutoSize = true;
             this.label50.Location = new System.Drawing.Point(13, 701);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(113, 15);
+            this.label50.Size = new System.Drawing.Size(112, 18);
             this.label50.TabIndex = 18;
             this.label50.Text = "Recommendations";
             // 
@@ -2119,7 +2119,7 @@
             // 
             this.ovrtextBox.Location = new System.Drawing.Point(56, 665);
             this.ovrtextBox.Name = "ovrtextBox";
-            this.ovrtextBox.Size = new System.Drawing.Size(228, 22);
+            this.ovrtextBox.Size = new System.Drawing.Size(228, 30);
             this.ovrtextBox.TabIndex = 17;
             // 
             // label49
@@ -2127,7 +2127,7 @@
             this.label49.AutoSize = true;
             this.label49.Location = new System.Drawing.Point(13, 669);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(36, 15);
+            this.label49.Size = new System.Drawing.Size(33, 18);
             this.label49.TabIndex = 16;
             this.label49.Text = "OVR:";
             // 
@@ -2144,7 +2144,7 @@
             this.label48.AutoSize = true;
             this.label48.Location = new System.Drawing.Point(13, 539);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(65, 15);
+            this.label48.Size = new System.Drawing.Size(63, 18);
             this.label48.TabIndex = 14;
             this.label48.Text = "Directives:";
             // 
@@ -2161,7 +2161,7 @@
             this.label47.AutoSize = true;
             this.label47.Location = new System.Drawing.Point(13, 414);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(202, 15);
+            this.label47.Size = new System.Drawing.Size(201, 18);
             this.label47.TabIndex = 12;
             this.label47.Text = "Inspector\'s observation statement:";
             // 
@@ -2181,7 +2181,7 @@
             // 
             this.statuswfhRadioBtn.Location = new System.Drawing.Point(264, 27);
             this.statuswfhRadioBtn.Name = "statuswfhRadioBtn";
-            this.statuswfhRadioBtn.Size = new System.Drawing.Size(131, 22);
+            this.statuswfhRadioBtn.Size = new System.Drawing.Size(131, 23);
             this.statuswfhRadioBtn.TabIndex = 3;
             this.statuswfhRadioBtn.TabStop = true;
             this.statuswfhRadioBtn.Text = "Work from Home";
@@ -2190,7 +2190,7 @@
             // 
             this.statusclosedRadioBtn.Location = new System.Drawing.Point(198, 27);
             this.statusclosedRadioBtn.Name = "statusclosedRadioBtn";
-            this.statusclosedRadioBtn.Size = new System.Drawing.Size(73, 22);
+            this.statusclosedRadioBtn.Size = new System.Drawing.Size(69, 23);
             this.statusclosedRadioBtn.TabIndex = 2;
             this.statusclosedRadioBtn.TabStop = true;
             this.statusclosedRadioBtn.Text = "Closed";
@@ -2199,7 +2199,7 @@
             // 
             this.statusnooperationRadioBtn.Location = new System.Drawing.Point(98, 26);
             this.statusnooperationRadioBtn.Name = "statusnooperationRadioBtn";
-            this.statusnooperationRadioBtn.Size = new System.Drawing.Size(110, 22);
+            this.statusnooperationRadioBtn.Size = new System.Drawing.Size(109, 23);
             this.statusnooperationRadioBtn.TabIndex = 1;
             this.statusnooperationRadioBtn.TabStop = true;
             this.statusnooperationRadioBtn.Text = "No Operation\r\n";
@@ -2208,7 +2208,7 @@
             // 
             this.statusoperationalRadioBtn.Location = new System.Drawing.Point(9, 26);
             this.statusoperationalRadioBtn.Name = "statusoperationalRadioBtn";
-            this.statusoperationalRadioBtn.Size = new System.Drawing.Size(100, 22);
+            this.statusoperationalRadioBtn.Size = new System.Drawing.Size(98, 23);
             this.statusoperationalRadioBtn.TabIndex = 0;
             this.statusoperationalRadioBtn.TabStop = true;
             this.statusoperationalRadioBtn.Text = "Operational";
@@ -2233,7 +2233,7 @@
             this.label46.AutoSize = true;
             this.label46.Location = new System.Drawing.Point(233, 192);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(113, 15);
+            this.label46.Size = new System.Drawing.Size(112, 18);
             this.label46.TabIndex = 9;
             this.label46.Text = "Level of Inspection";
             // 
@@ -2243,7 +2243,7 @@
             this.reinspectdateTimePicker.Format = Wisej.Web.DateTimePickerFormat.Custom;
             this.reinspectdateTimePicker.Location = new System.Drawing.Point(159, 316);
             this.reinspectdateTimePicker.Name = "reinspectdateTimePicker";
-            this.reinspectdateTimePicker.Size = new System.Drawing.Size(200, 22);
+            this.reinspectdateTimePicker.Size = new System.Drawing.Size(200, 30);
             this.reinspectdateTimePicker.TabIndex = 8;
             this.reinspectdateTimePicker.ValueChanged += new System.EventHandler(this.reinspectdateTimePicker_ValueChanged);
             // 
@@ -2252,7 +2252,7 @@
             this.label45.AutoSize = true;
             this.label45.Location = new System.Drawing.Point(13, 322);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(125, 15);
+            this.label45.Size = new System.Drawing.Size(124, 18);
             this.label45.TabIndex = 7;
             this.label45.Text = "Date of Reinspection";
             // 
@@ -2271,7 +2271,7 @@
             this.lesseenoRadioBtn.AllowHtml = true;
             this.lesseenoRadioBtn.Location = new System.Drawing.Point(68, 21);
             this.lesseenoRadioBtn.Name = "lesseenoRadioBtn";
-            this.lesseenoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.lesseenoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.lesseenoRadioBtn.TabIndex = 1;
             this.lesseenoRadioBtn.TabStop = true;
             this.lesseenoRadioBtn.Text = "No";
@@ -2281,7 +2281,7 @@
             this.lesseeyesRadioBtn.AllowHtml = true;
             this.lesseeyesRadioBtn.Location = new System.Drawing.Point(7, 21);
             this.lesseeyesRadioBtn.Name = "lesseeyesRadioBtn";
-            this.lesseeyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.lesseeyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.lesseeyesRadioBtn.TabIndex = 0;
             this.lesseeyesRadioBtn.TabStop = true;
             this.lesseeyesRadioBtn.Text = "Yes";
@@ -2301,7 +2301,7 @@
             this.standalonenoRadioBtn.AllowHtml = true;
             this.standalonenoRadioBtn.Location = new System.Drawing.Point(68, 21);
             this.standalonenoRadioBtn.Name = "standalonenoRadioBtn";
-            this.standalonenoRadioBtn.Size = new System.Drawing.Size(49, 22);
+            this.standalonenoRadioBtn.Size = new System.Drawing.Size(48, 23);
             this.standalonenoRadioBtn.TabIndex = 1;
             this.standalonenoRadioBtn.TabStop = true;
             this.standalonenoRadioBtn.Text = "No";
@@ -2311,7 +2311,7 @@
             this.standaloneyesRadioBtn.AllowHtml = true;
             this.standaloneyesRadioBtn.Location = new System.Drawing.Point(7, 21);
             this.standaloneyesRadioBtn.Name = "standaloneyesRadioBtn";
-            this.standaloneyesRadioBtn.Size = new System.Drawing.Size(55, 22);
+            this.standaloneyesRadioBtn.Size = new System.Drawing.Size(50, 23);
             this.standaloneyesRadioBtn.TabIndex = 0;
             this.standaloneyesRadioBtn.TabStop = true;
             this.standaloneyesRadioBtn.Text = "Yes";
@@ -2332,7 +2332,7 @@
             this.multinationalRadioBtn.Anchor = Wisej.Web.AnchorStyles.Left;
             this.multinationalRadioBtn.Location = new System.Drawing.Point(7, 88);
             this.multinationalRadioBtn.Name = "multinationalRadioBtn";
-            this.multinationalRadioBtn.Size = new System.Drawing.Size(110, 22);
+            this.multinationalRadioBtn.Size = new System.Drawing.Size(112, 23);
             this.multinationalRadioBtn.TabIndex = 3;
             this.multinationalRadioBtn.TabStop = true;
             this.multinationalRadioBtn.Text = "Multi-national";
@@ -2341,7 +2341,7 @@
             // 
             this.privatecorpRadioBtn.Location = new System.Drawing.Point(7, 54);
             this.privatecorpRadioBtn.Name = "privatecorpRadioBtn";
-            this.privatecorpRadioBtn.Size = new System.Drawing.Size(144, 22);
+            this.privatecorpRadioBtn.Size = new System.Drawing.Size(142, 23);
             this.privatecorpRadioBtn.TabIndex = 1;
             this.privatecorpRadioBtn.TabStop = true;
             this.privatecorpRadioBtn.Text = "Private Corporation";
@@ -2350,7 +2350,7 @@
             // 
             this.proprietorshipRadioBtn.Location = new System.Drawing.Point(7, 20);
             this.proprietorshipRadioBtn.Name = "proprietorshipRadioBtn";
-            this.proprietorshipRadioBtn.Size = new System.Drawing.Size(113, 22);
+            this.proprietorshipRadioBtn.Size = new System.Drawing.Size(112, 23);
             this.proprietorshipRadioBtn.TabIndex = 0;
             this.proprietorshipRadioBtn.TabStop = true;
             this.proprietorshipRadioBtn.Text = "Proprietorship";
@@ -2372,7 +2372,7 @@
             this.landuseinstitutionalRadioBtn.Anchor = Wisej.Web.AnchorStyles.Left;
             this.landuseinstitutionalRadioBtn.Location = new System.Drawing.Point(7, 88);
             this.landuseinstitutionalRadioBtn.Name = "landuseinstitutionalRadioBtn";
-            this.landuseinstitutionalRadioBtn.Size = new System.Drawing.Size(98, 22);
+            this.landuseinstitutionalRadioBtn.Size = new System.Drawing.Size(98, 23);
             this.landuseinstitutionalRadioBtn.TabIndex = 3;
             this.landuseinstitutionalRadioBtn.TabStop = true;
             this.landuseinstitutionalRadioBtn.Text = "Institutional";
@@ -2381,7 +2381,7 @@
             // 
             this.landuseindustrialRadioBtn.Location = new System.Drawing.Point(7, 64);
             this.landuseindustrialRadioBtn.Name = "landuseindustrialRadioBtn";
-            this.landuseindustrialRadioBtn.Size = new System.Drawing.Size(85, 22);
+            this.landuseindustrialRadioBtn.Size = new System.Drawing.Size(84, 23);
             this.landuseindustrialRadioBtn.TabIndex = 2;
             this.landuseindustrialRadioBtn.TabStop = true;
             this.landuseindustrialRadioBtn.Text = "Industrial";
@@ -2390,7 +2390,7 @@
             // 
             this.landuseresidentialRadioBtn.Location = new System.Drawing.Point(7, 42);
             this.landuseresidentialRadioBtn.Name = "landuseresidentialRadioBtn";
-            this.landuseresidentialRadioBtn.Size = new System.Drawing.Size(97, 22);
+            this.landuseresidentialRadioBtn.Size = new System.Drawing.Size(93, 23);
             this.landuseresidentialRadioBtn.TabIndex = 1;
             this.landuseresidentialRadioBtn.TabStop = true;
             this.landuseresidentialRadioBtn.Text = "Residential";
@@ -2399,7 +2399,7 @@
             // 
             this.landusecommercialRadioBtn.Location = new System.Drawing.Point(7, 20);
             this.landusecommercialRadioBtn.Name = "landusecommercialRadioBtn";
-            this.landusecommercialRadioBtn.Size = new System.Drawing.Size(102, 22);
+            this.landusecommercialRadioBtn.Size = new System.Drawing.Size(99, 23);
             this.landusecommercialRadioBtn.TabIndex = 0;
             this.landusecommercialRadioBtn.TabStop = true;
             this.landusecommercialRadioBtn.Text = "Commercial";
@@ -2414,7 +2414,7 @@
                 "ures"});
             this.purposecmbBox.Location = new System.Drawing.Point(13, 30);
             this.purposecmbBox.Name = "purposecmbBox";
-            this.purposecmbBox.Size = new System.Drawing.Size(267, 22);
+            this.purposecmbBox.Size = new System.Drawing.Size(267, 30);
             this.purposecmbBox.TabIndex = 1;
             // 
             // label43
@@ -2423,7 +2423,7 @@
             this.label43.AutoSize = true;
             this.label43.Location = new System.Drawing.Point(13, 8);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(130, 15);
+            this.label43.Size = new System.Drawing.Size(129, 18);
             this.label43.TabIndex = 0;
             this.label43.Text = "Purpose of Inspection";
             // 
@@ -2505,26 +2505,6 @@
             this.menuItem1.Name = "menuItem1";
             this.menuItem1.Text = "User";
             // 
-            // menuItem2
-            // 
-            this.menuItem2.Index = 1;
-            this.menuItem2.Name = "menuItem2";
-            this.menuItem2.Text = "Transactions";
-            // 
-            // menuItem3
-            // 
-            this.menuItem3.Index = 2;
-            this.menuItem3.MenuItems.AddRange(new Wisej.Web.MenuItem[] {
-            this.menuItem7,
-            this.menuItem8,
-            this.menuItem9,
-            this.menuItem10,
-            this.menuItem11,
-            this.menuItem12,
-            this.menuItem13});
-            this.menuItem3.Name = "menuItem3";
-            this.menuItem3.Text = "Option";
-            // 
             // menuItem4
             // 
             this.menuItem4.Index = 0;
@@ -2546,17 +2526,39 @@
             this.menuItem6.Text = "Exit";
             this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
             // 
+            // menuItem2
+            // 
+            this.menuItem2.Index = 1;
+            this.menuItem2.Name = "menuItem2";
+            this.menuItem2.Text = "Transactions";
+            // 
+            // menuItem3
+            // 
+            this.menuItem3.Index = 2;
+            this.menuItem3.MenuItems.AddRange(new Wisej.Web.MenuItem[] {
+            this.menuItem7,
+            this.menuItem8,
+            this.menuItem9,
+            this.menuItem10,
+            this.menuItem11,
+            this.menuItem12,
+            this.menuItem13});
+            this.menuItem3.Name = "menuItem3";
+            this.menuItem3.Text = "Option";
+            // 
             // menuItem7
             // 
             this.menuItem7.Index = 0;
             this.menuItem7.Name = "menuItem7";
             this.menuItem7.Text = "Generate Reports to PDF";
+            this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
             // menuItem8
             // 
             this.menuItem8.Index = 1;
             this.menuItem8.Name = "menuItem8";
             this.menuItem8.Text = "Generate Reports to Excel";
+            this.menuItem8.Click += new System.EventHandler(this.menuItem8_Click);
             // 
             // menuItem9
             // 
@@ -2570,28 +2572,32 @@
             this.menuItem10.Index = 3;
             this.menuItem10.Name = "menuItem10";
             this.menuItem10.Text = "Create New User";
+            this.menuItem10.Click += new System.EventHandler(this.menuItem10_Click);
             // 
             // menuItem11
             // 
             this.menuItem11.Index = 4;
             this.menuItem11.Name = "menuItem11";
             this.menuItem11.Text = "Manage Registered Users";
+            this.menuItem11.Click += new System.EventHandler(this.menuItem11_Click);
             // 
             // menuItem12
             // 
             this.menuItem12.Index = 5;
             this.menuItem12.Name = "menuItem12";
             this.menuItem12.Text = "Import Data From Excel";
+            this.menuItem12.Click += new System.EventHandler(this.menuItem12_Click);
             // 
             // menuItem13
             // 
             this.menuItem13.Index = 6;
             this.menuItem13.Name = "menuItem13";
             this.menuItem13.Text = "Change Password";
+            this.menuItem13.Click += new System.EventHandler(this.menuItem13_Click);
             // 
             // inspectionReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
             this.AutoScaleMode = Wisej.Web.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1906, 999);
