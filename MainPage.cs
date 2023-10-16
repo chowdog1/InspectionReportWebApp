@@ -1460,5 +1460,13 @@ namespace InspectionReportWebApp
                 }
             }
         }
+        private void menuItem14_Click(object sender, EventArgs e)
+        {
+            new Compliance().Show();
+        }
+        private void menuItem15_Click(object sender, EventArgs e)
+        {
+            new Violations().Show();
+        }
     }
 }
