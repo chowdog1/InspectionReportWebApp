@@ -16,12 +16,13 @@ using System.Linq;
 using System.IO;
 using Wisej.Core;
 using System.Globalization;
+using Newtonsoft.Json;
+
 
 namespace InspectionReportWebApp
 {
     public partial class inspectionReport : Form
     {
-        private int addressColumnIndex = 2;
         private DateTime? doidate;
         private DateTime? ecccncdate;
         private DateTime? ptodate;
@@ -36,7 +37,6 @@ namespace InspectionReportWebApp
         public inspectionReport()
         {
             InitializeComponent();
-
             SqlConnection con = new SqlConnection("Data Source=DESKTOP-HTKIB76\\SQLEXPRESS01;Initial Catalog=InspectionReport;Integrated Security=True");
             con.Open();
             SqlCommand cmd = new SqlCommand("select * from InspectionReport", con);
@@ -476,7 +476,8 @@ namespace InspectionReportWebApp
         {
             ecccncdateTimePicker.CustomFormat = "dd-MM-yyyy";
             ecccncdate = ecccncdateTimePicker.Value;
-        }        private void wdpdateTimePicker_ValueChanged(object sender, EventArgs e)
+        }
+        private void wdpdateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             wdpdateTimePicker.CustomFormat = "dd-MM-yyyy";
             wdpdate = wdpdateTimePicker.Value;
@@ -767,7 +768,7 @@ namespace InspectionReportWebApp
 
         private void menuItem9_Click(object sender, EventArgs e)
         {
-            ShowLogForm();  
+            ShowLogForm();
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -1467,6 +1468,93 @@ namespace InspectionReportWebApp
         private void menuItem15_Click(object sender, EventArgs e)
         {
             new Violations().Show();
+        }
+        private Dictionary<string, int> GetBusinessStatusCounts()
+        {
+            Dictionary<string, int> statusCounts = new Dictionary<string, int>();
+
+            // Replace the connection string with your actual database connection string
+            string connectionString = "Data Source=DESKTOP-HTKIB76\\SQLEXPRESS01;Initial Catalog=InspectionReport;Integrated Security=True";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT BusinessStatus, COUNT(*) AS Count FROM InspectionReport GROUP BY BusinessStatus"; // Replace YourTable with your actual table name
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string status = reader["BusinessStatus"].ToString(); // Replace BusinessStatus with the actual column name
+                    int count = Convert.ToInt32(reader["Count"]);
+                    statusCounts.Add(status, count);
+                }
+                reader.Close();
+            }
+
+            return statusCounts;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var statusCounts = GetBusinessStatusCounts();
+
+            // Serialize the data to JSON
+            var serializedData = JsonConvert.SerializeObject(statusCounts);
+
+            // Create an HTML file
+            var htmlContent = "<html><body style='display: flex; flex-direction: column; align-items: center; justify-content: flex-start; height: 100vh;'>" +
+            "<div style='display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%;'>" +
+            "<div id='chartContainer' style='margin-top: 50px; height: 400px; width: 60%; display: flex; justify-content: center; align-items: center;'>" +
+            "<canvas id='myChart'></canvas>" +
+            "</div>" +
+            "</div>" +
+            "</body>" +
+            "<script src='https://cdn.jsdelivr.net/npm/chart.js'></script>" +
+            "<script>" +
+            "var data = " + serializedData + ";" +
+            "var labels = Object.keys(data);" +
+            "var values = Object.values(data);" +
+            "var ctx = document.getElementById('myChart');" +
+            "var myChart = new Chart(ctx, {" +
+            "type: 'bar'," +
+            "data: {" +
+            "labels: labels," +
+            "datasets: [{" +
+            "label: 'Business Status'," +
+            "data: values," +
+            "backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)']," + // Adjust colors for LOWRISK and HIGHRISK here
+            "borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)']," + // Adjust colors for LOWRISK and HIGHRISK here
+            "borderWidth: 1" +
+            "}]" +
+            "}," +
+            "options: {" +
+            "scales: {" +
+            "y: {" +
+            "beginAtZero: true" +
+            "}" +
+            "}," +
+            "indexAxis: 'y'," +
+            "plugins: {" +
+            "title: {" +
+            "display: true," +
+            "text: 'Business Status'," +
+            "position: 'top'," +
+            "font: {" +
+            "size: 20" +
+            "}" +
+            "}," +
+            "legend: {" +
+            "display: false" + // Remove the legend
+            "}" +
+            "}" +
+            "}" +
+            "});" +
+            "</script></html>";
+
+            string tempPath = Path.GetTempPath();
+            string filePath = Path.Combine(tempPath, "Dashboard.html");
+            File.WriteAllText(filePath, htmlContent);
+
+            // Open the HTML file in the default web browser
+            System.Diagnostics.Process.Start(filePath);
         }
     }
 }

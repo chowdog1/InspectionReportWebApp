@@ -60,16 +60,33 @@
   <ItemGroup>
     <PackageReference Include="BCrypt.Net" Version="0.1.0" />
     <PackageReference Include="EPPlus" Version="6.2.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="PdfSharp" Version="1.50.5147" />
-    <PackageReference Include="Wisej-3" Version="3.1.*" />
+    <PackageReference Include="Wisej-3" Version="3.2.5" />
     <PackageReference Include="System.Data.SqlClient" Version="4.*" />
+    <PackageReference Include="Wisej-3-ChartJS" Version="3.2.5" />
   </ItemGroup>
   
   <ItemGroup>
+    <Compile Update="InspectionReportDataSet.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>InspectionReportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="InspectionReportDataSet1.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>InspectionReportDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
   </ItemGroup>
   
@@ -78,6 +95,21 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="InspectionReportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InspectionReportDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="InspectionReportDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InspectionReportDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 

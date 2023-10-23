@@ -233,6 +233,8 @@
             this.menuItem5 = new Wisej.Web.MenuItem();
             this.menuItem6 = new Wisej.Web.MenuItem();
             this.menuItem2 = new Wisej.Web.MenuItem();
+            this.menuItem14 = new Wisej.Web.MenuItem();
+            this.menuItem15 = new Wisej.Web.MenuItem();
             this.menuItem3 = new Wisej.Web.MenuItem();
             this.menuItem7 = new Wisej.Web.MenuItem();
             this.menuItem8 = new Wisej.Web.MenuItem();
@@ -241,8 +243,7 @@
             this.menuItem11 = new Wisej.Web.MenuItem();
             this.menuItem12 = new Wisej.Web.MenuItem();
             this.menuItem13 = new Wisej.Web.MenuItem();
-            this.menuItem14 = new Wisej.Web.MenuItem();
-            this.menuItem15 = new Wisej.Web.MenuItem();
+            this.button1 = new Wisej.Web.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -278,6 +279,7 @@
             // 
             this.panel1.Anchor = ((Wisej.Web.AnchorStyles)(((Wisej.Web.AnchorStyles.Top | Wisej.Web.AnchorStyles.Left) 
             | Wisej.Web.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -2537,6 +2539,20 @@
             this.menuItem2.Name = "menuItem2";
             this.menuItem2.Text = "Transactions";
             // 
+            // menuItem14
+            // 
+            this.menuItem14.Index = 0;
+            this.menuItem14.Name = "menuItem14";
+            this.menuItem14.Text = "Compliance";
+            this.menuItem14.Click += new System.EventHandler(this.menuItem14_Click);
+            // 
+            // menuItem15
+            // 
+            this.menuItem15.Index = 1;
+            this.menuItem15.Name = "menuItem15";
+            this.menuItem15.Text = "Violations";
+            this.menuItem15.Click += new System.EventHandler(this.menuItem15_Click);
+            // 
             // menuItem3
             // 
             this.menuItem3.Index = 2;
@@ -2600,19 +2616,16 @@
             this.menuItem13.Text = "Change Password";
             this.menuItem13.Click += new System.EventHandler(this.menuItem13_Click);
             // 
-            // menuItem14
+            // button1
             // 
-            this.menuItem14.Index = 0;
-            this.menuItem14.Name = "menuItem14";
-            this.menuItem14.Text = "Compliance";
-            this.menuItem14.Click += new System.EventHandler(this.menuItem14_Click);
-            // 
-            // menuItem15
-            // 
-            this.menuItem15.Index = 1;
-            this.menuItem15.Name = "menuItem15";
-            this.menuItem15.Text = "Violations";
-            this.menuItem15.Click += new System.EventHandler(this.menuItem15_Click);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(255, 0, 23);
+            this.button1.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.button1.Location = new System.Drawing.Point(14, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(111, 27);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "☰ DASHBOARD";
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // inspectionReport
             // 
@@ -2913,6 +2926,7 @@
         private Wisej.Web.MenuItem menuItem13;
         private Wisej.Web.MenuItem menuItem14;
         private Wisej.Web.MenuItem menuItem15;
+        private Wisej.Web.Button button1;
     }
 }
 
