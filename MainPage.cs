@@ -1492,21 +1492,108 @@ namespace InspectionReportWebApp
 
             return statusCounts;
         }
+        private Dictionary<string, int> GetBarangayCounts()
+        {
+            Dictionary<string, int> barangayCounts = new Dictionary<string, int>();
+
+            // Replace the connection string with your actual database connection string
+            string connectionString = "Data Source=DESKTOP-HTKIB76\\SQLEXPRESS01;Initial Catalog=InspectionReport;Integrated Security=True";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT Barangay, COUNT(*) AS Count FROM InspectionReport GROUP BY Barangay"; // Replace YourTable with your actual table name
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string barangay = reader["Barangay"].ToString(); // Replace Barangay with the actual column name
+                    int count = Convert.ToInt32(reader["Count"]);
+                    barangayCounts.Add(barangay, count);
+                }
+                reader.Close();
+            }
+
+            return barangayCounts;
+        }
+        private Dictionary<string, int> EstablishmentHas()
+        {
+            Dictionary<string, int> establishmenthas = new Dictionary<string, int>();
+
+            // Replace the connection string with your actual database connection string
+            string connectionString = "Data Source=DESKTOP-HTKIB76\\SQLEXPRESS01;Initial Catalog=InspectionReport;Integrated Security=True";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT EstablishmentHas, COUNT(*) AS Count FROM InspectionReport GROUP BY EstablishmentHas"; // Replace YourTable with your actual table name
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string establishment = reader["EstablishmentHas"].ToString(); // Replace Barangay with the actual column name
+                    int count = Convert.ToInt32(reader["Count"]);
+                    establishmenthas.Add(establishment, count);
+                }
+                reader.Close();
+            }
+
+            return establishmenthas;
+        }
+        private Dictionary<string, int> EstablishmentIs()
+        {
+            Dictionary<string, int> establishmentis = new Dictionary<string, int>();
+
+            string connectionString = "Data Source=DESKTOP-HTKIB76\\SQLEXPRESS01;Initial Catalog=InspectionReport;Integrated Security=True";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT EstablishmentIs, COUNT(*) AS Count FROM InspectionReport GROUP BY EstablishmentIs"; // Replace YourTable with your actual table name
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string establishmentiscount = reader["EstablishmentIs"].ToString(); // Replace Barangay with the actual column name
+                    int count = Convert.ToInt32(reader["Count"]);
+                    establishmentis.Add(establishmentiscount, count);
+                }
+                reader.Close();
+            }
+
+            return establishmentis;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             var statusCounts = GetBusinessStatusCounts();
+            var barangayCounts = GetBarangayCounts();
+            var establishmentHas = EstablishmentHas();
+            var establishmentIs = EstablishmentIs();
 
             // Serialize the data to JSON
             var serializedData = JsonConvert.SerializeObject(statusCounts);
+            var serializedBarangayData = JsonConvert.SerializeObject(barangayCounts);
+            var serializedEstablishmentHasData = JsonConvert.SerializeObject(establishmentHas);
+            var serializedEstablishmentIsData = JsonConvert.SerializeObject(establishmentIs);
 
             // Create an HTML file
             var htmlContent = "<html><body style='display: flex; flex-direction: column; align-items: center; justify-content: flex-start; height: 100vh;'>" +
             "<div style='display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%;'>" +
-            "<div id='chartContainer' style='margin-top: 50px; height: 400px; width: 60%; display: flex; justify-content: center; align-items: center;'>" +
+            "<div style='display: flex; flex-direction: row; align-items: center; justify-content: center; width: 100%;'>" +
+            "<div style='margin-top: 50px; height: 400px; width: 48%; display: flex; justify-content: center; align-items: center;'>" +
             "<canvas id='myChart'></canvas>" +
             "</div>" +
+            "<div style='margin-top: 50px; height: 400px; width: 48%; display: flex; justify-content: center; align-items: center;'>" +
+            "<canvas id='barangayChart'></canvas>" +
             "</div>" +
-            "</body>" +
+            "</div>" +
+            "<div style='display: flex; flex-direction: row; align-items: center; justify-content: center; width: 100%;'>" +
+            "<div style='margin-top: 50px; height: 400px; width: 48%; display: flex; justify-content: center; align-items: center;'>" +
+            "<canvas id='establishmentHasChart'></canvas>" +
+            "</div>" +
+            "<div style='margin-top: 50px; height: 400px; width: 48%; display: flex; justify-content: center; align-items: center;'>" +
+            "<canvas id='establishmentIsChart'></canvas>" +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            "</body>"+
             "<script src='https://cdn.jsdelivr.net/npm/chart.js'></script>" +
             "<script>" +
             "var data = " + serializedData + ";" +
@@ -1518,7 +1605,7 @@ namespace InspectionReportWebApp
             "data: {" +
             "labels: labels," +
             "datasets: [{" +
-            "label: 'Business Status'," +
+            "label: ' '," +
             "data: values," +
             "backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)']," + // Adjust colors for LOWRISK and HIGHRISK here
             "borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)']," + // Adjust colors for LOWRISK and HIGHRISK here
@@ -1536,6 +1623,148 @@ namespace InspectionReportWebApp
             "title: {" +
             "display: true," +
             "text: 'Business Status'," +
+            "position: 'top'," +
+            "font: {" +
+            "size: 20" +
+            "}" +
+            "}," +
+            "legend: {" +
+            "display: false" + // Remove the legend
+            "}" +
+            "}" +
+            "}" +
+            "});" +
+            "var barangayData = " + serializedBarangayData + ";" +
+            "var barangayLabels = Object.keys(barangayData);" +
+            "var barangayValues = Object.values(barangayData);" +
+            "var barangayCtx = document.getElementById('barangayChart');" +
+            "var myBarangayChart = new Chart(barangayCtx, {" +
+            "type: 'bar'," +
+            "data: {" +
+            "labels: barangayLabels," +
+            "datasets: [{" +
+            "label: ' '," +
+            "data: barangayValues," +
+            "backgroundColor: 'rgba(75, 192, 192, 0.2)'," +
+            "borderColor: 'rgba(75, 192, 192, 1)'," +
+            "borderWidth: 1" +
+            "}]" +
+            "}," +
+            "options: {" +
+            "scales: {" +
+            "y: {" +
+            "beginAtZero: true" +
+            "}" +
+            "}," +
+            "indexAxis: 'y'," +
+            "plugins: {" +
+            "title: {" +
+            "display: true," +
+            "text: 'Barangays'," +
+            "position: 'top'," +
+            "font: {" +
+            "size: 20" +
+            "}" +
+            "}," +
+            "legend: {" +
+            "display: false" + // Remove the legend
+            "}" +
+            "}" +
+            "}" +
+            "});" +
+            "var establishmentData = " + serializedEstablishmentHasData + ";" +
+            "var establishmentLabels = Object.keys(establishmentData);" +
+            "var establishmentValues = Object.values(establishmentData);" +
+            "var establishmentCtx = document.getElementById('establishmentHasChart');" +
+            "var myEstablishmentChart = new Chart(establishmentCtx, {" +
+            "type: 'bar'," +
+            "data: {" +
+            "labels: establishmentLabels," +
+            "datasets: [{" +
+            "label: ' '," +
+            "data: establishmentValues," +
+            "backgroundColor: [" +
+            "'rgba(153, 102, 255, 0.2)'," + // Adjust colors for each data point
+            "'rgba(255, 99, 132, 0.2)'," +
+            "'rgba(54, 162, 235, 0.2)'," +
+            "'rgba(255, 206, 86, 0.2)'," +
+            "'rgba(75, 192, 192, 0.2)'," +
+            "'rgba(255, 159, 64, 0.2)'" +
+            "]," +
+            "borderColor: [" +
+            "'rgba(153, 102, 255, 1)'," + // Adjust colors for each data point
+            "'rgba(255, 99, 132, 1)'," +
+            "'rgba(54, 162, 235, 1)'," +
+            "'rgba(255, 206, 86, 1)'," +
+            "'rgba(75, 192, 192, 1)'," +
+            "'rgba(255, 159, 64, 1)'" +
+            "]," +
+            "borderWidth: 1" +
+            "}]" +
+            "}," +
+            "options: {" +
+            "scales: {" +
+            "y: {" +
+            "beginAtZero: true" +
+            "}" +
+            "}," +
+            "indexAxis: 'y'," +
+            "plugins: {" +
+            "title: {" +
+            "display: true," +
+            "text: 'Establishment Has'," +
+            "position: 'top'," +
+            "font: {" +
+            "size: 20" +
+            "}" +
+            "}," +
+            "legend: {" +
+            "display: false" + // Remove the legend
+            "}" +
+            "}" +
+            "}" +
+            "});" +
+            "var establishmentIsData = " + serializedEstablishmentIsData + ";" +
+            "var establishmentIsLabels = Object.keys(establishmentIsData);" +
+            "var establishmentIsValues = Object.values(establishmentIsData);" +
+            "var establishmentIsCtx = document.getElementById('establishmentIsChart');" +
+            "var myEstablishmentIsChart = new Chart(establishmentIsCtx, {" +
+            "type: 'bar'," +
+            "data: {" +
+            "labels: establishmentIsLabels," +
+            "datasets: [{" +
+            "label: ' '," +
+            "data: establishmentIsValues," +
+            "backgroundColor: [" +
+            "'rgba(153, 102, 255, 0.2)'," + // Adjust colors for each data point
+            "'rgba(255, 99, 132, 0.2)'," +
+            "'rgba(54, 162, 235, 0.2)'," +
+            "'rgba(255, 206, 86, 0.2)'," +
+            "'rgba(75, 192, 192, 0.2)'," +
+            "'rgba(255, 159, 64, 0.2)'" +
+            "]," +
+            "borderColor: [" +
+            "'rgba(153, 102, 255, 1)'," + // Adjust colors for each data point
+            "'rgba(255, 99, 132, 1)'," +
+            "'rgba(54, 162, 235, 1)'," +
+            "'rgba(255, 206, 86, 1)'," +
+            "'rgba(75, 192, 192, 1)'," +
+            "'rgba(255, 159, 64, 1)'" +
+            "]," +
+            "borderWidth: 1" +
+            "}]" +
+            "}," +
+            "options: {" +
+            "scales: {" +
+            "y: {" +
+            "beginAtZero: true" +
+            "}" +
+            "}," +
+            "indexAxis: 'y'," +
+            "plugins: {" +
+            "title: {" +
+            "display: true," +
+            "text: 'Establishment Is'," +
             "position: 'top'," +
             "font: {" +
             "size: 20" +
