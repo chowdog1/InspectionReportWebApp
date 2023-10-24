@@ -152,7 +152,9 @@
             // 
             // confirmBtn
             // 
-            this.confirmBtn.BackColor = System.Drawing.Color.FromName("@switchOn");
+            this.confirmBtn.BackColor = System.Drawing.Color.FromArgb(0, 110, 255);
+            this.confirmBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.confirmBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
             this.confirmBtn.Location = new System.Drawing.Point(467, 543);
             this.confirmBtn.Name = "confirmBtn";
             this.confirmBtn.Size = new System.Drawing.Size(134, 27);
@@ -162,7 +164,9 @@
             // 
             // cancelBtn
             // 
-            this.cancelBtn.BackColor = System.Drawing.Color.FromName("@invalid");
+            this.cancelBtn.BackColor = System.Drawing.Color.Red;
+            this.cancelBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cancelBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
             this.cancelBtn.Location = new System.Drawing.Point(467, 585);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(134, 27);

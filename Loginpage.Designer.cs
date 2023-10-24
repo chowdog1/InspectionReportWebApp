@@ -74,7 +74,7 @@
             this.usernametxtBox.Name = "usernametxtBox";
             this.usernametxtBox.ResponsiveProfiles.Add(((Wisej.Base.ResponsiveProfile)(resources.GetObject("usernametxtBox.ResponsiveProfiles"))));
             this.usernametxtBox.ScrollBars = Wisej.Web.ScrollBars.None;
-            this.usernametxtBox.Size = new System.Drawing.Size(291, 30);
+            this.usernametxtBox.Size = new System.Drawing.Size(291, 22);
             this.usernametxtBox.TabIndex = 2;
             // 
             // passwordtxtBox
@@ -87,7 +87,7 @@
             this.passwordtxtBox.PasswordChar = '*';
             this.passwordtxtBox.ResponsiveProfiles.Add(((Wisej.Base.ResponsiveProfile)(resources.GetObject("passwordtxtBox.ResponsiveProfiles"))));
             this.passwordtxtBox.ScrollBars = Wisej.Web.ScrollBars.None;
-            this.passwordtxtBox.Size = new System.Drawing.Size(291, 30);
+            this.passwordtxtBox.Size = new System.Drawing.Size(291, 22);
             this.passwordtxtBox.TabIndex = 3;
             // 
             // showchkBox
@@ -97,7 +97,7 @@
             this.showchkBox.Location = new System.Drawing.Point(185, 279);
             this.showchkBox.Name = "showchkBox";
             this.showchkBox.ResponsiveProfiles.Add(((Wisej.Base.ResponsiveProfile)(resources.GetObject("showchkBox.ResponsiveProfiles"))));
-            this.showchkBox.Size = new System.Drawing.Size(127, 20);
+            this.showchkBox.Size = new System.Drawing.Size(129, 22);
             this.showchkBox.TabIndex = 4;
             this.showchkBox.Text = "Show Password";
             this.showchkBox.CheckedChanged += new System.EventHandler(this.showchkBox_CheckedChanged);
@@ -107,7 +107,8 @@
             this.loginBtn.AllowHtml = true;
             this.loginBtn.BackColor = System.Drawing.Color.FromName("@success");
             this.loginBtn.CssClass = "button";
-            this.loginBtn.Font = new System.Drawing.Font("default, Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.loginBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.loginBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
             this.loginBtn.Location = new System.Drawing.Point(23, 329);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.ResponsiveProfiles.Add(((Wisej.Base.ResponsiveProfile)(resources.GetObject("loginBtn.ResponsiveProfiles"))));
@@ -118,9 +119,9 @@
             // 
             // clrBtn
             // 
-            this.clrBtn.BackColor = System.Drawing.Color.FromName("@invalid");
-            this.clrBtn.Font = new System.Drawing.Font("default, Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.clrBtn.ForeColor = System.Drawing.Color.FromName("@activeCaptionText");
+            this.clrBtn.BackColor = System.Drawing.Color.Red;
+            this.clrBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.clrBtn.ForeColor = System.Drawing.Color.White;
             this.clrBtn.Location = new System.Drawing.Point(23, 378);
             this.clrBtn.Name = "clrBtn";
             this.clrBtn.ResponsiveProfiles.Add(((Wisej.Base.ResponsiveProfile)(resources.GetObject("clrBtn.ResponsiveProfiles"))));
@@ -155,7 +156,7 @@
             // 
             // Loginpage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = Wisej.Web.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 542);
             this.CloseBox = false;

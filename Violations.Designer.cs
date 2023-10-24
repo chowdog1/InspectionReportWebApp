@@ -40,8 +40,8 @@
             this.label5 = new Wisej.Web.Label();
             this.apprehensiondatetimePicker = new Wisej.Web.DateTimePicker();
             this.groupBox1 = new Wisej.Web.GroupBox();
-            this.paidyesradioBtn = new Wisej.Web.RadioButton();
             this.paidnoradioBtn = new Wisej.Web.RadioButton();
+            this.paidyesradioBtn = new Wisej.Web.RadioButton();
             this.label6 = new Wisej.Web.Label();
             this.label7 = new Wisej.Web.Label();
             this.ornotextBox = new Wisej.Web.TextBox();
@@ -185,15 +185,6 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.Text = "Already Paid?";
             // 
-            // paidyesradioBtn
-            // 
-            this.paidyesradioBtn.Location = new System.Drawing.Point(28, 25);
-            this.paidyesradioBtn.Name = "paidyesradioBtn";
-            this.paidyesradioBtn.Size = new System.Drawing.Size(55, 22);
-            this.paidyesradioBtn.TabIndex = 0;
-            this.paidyesradioBtn.TabStop = true;
-            this.paidyesradioBtn.Text = "Yes";
-            // 
             // paidnoradioBtn
             // 
             this.paidnoradioBtn.Location = new System.Drawing.Point(28, 58);
@@ -202,6 +193,15 @@
             this.paidnoradioBtn.TabIndex = 1;
             this.paidnoradioBtn.TabStop = true;
             this.paidnoradioBtn.Text = "No";
+            // 
+            // paidyesradioBtn
+            // 
+            this.paidyesradioBtn.Location = new System.Drawing.Point(28, 25);
+            this.paidyesradioBtn.Name = "paidyesradioBtn";
+            this.paidyesradioBtn.Size = new System.Drawing.Size(55, 22);
+            this.paidyesradioBtn.TabIndex = 0;
+            this.paidyesradioBtn.TabStop = true;
+            this.paidyesradioBtn.Text = "Yes";
             // 
             // label6
             // 
@@ -243,6 +243,8 @@
             // paymentbreakdownBtn
             // 
             this.paymentbreakdownBtn.BackColor = System.Drawing.Color.FromArgb(103, 191, 63);
+            this.paymentbreakdownBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.paymentbreakdownBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
             this.paymentbreakdownBtn.Location = new System.Drawing.Point(460, 596);
             this.paymentbreakdownBtn.Name = "paymentbreakdownBtn";
             this.paymentbreakdownBtn.Size = new System.Drawing.Size(307, 27);
@@ -253,6 +255,8 @@
             // submitBtn
             // 
             this.submitBtn.BackColor = System.Drawing.Color.FromArgb(0, 158, 255);
+            this.submitBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.submitBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
             this.submitBtn.Location = new System.Drawing.Point(461, 638);
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Size = new System.Drawing.Size(307, 27);
@@ -262,7 +266,9 @@
             // 
             // cancelBtn
             // 
-            this.cancelBtn.BackColor = System.Drawing.Color.FromName("@invalid");
+            this.cancelBtn.BackColor = System.Drawing.Color.Red;
+            this.cancelBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cancelBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
             this.cancelBtn.Location = new System.Drawing.Point(461, 671);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(307, 27);

@@ -2449,6 +2449,9 @@
             // addBtn
             // 
             this.addBtn.AllowHtml = true;
+            this.addBtn.BackColor = System.Drawing.Color.FromArgb(0, 110, 255);
+            this.addBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.addBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
             this.addBtn.Location = new System.Drawing.Point(1622, 861);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(113, 27);
@@ -2459,6 +2462,9 @@
             // searchBtn
             // 
             this.searchBtn.AllowHtml = true;
+            this.searchBtn.BackColor = System.Drawing.Color.FromArgb(0, 110, 255);
+            this.searchBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.searchBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
             this.searchBtn.Location = new System.Drawing.Point(1622, 906);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(113, 27);
@@ -2469,6 +2475,9 @@
             // editBtn
             // 
             this.editBtn.AllowHtml = true;
+            this.editBtn.BackColor = System.Drawing.Color.FromArgb(0, 110, 255);
+            this.editBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.editBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
             this.editBtn.Location = new System.Drawing.Point(1773, 861);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(109, 27);
@@ -2479,6 +2488,9 @@
             // deleteBtn
             // 
             this.deleteBtn.AllowHtml = true;
+            this.deleteBtn.BackColor = System.Drawing.Color.FromArgb(255, 0, 0);
+            this.deleteBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.deleteBtn.ForeColor = System.Drawing.Color.White;
             this.deleteBtn.Location = new System.Drawing.Point(1773, 906);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(109, 27);
@@ -2489,6 +2501,9 @@
             // resetBtn
             // 
             this.resetBtn.AllowHtml = true;
+            this.resetBtn.BackColor = System.Drawing.Color.FromArgb(0, 110, 255);
+            this.resetBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.resetBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
             this.resetBtn.Location = new System.Drawing.Point(1471, 862);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(113, 27);
@@ -2499,6 +2514,9 @@
             // advsearchBtn
             // 
             this.advsearchBtn.AllowHtml = true;
+            this.advsearchBtn.BackColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            this.advsearchBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.advsearchBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
             this.advsearchBtn.Location = new System.Drawing.Point(1471, 906);
             this.advsearchBtn.Name = "advsearchBtn";
             this.advsearchBtn.Size = new System.Drawing.Size(113, 27);

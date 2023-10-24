@@ -244,6 +244,9 @@
             // 
             // advsearchBtn
             // 
+            this.advsearchBtn.BackColor = System.Drawing.Color.FromArgb(0, 110, 255);
+            this.advsearchBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.advsearchBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
             this.advsearchBtn.Location = new System.Drawing.Point(210, 300);
             this.advsearchBtn.Name = "advsearchBtn";
             this.advsearchBtn.Size = new System.Drawing.Size(123, 33);
@@ -253,7 +256,8 @@
             // 
             // advclearBtn
             // 
-            this.advclearBtn.BackColor = System.Drawing.Color.FromName("@invalid");
+            this.advclearBtn.BackColor = System.Drawing.Color.FromArgb(255, 0, 0);
+            this.advclearBtn.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.advclearBtn.Location = new System.Drawing.Point(354, 300);
             this.advclearBtn.Name = "advclearBtn";
             this.advclearBtn.Size = new System.Drawing.Size(123, 33);
