@@ -33,8 +33,8 @@
             this.label1 = new Wisej.Web.Label();
             this.acctnotextBox = new Wisej.Web.TextBox();
             this.groupBox1 = new Wisej.Web.GroupBox();
-            this.submittedyesradioBtn = new Wisej.Web.RadioButton();
             this.submittednoradioBtn = new Wisej.Web.RadioButton();
+            this.submittedyesradioBtn = new Wisej.Web.RadioButton();
             this.label2 = new Wisej.Web.Label();
             this.compliancechklistBox = new Wisej.Web.CheckedListBox();
             this.label3 = new Wisej.Web.Label();
@@ -82,16 +82,6 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.Text = "Submitted?";
             // 
-            // submittedyesradioBtn
-            // 
-            this.submittedyesradioBtn.AllowHtml = true;
-            this.submittedyesradioBtn.Location = new System.Drawing.Point(6, 34);
-            this.submittedyesradioBtn.Name = "submittedyesradioBtn";
-            this.submittedyesradioBtn.Size = new System.Drawing.Size(55, 22);
-            this.submittedyesradioBtn.TabIndex = 0;
-            this.submittedyesradioBtn.TabStop = true;
-            this.submittedyesradioBtn.Text = "Yes";
-            // 
             // submittednoradioBtn
             // 
             this.submittednoradioBtn.AllowHtml = true;
@@ -101,6 +91,16 @@
             this.submittednoradioBtn.TabIndex = 1;
             this.submittednoradioBtn.TabStop = true;
             this.submittednoradioBtn.Text = "No";
+            // 
+            // submittedyesradioBtn
+            // 
+            this.submittedyesradioBtn.AllowHtml = true;
+            this.submittedyesradioBtn.Location = new System.Drawing.Point(6, 34);
+            this.submittedyesradioBtn.Name = "submittedyesradioBtn";
+            this.submittedyesradioBtn.Size = new System.Drawing.Size(55, 22);
+            this.submittedyesradioBtn.TabIndex = 0;
+            this.submittedyesradioBtn.TabStop = true;
+            this.submittedyesradioBtn.Text = "Yes";
             // 
             // label2
             // 
@@ -168,6 +168,7 @@
             this.cancelBtn.Size = new System.Drawing.Size(134, 27);
             this.cancelBtn.TabIndex = 9;
             this.cancelBtn.Text = "CANCEL";
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // mainMenu1
             // 

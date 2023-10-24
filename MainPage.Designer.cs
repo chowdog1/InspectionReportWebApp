@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new Wisej.Web.Panel();
+            this.button1 = new Wisej.Web.Button();
             this.dataGridView1 = new Wisej.Web.DataGridView();
             this.panel2 = new Wisej.Web.Panel();
             this.seminartxtBox = new Wisej.Web.TextBox();
@@ -243,7 +244,6 @@
             this.menuItem11 = new Wisej.Web.MenuItem();
             this.menuItem12 = new Wisej.Web.MenuItem();
             this.menuItem13 = new Wisej.Web.MenuItem();
-            this.button1 = new Wisej.Web.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -286,6 +286,18 @@
             this.panel1.Size = new System.Drawing.Size(1903, 329);
             this.panel1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(255, 0, 23);
+            this.button1.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+            this.button1.Location = new System.Drawing.Point(14, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(111, 27);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "☰ DASHBOARD";
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.Location = new System.Drawing.Point(4, 34);
@@ -296,6 +308,7 @@
             // panel2
             // 
             this.panel2.AutoScroll = true;
+            this.panel2.BorderStyle = Wisej.Web.BorderStyle.Solid;
             this.panel2.Controls.Add(this.seminartxtBox);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.label13);
@@ -322,9 +335,9 @@
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.natureofbusinesscmbBox);
-            this.panel2.Location = new System.Drawing.Point(4, 336);
+            this.panel2.Location = new System.Drawing.Point(14, 336);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(531, 663);
+            this.panel2.Size = new System.Drawing.Size(521, 663);
             this.panel2.TabIndex = 1;
             // 
             // seminartxtBox
@@ -727,6 +740,7 @@
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = Wisej.Web.BorderStyle.Solid;
             this.panel3.Controls.Add(this.groupBox19);
             this.panel3.Controls.Add(this.groupBox18);
             this.panel3.Controls.Add(this.groupBox17);
@@ -2043,6 +2057,7 @@
             // panel4
             // 
             this.panel4.AutoScroll = true;
+            this.panel4.BorderStyle = Wisej.Web.BorderStyle.Solid;
             this.panel4.Controls.Add(this.inspectorschklistBox);
             this.panel4.Controls.Add(this.label51);
             this.panel4.Controls.Add(this.recommendationchklistBox);
@@ -2615,17 +2630,6 @@
             this.menuItem13.Name = "menuItem13";
             this.menuItem13.Text = "Change Password";
             this.menuItem13.Click += new System.EventHandler(this.menuItem13_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(255, 0, 23);
-            this.button1.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.button1.Location = new System.Drawing.Point(14, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 27);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "☰ DASHBOARD";
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // inspectionReport
             // 
