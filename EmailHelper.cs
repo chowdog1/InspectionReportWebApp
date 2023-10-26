@@ -31,7 +31,22 @@ namespace InspectionReportWebApp
                 {
                     From = new MailAddress("sjcenrodocs2021@gmail.com", "CENROInspection"),
                     Subject = "[Request] Login Credentials",
-                    Body = $"Name: {name}\nDepartment: {department}\nEmail: {email}\nReason: {reason}"
+                    Body = $@"
+                    Dear Sir/Madam,
+
+                    I am writing to request access credentials for the IRMS within our department. I believe access to this system is crucial for the following reasons:
+
+                    Name: {name}
+                    Department: {department}
+                    Email: {email}
+                    Reason for Access: {reason}
+
+                    I would appreciate your prompt attention to this matter.
+
+                    Thank you.
+
+                    Sincerely,
+                    {name}"
                 };
 
                 message.To.Add(new MailAddress("idosedzelvan@gmail.com", "Edzel Van Idos"));
