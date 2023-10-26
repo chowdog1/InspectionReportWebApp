@@ -13,14 +13,14 @@ namespace InspectionReportWebApp
             string smtpHost = "smtp-relay.brevo.com"; // Replace with the actual SMTP server hostname
             int smtpPort = 587; // Replace with the appropriate SMTP port
             string smtpUsername = "sjcenrodocs2021@gmail.com"; // Replace with your SMTP username
-            string smtpPassword = "kI1Rb6cQ0GAJZzfv"; // Replace with your SMTP password
+            string smtpPassword = "xsmtpsib-1576bac15f1bf34f275c2d537150dda0408d79291862c0715d83549613af61b6-RkBjv3h7pA9dSmgW"; // Replace with your SMTP password
 
             // Create an SMTP client
             using (var client = new SmtpClient(smtpHost))
             {
                 client.Port = smtpPort;
                 client.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
-                client.EnableSsl = true; // Enable SSL/TLS encryption (recommended)
+                client.EnableSsl = false; // Enable SSL/TLS encryption (recommended)
 
                 // Handle SSL certificate validation (optional)
                 ServicePointManager.ServerCertificateValidationCallback =

@@ -25,14 +25,13 @@ namespace InspectionReportWebApp
             }
             await EmailHelper.SendRequestEmail(name, dept, email, reason);
 
-            MessageBox.Show("Request successfully sent. Always check your email.");
-
-            Application.Exit();
+            MessageBox.Show("Request successfully sent.");
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+            new Loginpage().Show();
         }
     }
 }
