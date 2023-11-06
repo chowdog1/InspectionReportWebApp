@@ -35,6 +35,7 @@
             this.label2 = new Wisej.Web.Label();
             this.label1 = new Wisej.Web.Label();
             this.IRMSBtn = new Wisej.Web.Button();
+            this.ecncBtn = new Wisej.Web.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,12 +120,25 @@
             this.IRMSBtn.Text = "Inspection Report Management System";
             this.IRMSBtn.Click += new System.EventHandler(this.IRMSBtn_Click);
             // 
+            // ecncBtn
+            // 
+            this.ecncBtn.BackColor = System.Drawing.Color.FromArgb(51, 122, 183);
+            this.ecncBtn.Font = new System.Drawing.Font("Nirmala UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.ecncBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+            this.ecncBtn.Location = new System.Drawing.Point(285, 116);
+            this.ecncBtn.Name = "ecncBtn";
+            this.ecncBtn.Size = new System.Drawing.Size(378, 54);
+            this.ecncBtn.TabIndex = 2;
+            this.ecncBtn.Text = "Application for Environmental Compliance for New Construction";
+            this.ecncBtn.Click += new System.EventHandler(this.ecncBtn_Click);
+            // 
             // HomePageRegular
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = Wisej.Web.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 250);
             this.CloseBox = false;
+            this.Controls.Add(this.ecncBtn);
             this.Controls.Add(this.IRMSBtn);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -146,5 +160,6 @@
         private Wisej.Web.Line line1;
         private Wisej.Web.Label label6;
         private Wisej.Web.Button IRMSBtn;
+        private Wisej.Web.Button ecncBtn;
     }
 }

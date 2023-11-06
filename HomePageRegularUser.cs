@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InspectionReportWebApp.ECNC;
+using System;
 using Wisej.Web;
 
 
@@ -25,6 +26,13 @@ namespace InspectionReportWebApp
             inspectionReport mainPage = new inspectionReport();
             mainPage.DisableMainMenuItem();
             mainPage.Show();
+            this.Close();
+        }
+
+        private void ecncBtn_Click(object sender, EventArgs e)
+        {
+            ConstructionMain constructionMain = new ConstructionMain();
+            constructionMain.Show();
             this.Close();
         }
     }
