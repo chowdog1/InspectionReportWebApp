@@ -411,10 +411,6 @@ namespace InspectionReportWebApp
         {
             menuItem9.Enabled = false;
             menuItem9.Visible = false;
-            menuItem10.Enabled = false;
-            menuItem10.Visible = false;
-            menuItem11.Enabled = false;
-            menuItem11.Visible = false;
             menuItem12.Enabled = false;
             menuItem12.Visible = false;
         }
@@ -422,10 +418,6 @@ namespace InspectionReportWebApp
         {
             menuItem9.Enabled = true;
             menuItem9.Visible = true;
-            menuItem10.Enabled = true;
-            menuItem10.Visible = true;
-            menuItem11.Enabled = true;
-            menuItem11.Visible = true;
             menuItem12.Enabled = true;
             menuItem12.Visible = true;
         }

@@ -240,8 +240,6 @@
             this.menuItem7 = new Wisej.Web.MenuItem();
             this.menuItem8 = new Wisej.Web.MenuItem();
             this.menuItem9 = new Wisej.Web.MenuItem();
-            this.menuItem10 = new Wisej.Web.MenuItem();
-            this.menuItem11 = new Wisej.Web.MenuItem();
             this.menuItem12 = new Wisej.Web.MenuItem();
             this.menuItem13 = new Wisej.Web.MenuItem();
             this.panel1.SuspendLayout();
@@ -2593,8 +2591,6 @@
             this.menuItem7,
             this.menuItem8,
             this.menuItem9,
-            this.menuItem10,
-            this.menuItem11,
             this.menuItem12,
             this.menuItem13});
             this.menuItem3.Name = "menuItem3";
@@ -2621,30 +2617,16 @@
             this.menuItem9.Text = "Audit Trail";
             this.menuItem9.Click += new System.EventHandler(this.menuItem9_Click);
             // 
-            // menuItem10
-            // 
-            this.menuItem10.Index = 3;
-            this.menuItem10.Name = "menuItem10";
-            this.menuItem10.Text = "Create New User";
-            this.menuItem10.Click += new System.EventHandler(this.menuItem10_Click);
-            // 
-            // menuItem11
-            // 
-            this.menuItem11.Index = 4;
-            this.menuItem11.Name = "menuItem11";
-            this.menuItem11.Text = "Manage Registered Users";
-            this.menuItem11.Click += new System.EventHandler(this.menuItem11_Click);
-            // 
             // menuItem12
             // 
-            this.menuItem12.Index = 5;
+            this.menuItem12.Index = 3;
             this.menuItem12.Name = "menuItem12";
             this.menuItem12.Text = "Import Data From Excel";
             this.menuItem12.Click += new System.EventHandler(this.menuItem12_Click);
             // 
             // menuItem13
             // 
-            this.menuItem13.Index = 6;
+            this.menuItem13.Index = 4;
             this.menuItem13.Name = "menuItem13";
             this.menuItem13.Text = "Change Password";
             this.menuItem13.Click += new System.EventHandler(this.menuItem13_Click);
@@ -2942,8 +2924,6 @@
         private Wisej.Web.MenuItem menuItem7;
         private Wisej.Web.MenuItem menuItem8;
         private Wisej.Web.MenuItem menuItem9;
-        private Wisej.Web.MenuItem menuItem10;
-        private Wisej.Web.MenuItem menuItem11;
         private Wisej.Web.MenuItem menuItem12;
         private Wisej.Web.MenuItem menuItem13;
         private Wisej.Web.MenuItem menuItem14;

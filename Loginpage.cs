@@ -52,19 +52,22 @@ namespace InspectionReportWebApp
                             UpdateFailedLoginAttempts(username, 0);
 
                             AuthenticatedUser.UserName = username;
-                            inspectionReport mainPage = new inspectionReport();
+                            //inspectionReport mainPage = new inspectionReport();
+                            HomePageAdmin homePageAdmin = new HomePageAdmin();
+                            HomePageRegular homePageRegular = new HomePageRegular();
                             if (!IsAdmin)
                             {
                                 RegularLoggedIn?.Invoke(this, EventArgs.Empty);
-                                mainPage.DisableMainMenuItem();
+                                homePageRegular.Show();
+                                this.Hide();
                             }
                             else if (IsAdmin)
                             {
                                 AdminLoggedIn?.Invoke(this, EventArgs.Empty);
-                                mainPage.EnableMainMenuItem();
+                                homePageAdmin.Show();
+                                this.Hide();
                             }
-                            mainPage.Show();
-                            this.Hide();
+
 
                             UpdateFailedLoginAttempts(username, 0);
                         }
