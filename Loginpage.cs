@@ -52,6 +52,7 @@ namespace InspectionReportWebApp
                             UpdateFailedLoginAttempts(username, 0);
 
                             AuthenticatedUser.UserName = username;
+                            AuthenticatedUser.IsAdmin = IsAdmin;
                             //inspectionReport mainPage = new inspectionReport();
                             HomePageAdmin homePageAdmin = new HomePageAdmin();
                             HomePageRegular homePageRegular = new HomePageRegular();

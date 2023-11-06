@@ -737,7 +737,18 @@ namespace InspectionReportWebApp
         }
         private void menuItem6_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (AuthenticatedUser.IsAdmin)
+            { 
+                HomePageAdmin homePageAdmin = new HomePageAdmin();
+                homePageAdmin.Show();
+            }
+            else
+            {
+                HomePageRegular homePageRegular = new HomePageRegular();
+                homePageRegular.Show();
+            }
+
+            this.Hide();
         }
         private void ShowLogForm()
         {
