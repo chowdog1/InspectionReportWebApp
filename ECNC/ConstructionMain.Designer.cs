@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new Wisej.Web.Panel();
+            this.label5 = new Wisej.Web.Label();
             this.label1 = new Wisej.Web.Label();
             this.label4 = new Wisej.Web.Label();
             this.label3 = new Wisej.Web.Label();
             this.label2 = new Wisej.Web.Label();
-            this.label5 = new Wisej.Web.Label();
             this.label6 = new Wisej.Web.Label();
             this.label7 = new Wisej.Web.Label();
             this.label8 = new Wisej.Web.Label();
@@ -60,8 +60,10 @@
             this.submitBtn = new Wisej.Web.Button();
             this.clearBtn = new Wisej.Web.Button();
             this.groupBox1 = new Wisej.Web.GroupBox();
-            this.completedocsradioBtn = new Wisej.Web.RadioButton();
             this.incompletedocsradioBtn = new Wisej.Web.RadioButton();
+            this.completedocsradioBtn = new Wisej.Web.RadioButton();
+            this.label17 = new Wisej.Web.Label();
+            this.typeofprojcmbBox = new Wisej.Web.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +81,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 807);
             this.panel1.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AllowHtml = true;
+            this.label5.AutoSize = true;
+            this.label5.Cursor = Wisej.Web.Cursors.Hand;
+            this.label5.Font = new System.Drawing.Font("Nirmala UI", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label5.Location = new System.Drawing.Point(68, 132);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 23);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Search";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label1
             // 
@@ -130,18 +145,6 @@
             this.label2.Size = new System.Drawing.Size(82, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "Payments";
-            // 
-            // label5
-            // 
-            this.label5.AllowHtml = true;
-            this.label5.AutoSize = true;
-            this.label5.Cursor = Wisej.Web.Cursors.Hand;
-            this.label5.Font = new System.Drawing.Font("Nirmala UI", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label5.Location = new System.Drawing.Point(68, 132);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 23);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Search";
             // 
             // label6
             // 
@@ -419,15 +422,6 @@
             this.groupBox1.Size = new System.Drawing.Size(234, 44);
             this.groupBox1.TabIndex = 32;
             // 
-            // completedocsradioBtn
-            // 
-            this.completedocsradioBtn.Location = new System.Drawing.Point(11, 11);
-            this.completedocsradioBtn.Name = "completedocsradioBtn";
-            this.completedocsradioBtn.Size = new System.Drawing.Size(88, 22);
-            this.completedocsradioBtn.TabIndex = 0;
-            this.completedocsradioBtn.TabStop = true;
-            this.completedocsradioBtn.Text = "Complete";
-            // 
             // incompletedocsradioBtn
             // 
             this.incompletedocsradioBtn.Location = new System.Drawing.Point(120, 11);
@@ -437,6 +431,38 @@
             this.incompletedocsradioBtn.TabStop = true;
             this.incompletedocsradioBtn.Text = "Incomplete";
             // 
+            // completedocsradioBtn
+            // 
+            this.completedocsradioBtn.Location = new System.Drawing.Point(11, 11);
+            this.completedocsradioBtn.Name = "completedocsradioBtn";
+            this.completedocsradioBtn.Size = new System.Drawing.Size(88, 22);
+            this.completedocsradioBtn.TabIndex = 0;
+            this.completedocsradioBtn.TabStop = true;
+            this.completedocsradioBtn.Text = "Complete";
+            // 
+            // label17
+            // 
+            this.label17.AllowHtml = true;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label17.Location = new System.Drawing.Point(673, 129);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(84, 18);
+            this.label17.TabIndex = 33;
+            this.label17.Text = "Project Type:";
+            // 
+            // typeofprojcmbBox
+            // 
+            this.typeofprojcmbBox.AllowHtml = true;
+            this.typeofprojcmbBox.Items.AddRange(new object[] {
+            "Construction",
+            "Renovation"});
+            this.typeofprojcmbBox.Location = new System.Drawing.Point(806, 126);
+            this.typeofprojcmbBox.Name = "typeofprojcmbBox";
+            this.typeofprojcmbBox.Size = new System.Drawing.Size(186, 22);
+            this.typeofprojcmbBox.Sorted = true;
+            this.typeofprojcmbBox.TabIndex = 34;
+            // 
             // ConstructionMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -444,6 +470,8 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1022, 807);
             this.CloseBox = false;
+            this.Controls.Add(this.typeofprojcmbBox);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.clearBtn);
             this.Controls.Add(this.submitBtn);
@@ -521,5 +549,7 @@
         private Wisej.Web.GroupBox groupBox1;
         private Wisej.Web.RadioButton incompletedocsradioBtn;
         private Wisej.Web.RadioButton completedocsradioBtn;
+        private Wisej.Web.Label label17;
+        private Wisej.Web.ComboBox typeofprojcmbBox;
     }
 }

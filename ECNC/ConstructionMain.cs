@@ -39,21 +39,34 @@ namespace InspectionReportWebApp.ECNC
         }
         private void label4_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Loginpage Loginpage = new Loginpage();
-            Loginpage.Show();
+            var confirmResult = MessageBox.Show("Are you sure you want to logout?", "Confirm Logout", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                this.Close();
+                Loginpage Loginpage = new Loginpage();
+                Loginpage.Show();
+            }
+
         }
         private void label1_Click(object sender, EventArgs e)
         {
             if (AuthenticatedUser.IsAdmin)
             {
-                HomePageAdmin homePageAdmin = new HomePageAdmin();
-                homePageAdmin.Show();
+                var confirmResult = MessageBox.Show("Are you sure you want to exit?", "Confirm exit", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    HomePageAdmin homePageAdmin = new HomePageAdmin();
+                    homePageAdmin.Show();
+                }
             }
             else
             {
-                HomePageRegular homePageRegular = new HomePageRegular();
-                homePageRegular.Show();
+                var confirmResult = MessageBox.Show("Are you sure you want to exit?", "Confirm exit", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    HomePageRegular homePageRegular = new HomePageRegular();
+                    homePageRegular.Show();
+                }
             }
             this.Close();
         }
@@ -70,6 +83,7 @@ namespace InspectionReportWebApp.ECNC
             ClearSelectedItems(recommendationchkListBox);
 
             brgycmbBox.SelectedIndex = -1;
+            typeofprojcmbBox.SelectedIndex = -1;
 
             completedocsradioBtn.Checked = false;
             incompletedocsradioBtn.Checked = false;
@@ -139,9 +153,9 @@ namespace InspectionReportWebApp.ECNC
             {
                 con.Open();
 
-                string insertQuery = "INSERT INTO ConstructionApplications (ApplicationNo, DateofApplication, NameofProject, Barangay, LocationofProject, BriefofProject, " +
+                string insertQuery = "INSERT INTO ConstructionApplications (ApplicationNo, DateofApplication, NameofProject, Barangay, LocationofProject, TypeofProject, BriefofProject, " +
                                      "ProponentName, Documents, DocsDateCompleted, Evaluation, Recommendations, Others) " +
-                                     "VALUES (@ApplicationNo, @DateofApplication, @NameofProject, @Barangay, @LocationofProject, @BriefofProject, " +
+                                     "VALUES (@ApplicationNo, @DateofApplication, @NameofProject, @Barangay, @LocationofProject, @TypeofProject, @BriefofProject, " +
                                      "@ProponentName, @Documents, @DocsDateCompleted, @Evaluation, @Recommendations, @Others)";
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
@@ -157,6 +171,7 @@ namespace InspectionReportWebApp.ECNC
                     cmd.Parameters.AddWithValue("@NameofProject", projectnametxtBox.Text);
                     cmd.Parameters.AddWithValue("@Barangay", brgycmbBox.Text);
                     cmd.Parameters.AddWithValue("@LocationofProject", locationprojecttxtBox.Text);
+                    cmd.Parameters.AddWithValue("@TypeofProject", typeofprojcmbBox.Text);
                     cmd.Parameters.AddWithValue("@BriefofProject", brieftxtBox.Text);
                     cmd.Parameters.AddWithValue("@Evaluation", evaluationtxtBox.Text);
                     cmd.Parameters.AddWithValue("@ProponentName", proponentnametxtBox.Text);
@@ -207,6 +222,11 @@ namespace InspectionReportWebApp.ECNC
         {
             datecompletedateTimePicker.CustomFormat = "dd/MM/yyyy";
             datecompleted = datecompletedateTimePicker.Value;
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            new Search().Show();
         }
     }
 }
