@@ -115,6 +115,7 @@
             this.cancelBtn.Size = new System.Drawing.Size(100, 27);
             this.cancelBtn.TabIndex = 7;
             this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // Payment
             // 
