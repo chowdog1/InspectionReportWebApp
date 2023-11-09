@@ -1,4 +1,5 @@
-﻿using InspectionReportWebApp.ECNC;
+﻿using InspectionReportWebApp.AEC;
+using InspectionReportWebApp.ECNC;
 using System;
 using Wisej.Web;
 
@@ -33,6 +34,13 @@ namespace InspectionReportWebApp
         {
             ConstructionMain constructionMain = new ConstructionMain();
             constructionMain.Show();
+            this.Close();
+        }
+
+        private void aecBtn_Click(object sender, EventArgs e)
+        {
+            HomeAEC homeAEC = new HomeAEC();
+            homeAEC.Show();
             this.Close();
         }
     }

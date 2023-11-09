@@ -36,6 +36,7 @@
             this.label1 = new Wisej.Web.Label();
             this.IRMSBtn = new Wisej.Web.Button();
             this.ecncBtn = new Wisej.Web.Button();
+            this.aecBtn = new Wisej.Web.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,7 +114,7 @@
             this.IRMSBtn.BackColor = System.Drawing.Color.FromArgb(51, 122, 183);
             this.IRMSBtn.Font = new System.Drawing.Font("Nirmala UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.IRMSBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            this.IRMSBtn.Location = new System.Drawing.Point(285, 44);
+            this.IRMSBtn.Location = new System.Drawing.Point(285, 95);
             this.IRMSBtn.Name = "IRMSBtn";
             this.IRMSBtn.Size = new System.Drawing.Size(378, 54);
             this.IRMSBtn.TabIndex = 1;
@@ -125,12 +126,24 @@
             this.ecncBtn.BackColor = System.Drawing.Color.FromArgb(51, 122, 183);
             this.ecncBtn.Font = new System.Drawing.Font("Nirmala UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.ecncBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            this.ecncBtn.Location = new System.Drawing.Point(285, 116);
+            this.ecncBtn.Location = new System.Drawing.Point(285, 157);
             this.ecncBtn.Name = "ecncBtn";
             this.ecncBtn.Size = new System.Drawing.Size(378, 54);
             this.ecncBtn.TabIndex = 2;
             this.ecncBtn.Text = "Application for Environmental Compliance for New Construction";
             this.ecncBtn.Click += new System.EventHandler(this.ecncBtn_Click);
+            // 
+            // aecBtn
+            // 
+            this.aecBtn.BackColor = System.Drawing.Color.FromArgb(51, 122, 183);
+            this.aecBtn.Font = new System.Drawing.Font("Nirmala UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.aecBtn.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
+            this.aecBtn.Location = new System.Drawing.Point(285, 34);
+            this.aecBtn.Name = "aecBtn";
+            this.aecBtn.Size = new System.Drawing.Size(378, 54);
+            this.aecBtn.TabIndex = 3;
+            this.aecBtn.Text = "Application for Environmental Clearance";
+            this.aecBtn.Click += new System.EventHandler(this.aecBtn_Click);
             // 
             // HomePageRegular
             // 
@@ -138,6 +151,7 @@
             this.AutoScaleMode = Wisej.Web.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 250);
             this.CloseBox = false;
+            this.Controls.Add(this.aecBtn);
             this.Controls.Add(this.ecncBtn);
             this.Controls.Add(this.IRMSBtn);
             this.Controls.Add(this.panel1);
@@ -161,5 +175,6 @@
         private Wisej.Web.Label label6;
         private Wisej.Web.Button IRMSBtn;
         private Wisej.Web.Button ecncBtn;
+        private Wisej.Web.Button aecBtn;
     }
 }
