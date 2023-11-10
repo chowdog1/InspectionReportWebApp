@@ -132,8 +132,8 @@ namespace InspectionReportWebApp.AEC
                     int paidselectedYear = Convert.ToInt32(amountpaidyearcmbBox.SelectedItem);
                     string insertPayment = $"INSERT INTO Payments (AccountNo, BusinessName, NameofOwner, BusinessAddress, " +
                                            $"AssessedDate{assessedselectedYear}, AssessedAmount{assessedselectedYear}, AssessedFor{assessedselectedYear}, " +
-                                           $"DatePaid{paidselectedYear}, AmountPaid{paidselectedYear}, PaidForYear{paidselectedYear}) " +
-                                           $"VALUES (@AccountNo, @BusinessName, @NameofOwner, @BusinessAddress, @AssessedDate, @AssessedAmount, @AssessedForYear, @DatePaid, @AmountPaid, @PaidForYear)";
+                                           $"DatePaid{paidselectedYear}, AmountPaid{paidselectedYear}, OR{paidselectedYear}, PaidForYear{paidselectedYear}) " +
+                                           $"VALUES (@AccountNo, @BusinessName, @NameofOwner, @BusinessAddress, @AssessedDate, @AssessedAmount, @AssessedForYear, @DatePaid, @AmountPaid, @OR, @PaidForYear)";
 
                     using (SqlCommand cmd2 = new SqlCommand(insertPayment, con))
                     {
@@ -160,6 +160,7 @@ namespace InspectionReportWebApp.AEC
                             cmd2.Parameters.AddWithValue("@DatePaid", DBNull.Value);
                         }
                         cmd2.Parameters.AddWithValue("@AmountPaid", amountpaidtxtBox.Text);
+                        cmd2.Parameters.AddWithValue("@OR", ornotxtBox.Text);
                         cmd2.Parameters.AddWithValue("@PaidForYear", amountpaidyearcmbBox.Text);
 
                         try
@@ -177,6 +178,29 @@ namespace InspectionReportWebApp.AEC
                     }
                 }
             }
+        }
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+        private void doadatetimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            doadatetimePicker.CustomFormat = "dd/MM/yyyy";
+            dateapplication = doadatetimePicker.Value;
+        }
+        private void dateassesseddatetimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            dateassesseddatetimePicker.CustomFormat = "dd/MM/yyyy";
+            dateassessed = dateassesseddatetimePicker.Value;
+        }
+        private void datepaiddatetimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            datepaiddatetimePicker.CustomFormat = "dd/MM/yyyy";
+            datepaid = datepaiddatetimePicker.Value;
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+            new PaymentAEC().Show();
         }
     }
 }
