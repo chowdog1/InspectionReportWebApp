@@ -49,8 +49,9 @@
             // 
             this.dataGridView1.Location = new System.Drawing.Point(15, 15);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(579, 302);
+            this.dataGridView1.Size = new System.Drawing.Size(577, 300);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellFormatting += new Wisej.Web.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // label1
             // 
@@ -96,21 +97,21 @@
             // 
             this.accountnotxtBox.Location = new System.Drawing.Point(131, 332);
             this.accountnotxtBox.Name = "accountnotxtBox";
-            this.accountnotxtBox.Size = new System.Drawing.Size(194, 30);
+            this.accountnotxtBox.Size = new System.Drawing.Size(194, 22);
             this.accountnotxtBox.TabIndex = 5;
             // 
             // amounttxtBox
             // 
             this.amounttxtBox.Location = new System.Drawing.Point(131, 435);
             this.amounttxtBox.Name = "amounttxtBox";
-            this.amounttxtBox.Size = new System.Drawing.Size(194, 30);
+            this.amounttxtBox.Size = new System.Drawing.Size(194, 22);
             this.amounttxtBox.TabIndex = 6;
             // 
             // ornotxtBox
             // 
             this.ornotxtBox.Location = new System.Drawing.Point(131, 485);
             this.ornotxtBox.Name = "ornotxtBox";
-            this.ornotxtBox.Size = new System.Drawing.Size(194, 30);
+            this.ornotxtBox.Size = new System.Drawing.Size(194, 22);
             this.ornotxtBox.TabIndex = 7;
             // 
             // label5
@@ -125,9 +126,10 @@
             // 
             // dopdatetimePicker
             // 
+            this.dopdatetimePicker.Format = Wisej.Web.DateTimePickerFormat.Short;
             this.dopdatetimePicker.Location = new System.Drawing.Point(131, 379);
             this.dopdatetimePicker.Name = "dopdatetimePicker";
-            this.dopdatetimePicker.Size = new System.Drawing.Size(194, 30);
+            this.dopdatetimePicker.Size = new System.Drawing.Size(194, 22);
             this.dopdatetimePicker.TabIndex = 9;
             this.dopdatetimePicker.ValueChanged += new System.EventHandler(this.dopdatetimePicker_ValueChanged);
             // 
@@ -148,7 +150,7 @@
             "2030"});
             this.foryearcmbBox.Location = new System.Drawing.Point(131, 534);
             this.foryearcmbBox.Name = "foryearcmbBox";
-            this.foryearcmbBox.Size = new System.Drawing.Size(194, 30);
+            this.foryearcmbBox.Size = new System.Drawing.Size(194, 22);
             this.foryearcmbBox.TabIndex = 10;
             // 
             // searchBtn

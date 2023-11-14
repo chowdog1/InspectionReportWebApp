@@ -34,18 +34,19 @@ namespace InspectionReportWebApp.AEC
                 }
             }
 
-            dateapplication = null;
-            dateassessed = null;
-            datepaid = null;
 
             doadatetimePicker.Format = DateTimePickerFormat.Custom;
-            doadatetimePicker.CustomFormat = "dd/MM/yyyy";
+            doadatetimePicker.CustomFormat = "--/--/----";
+            doadatetimePicker.ValueChanged += doadatetimePicker_ValueChanged;
 
             dateassesseddatetimePicker.Format = DateTimePickerFormat.Custom;
-            dateassesseddatetimePicker.CustomFormat = "dd/MM/yyyy";
+            dateassesseddatetimePicker.CustomFormat = "--/--/----";
+            dateassesseddatetimePicker.ValueChanged += dateassesseddatetimePicker_ValueChanged;
 
             datepaiddatetimePicker.Format = DateTimePickerFormat.Custom;
-            datepaiddatetimePicker.CustomFormat = "dd/MM/yyyy";
+            datepaiddatetimePicker.CustomFormat = "--/--/----";
+            datepaiddatetimePicker.ValueChanged += datepaiddatetimePicker_ValueChanged;
+
         }
         private void ClearForm()
         {
@@ -63,20 +64,20 @@ namespace InspectionReportWebApp.AEC
             yearassessedcmbBox.SelectedIndex -= 1;
             amountpaidyearcmbBox.SelectedIndex -= 1;
 
-            dateapplication = null;
-            dateassessed = null;
-            datepaid = null;
-
             doadatetimePicker.Format = DateTimePickerFormat.Custom;
-            doadatetimePicker.CustomFormat = "dd/MM/yyyy";
+            doadatetimePicker.CustomFormat = "--/--/----";
+            doadatetimePicker.ValueChanged += doadatetimePicker_ValueChanged;
 
             dateassesseddatetimePicker.Format = DateTimePickerFormat.Custom;
-            dateassesseddatetimePicker.CustomFormat = "dd/MM/yyyy";
+            dateassesseddatetimePicker.CustomFormat = "--/--/----";
+            dateassesseddatetimePicker.ValueChanged += dateassesseddatetimePicker_ValueChanged;
 
             datepaiddatetimePicker.Format = DateTimePickerFormat.Custom;
-            datepaiddatetimePicker.CustomFormat = "dd/MM/yyyy";
+            datepaiddatetimePicker.CustomFormat = "--/--/----";
+            datepaiddatetimePicker.ValueChanged += datepaiddatetimePicker_ValueChanged;
 
         }
+
         private void PopulateDataGridView()
         {
             string connectionString = "Data Source=DESKTOP-HTKIB76\\SQLEXPRESS01;Initial Catalog=AEC;Integrated Security=True";
@@ -185,22 +186,54 @@ namespace InspectionReportWebApp.AEC
         }
         private void doadatetimePicker_ValueChanged(object sender, EventArgs e)
         {
-            doadatetimePicker.CustomFormat = "dd/MM/yyyy";
-            dateapplication = doadatetimePicker.Value;
+            if(doadatetimePicker.Value == DateTimePicker.MinimumDateTime.Date)
+            {
+                doadatetimePicker.CustomFormat = "--/--/----";
+                dateapplication = null;
+            }
+            else
+            {
+                doadatetimePicker.CustomFormat = "dd/MM/yyyy";
+                dateapplication = doadatetimePicker.Value.Date;
+            }
         }
         private void dateassesseddatetimePicker_ValueChanged(object sender, EventArgs e)
         {
-            dateassesseddatetimePicker.CustomFormat = "dd/MM/yyyy";
-            dateassessed = dateassesseddatetimePicker.Value;
+            if (dateassesseddatetimePicker.Value == DateTimePicker.MinimumDateTime.Date)
+            {
+                dateassesseddatetimePicker.CustomFormat = "--/--/----";
+                dateassessed = null;
+            }
+            else
+            {
+                dateassesseddatetimePicker.CustomFormat = "dd/MM/yyyy";
+                dateassessed = dateassesseddatetimePicker.Value.Date;
+            }
         }
         private void datepaiddatetimePicker_ValueChanged(object sender, EventArgs e)
         {
-            datepaiddatetimePicker.CustomFormat = "dd/MM/yyyy";
-            datepaid = datepaiddatetimePicker.Value;
+            if (datepaiddatetimePicker.Value == DateTimePicker.MinimumDateTime.Date)
+            {
+                datepaiddatetimePicker.CustomFormat = "--/--/----";
+                datepaid = null;
+            }
+            else
+            {
+                datepaiddatetimePicker.CustomFormat = "dd/MM/yyyy";
+                datepaid = datepaiddatetimePicker.Value.Date;
+            }
         }
         private void label1_Click(object sender, EventArgs e)
         {
             new PaymentAEC().Show();
+        }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 1 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.FormattingApplied = true;
+            }
         }
     }
 }

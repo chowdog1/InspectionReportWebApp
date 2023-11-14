@@ -134,8 +134,9 @@
             // 
             this.dataGridView1.Location = new System.Drawing.Point(205, 17);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(990, 225);
+            this.dataGridView1.Size = new System.Drawing.Size(988, 223);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellFormatting += new Wisej.Web.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // label5
             // 
@@ -290,14 +291,15 @@
             // 
             this.accountnotxtBox.Location = new System.Drawing.Point(341, 263);
             this.accountnotxtBox.Name = "accountnotxtBox";
-            this.accountnotxtBox.Size = new System.Drawing.Size(173, 30);
+            this.accountnotxtBox.Size = new System.Drawing.Size(173, 22);
             this.accountnotxtBox.TabIndex = 17;
             // 
             // doadatetimePicker
             // 
+            this.doadatetimePicker.Format = Wisej.Web.DateTimePickerFormat.DateTime;
             this.doadatetimePicker.Location = new System.Drawing.Point(341, 301);
             this.doadatetimePicker.Name = "doadatetimePicker";
-            this.doadatetimePicker.Size = new System.Drawing.Size(173, 30);
+            this.doadatetimePicker.Size = new System.Drawing.Size(173, 22);
             this.doadatetimePicker.TabIndex = 18;
             this.doadatetimePicker.ValueChanged += new System.EventHandler(this.doadatetimePicker_ValueChanged);
             // 
@@ -305,21 +307,21 @@
             // 
             this.businessnametxtBox.Location = new System.Drawing.Point(341, 337);
             this.businessnametxtBox.Name = "businessnametxtBox";
-            this.businessnametxtBox.Size = new System.Drawing.Size(173, 30);
+            this.businessnametxtBox.Size = new System.Drawing.Size(173, 22);
             this.businessnametxtBox.TabIndex = 19;
             // 
             // nameownertxtBox
             // 
             this.nameownertxtBox.Location = new System.Drawing.Point(341, 378);
             this.nameownertxtBox.Name = "nameownertxtBox";
-            this.nameownertxtBox.Size = new System.Drawing.Size(173, 30);
+            this.nameownertxtBox.Size = new System.Drawing.Size(173, 22);
             this.nameownertxtBox.TabIndex = 20;
             // 
             // addresstxtBox
             // 
             this.addresstxtBox.Location = new System.Drawing.Point(341, 418);
             this.addresstxtBox.Name = "addresstxtBox";
-            this.addresstxtBox.Size = new System.Drawing.Size(173, 30);
+            this.addresstxtBox.Size = new System.Drawing.Size(173, 22);
             this.addresstxtBox.TabIndex = 21;
             // 
             // brgycmbBox
@@ -348,7 +350,7 @@
             "West Crame"});
             this.brgycmbBox.Location = new System.Drawing.Point(341, 461);
             this.brgycmbBox.Name = "brgycmbBox";
-            this.brgycmbBox.Size = new System.Drawing.Size(173, 30);
+            this.brgycmbBox.Size = new System.Drawing.Size(173, 22);
             this.brgycmbBox.TabIndex = 22;
             // 
             // natureofbusinesscmbBox
@@ -419,7 +421,7 @@
             "WHOLESALER - N-2"});
             this.natureofbusinesscmbBox.Location = new System.Drawing.Point(341, 499);
             this.natureofbusinesscmbBox.Name = "natureofbusinesscmbBox";
-            this.natureofbusinesscmbBox.Size = new System.Drawing.Size(173, 30);
+            this.natureofbusinesscmbBox.Size = new System.Drawing.Size(173, 22);
             this.natureofbusinesscmbBox.TabIndex = 23;
             // 
             // businesstypecmbBox
@@ -429,7 +431,7 @@
             "HIGHRISK"});
             this.businesstypecmbBox.Location = new System.Drawing.Point(741, 265);
             this.businesstypecmbBox.Name = "businesstypecmbBox";
-            this.businesstypecmbBox.Size = new System.Drawing.Size(173, 30);
+            this.businesstypecmbBox.Size = new System.Drawing.Size(173, 22);
             this.businesstypecmbBox.TabIndex = 24;
             // 
             // applicationstatuscmbBox
@@ -439,14 +441,15 @@
             "RENEWAL"});
             this.applicationstatuscmbBox.Location = new System.Drawing.Point(741, 306);
             this.applicationstatuscmbBox.Name = "applicationstatuscmbBox";
-            this.applicationstatuscmbBox.Size = new System.Drawing.Size(173, 30);
+            this.applicationstatuscmbBox.Size = new System.Drawing.Size(173, 22);
             this.applicationstatuscmbBox.TabIndex = 25;
             // 
             // dateassesseddatetimePicker
             // 
+            this.dateassesseddatetimePicker.Format = Wisej.Web.DateTimePickerFormat.DateTime;
             this.dateassesseddatetimePicker.Location = new System.Drawing.Point(741, 344);
             this.dateassesseddatetimePicker.Name = "dateassesseddatetimePicker";
-            this.dateassesseddatetimePicker.Size = new System.Drawing.Size(173, 30);
+            this.dateassesseddatetimePicker.Size = new System.Drawing.Size(173, 22);
             this.dateassesseddatetimePicker.TabIndex = 26;
             this.dateassesseddatetimePicker.ValueChanged += new System.EventHandler(this.dateassesseddatetimePicker_ValueChanged);
             // 
@@ -454,14 +457,15 @@
             // 
             this.amountassessedtxtBox.Location = new System.Drawing.Point(741, 382);
             this.amountassessedtxtBox.Name = "amountassessedtxtBox";
-            this.amountassessedtxtBox.Size = new System.Drawing.Size(173, 30);
+            this.amountassessedtxtBox.Size = new System.Drawing.Size(173, 22);
             this.amountassessedtxtBox.TabIndex = 27;
             // 
             // datepaiddatetimePicker
             // 
+            this.datepaiddatetimePicker.Format = Wisej.Web.DateTimePickerFormat.DateTime;
             this.datepaiddatetimePicker.Location = new System.Drawing.Point(741, 424);
             this.datepaiddatetimePicker.Name = "datepaiddatetimePicker";
-            this.datepaiddatetimePicker.Size = new System.Drawing.Size(173, 30);
+            this.datepaiddatetimePicker.Size = new System.Drawing.Size(173, 22);
             this.datepaiddatetimePicker.TabIndex = 28;
             this.datepaiddatetimePicker.ValueChanged += new System.EventHandler(this.datepaiddatetimePicker_ValueChanged);
             // 
@@ -469,7 +473,7 @@
             // 
             this.amountpaidtxtBox.Location = new System.Drawing.Point(741, 463);
             this.amountpaidtxtBox.Name = "amountpaidtxtBox";
-            this.amountpaidtxtBox.Size = new System.Drawing.Size(173, 30);
+            this.amountpaidtxtBox.Size = new System.Drawing.Size(173, 22);
             this.amountpaidtxtBox.TabIndex = 29;
             // 
             // yearassessedcmbBox
@@ -490,7 +494,7 @@
             "2030"});
             this.yearassessedcmbBox.Location = new System.Drawing.Point(1013, 382);
             this.yearassessedcmbBox.Name = "yearassessedcmbBox";
-            this.yearassessedcmbBox.Size = new System.Drawing.Size(154, 30);
+            this.yearassessedcmbBox.Size = new System.Drawing.Size(154, 22);
             this.yearassessedcmbBox.TabIndex = 30;
             // 
             // amountpaidyearcmbBox
@@ -511,7 +515,7 @@
             "2030"});
             this.amountpaidyearcmbBox.Location = new System.Drawing.Point(1013, 463);
             this.amountpaidyearcmbBox.Name = "amountpaidyearcmbBox";
-            this.amountpaidyearcmbBox.Size = new System.Drawing.Size(154, 30);
+            this.amountpaidyearcmbBox.Size = new System.Drawing.Size(154, 22);
             this.amountpaidyearcmbBox.TabIndex = 31;
             // 
             // submitBtn
@@ -550,7 +554,7 @@
             // 
             this.ornotxtBox.Location = new System.Drawing.Point(741, 503);
             this.ornotxtBox.Name = "ornotxtBox";
-            this.ornotxtBox.Size = new System.Drawing.Size(173, 30);
+            this.ornotxtBox.Size = new System.Drawing.Size(173, 22);
             this.ornotxtBox.TabIndex = 35;
             // 
             // HomeAEC

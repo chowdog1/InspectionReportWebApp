@@ -31,9 +31,9 @@ namespace InspectionReportWebApp.AEC
                 }
             }
 
-            dop = null;
             dopdatetimePicker.Format = DateTimePickerFormat.Custom;
-            dopdatetimePicker.CustomFormat = "dd/MM/yyyy";
+            dopdatetimePicker.CustomFormat = "--/--/----";
+            dopdatetimePicker.ValueChanged += dopdatetimePicker_ValueChanged;
         }
         private void PopulateDataGridView()
         {
@@ -59,9 +59,11 @@ namespace InspectionReportWebApp.AEC
         {
             accountnotxtBox.Clear();
 
-            dop = null;
             dopdatetimePicker.Format = DateTimePickerFormat.Custom;
-            dopdatetimePicker.CustomFormat = "dd/MM/yyyy";
+            dopdatetimePicker.CustomFormat = "--/--/----";
+
+            // Subscribe to the ValueChanged event
+            dopdatetimePicker.ValueChanged += dopdatetimePicker_ValueChanged;
 
             amounttxtBox.Clear();
             ornotxtBox.Clear();
@@ -119,16 +121,15 @@ namespace InspectionReportWebApp.AEC
 
                     int paidselectedYear = Convert.ToInt32(foryearcmbBox.SelectedItem);
                     string adjustment = $"UPDATE Payments SET " +
-                                        $"DatePaid{paidselectedYear} = CASE " +
-                                        $"WHEN LEN(ISNULL(@DatePaid, '')) > 0 AND LEN(ISNULL(DatePaid{paidselectedYear}, '')) > 0 " +
-                                        $"THEN COALESCE(CONVERT(VARCHAR, DatePaid{paidselectedYear}) + ', ', '') + COALESCE(CONVERT(VARCHAR, @DatePaid) + ', ', '') " +
-                                        $"WHEN LEN(ISNULL(@DatePaid, '')) > 0 " +
-                                        $"THEN @DatePaid " +
-                                        $"ELSE DatePaid{paidselectedYear} " +
+                                        $"DatePaid{paidselectedYear} = " +
+                                        $"CASE " +
+                                        $"    WHEN LEN(ISNULL(@DatePaid, '')) > 0 " +
+                                        $"    THEN COALESCE(CONVERT(VARCHAR, @DatePaid, 121) + ', ', '') + DatePaid{paidselectedYear} " +
+                                        $"    ELSE DatePaid{paidselectedYear} " +
                                         $"END, " +
                                         $"AmountPaid{paidselectedYear} = CASE " +
                                         $"WHEN LEN(ISNULL(@AmountPaid, '')) > 0 AND LEN(ISNULL(AmountPaid{paidselectedYear}, '')) > 0 " +
-                                        $"THEN COALESCE(CONVERT(VARCHAR, AmountPaid{paidselectedYear}) + ', ', '') + COALESCE(CONVERT(VARCHAR, @AmountPaid) + ', ', '') " +
+                                        $"THEN COALESCE(AmountPaid{paidselectedYear} + ', ', '') + @AmountPaid " +
                                         $"WHEN LEN(ISNULL(@AmountPaid, '')) > 0 " +
                                         $"THEN @AmountPaid " +
                                         $"ELSE AmountPaid{paidselectedYear} " +
@@ -182,8 +183,90 @@ namespace InspectionReportWebApp.AEC
         }
         private void dopdatetimePicker_ValueChanged(object sender, EventArgs e)
         {
-            dopdatetimePicker.CustomFormat = "dd/MM/yyyy";
-            dop = dopdatetimePicker.Value;
+            if (dopdatetimePicker.Value == DateTimePicker.MinimumDateTime.Date)
+            {
+                dopdatetimePicker.CustomFormat = "--/--/----";
+                dop = null;
+            }
+            else
+            {
+                dopdatetimePicker.CustomFormat = "dd/MM/yyyy";
+                dop = dopdatetimePicker.Value.Date;
+            }
+        }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 4 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 7 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 11 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 14 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 18 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 21 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 25 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 28 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 32 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 35 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 39 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 42 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.FormattingApplied = true;
+            }
         }
     }
 }
