@@ -193,7 +193,7 @@ namespace InspectionReportWebApp.AEC
             }
             else
             {
-                doadatetimePicker.CustomFormat = "dd/MM/yyyy";
+                doadatetimePicker.CustomFormat = "yyyy/MM/dd";
                 dateapplication = doadatetimePicker.Value.Date;
             }
         }
@@ -206,7 +206,7 @@ namespace InspectionReportWebApp.AEC
             }
             else
             {
-                dateassesseddatetimePicker.CustomFormat = "dd/MM/yyyy";
+                dateassesseddatetimePicker.CustomFormat = "yyyy/MM/dd";
                 dateassessed = dateassesseddatetimePicker.Value.Date;
             }
         }
@@ -219,7 +219,7 @@ namespace InspectionReportWebApp.AEC
             }
             else
             {
-                datepaiddatetimePicker.CustomFormat = "dd/MM/yyyy";
+                datepaiddatetimePicker.CustomFormat = "yyyy/MM/dd";
                 datepaid = datepaiddatetimePicker.Value.Date;
             }
         }
@@ -231,7 +231,7 @@ namespace InspectionReportWebApp.AEC
         {
             if (e.ColumnIndex == 1 && e.Value is DateTime)
             {
-                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
                 e.FormattingApplied = true;
             }
         }

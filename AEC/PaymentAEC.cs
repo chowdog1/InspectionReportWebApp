@@ -120,43 +120,23 @@ namespace InspectionReportWebApp.AEC
                     con.Open();
 
                     int paidselectedYear = Convert.ToInt32(foryearcmbBox.SelectedItem);
-                    string adjustment = $"UPDATE Payments SET " +
-                                        $"DatePaid{paidselectedYear} = " +
-                                        $"CASE " +
-                                        $"    WHEN LEN(ISNULL(@DatePaid, '')) > 0 " +
-                                        $"    THEN COALESCE(CONVERT(VARCHAR, @DatePaid, 121) + ', ', '') + DatePaid{paidselectedYear} " +
-                                        $"    ELSE DatePaid{paidselectedYear} " +
-                                        $"END, " +
-                                        $"AmountPaid{paidselectedYear} = CASE " +
-                                        $"WHEN LEN(ISNULL(@AmountPaid, '')) > 0 AND LEN(ISNULL(AmountPaid{paidselectedYear}, '')) > 0 " +
-                                        $"THEN COALESCE(AmountPaid{paidselectedYear} + ', ', '') + @AmountPaid " +
-                                        $"WHEN LEN(ISNULL(@AmountPaid, '')) > 0 " +
-                                        $"THEN @AmountPaid " +
-                                        $"ELSE AmountPaid{paidselectedYear} " +
-                                        $"END, " +
-                                        $"OR{paidselectedYear} = CASE " +
-                                        $"WHEN LEN(ISNULL(@OR, '')) > 0 AND LEN(ISNULL(OR{paidselectedYear}, '')) > 0 " +
-                                        $"THEN COALESCE(OR{paidselectedYear} + ', ', '') + @OR " +
-                                        $"WHEN LEN(ISNULL(@OR, '')) > 0 " +
-                                        $"THEN @OR " +
-                                        $"ELSE OR{paidselectedYear} " +
-                                        $"END, " +
-                                        $"PaidForYear{paidselectedYear} = COALESCE(@PaidForYear, PaidForYear{paidselectedYear}) " +
+                    string adjustment = $"UPDATE Payments SET AdjustmentDatePaid{paidselectedYear} = @AdjustmentDatePaid, " +
+                                        $"AdjustmentAmountPaid{paidselectedYear} = @AdjustmentAmountPaid, " +
+                                        $"AdjustmentOR{paidselectedYear} = @AdjustmentOR " +
                                         $"WHERE AccountNo = @AccountNo";
                     using (SqlCommand cmd = new SqlCommand(adjustment, con))
                     {
                         cmd.Parameters.AddWithValue("@AccountNo", accountnotxtBox.Text);
                         if (dop.HasValue)
                         {
-                            cmd.Parameters.AddWithValue("@DatePaid", dopdatetimePicker.Value);
+                            cmd.Parameters.AddWithValue("@AdjustmentDatePaid", dopdatetimePicker.Value.ToString("yyyy/MM/dd"));
                         }
                         else
                         {
-                            cmd.Parameters.AddWithValue("@DatePaid", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@AdjustmentDatePaid", DBNull.Value);
                         }
-                        cmd.Parameters.AddWithValue("@AmountPaid", amounttxtBox.Text);
-                        cmd.Parameters.AddWithValue("@OR", ornotxtBox.Text);
-                        cmd.Parameters.AddWithValue("@PaidForYear", foryearcmbBox.Text);
+                        cmd.Parameters.AddWithValue("@AdjustmentAmountPaid", amounttxtBox.Text);
+                        cmd.Parameters.AddWithValue("@AdjustmentOR", ornotxtBox.Text);
 
                         try
                         {
@@ -176,6 +156,9 @@ namespace InspectionReportWebApp.AEC
                         catch (SqlException ex)
                         {
                             Console.WriteLine("Sql Error: " + ex.Message);
+                            Console.WriteLine("Error Number: " + ex.Number);
+                            Console.WriteLine("Error Procedure: " + ex.Procedure);
+                            Console.WriteLine("Error Line Number: " + ex.LineNumber);
                         }
                     }
                 }
@@ -183,90 +166,131 @@ namespace InspectionReportWebApp.AEC
         }
         private void dopdatetimePicker_ValueChanged(object sender, EventArgs e)
         {
-            if (dopdatetimePicker.Value == DateTimePicker.MinimumDateTime.Date)
+            if (dopdatetimePicker.Value == DateTimePicker.MinimumDateTime)
             {
                 dopdatetimePicker.CustomFormat = "--/--/----";
                 dop = null;
             }
             else
             {
-                dopdatetimePicker.CustomFormat = "dd/MM/yyyy";
-                dop = dopdatetimePicker.Value.Date;
+                dopdatetimePicker.CustomFormat = "yyyy/MM/dd";
+                dop = dopdatetimePicker.Value;
             }
         }
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.ColumnIndex == 4 && e.Value is DateTime)
             {
-                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
                 e.FormattingApplied = true;
             }
 
             if (e.ColumnIndex == 7 && e.Value is DateTime)
             {
-                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
                 e.FormattingApplied = true;
             }
 
-            if (e.ColumnIndex == 11 && e.Value is DateTime)
+            if (e.ColumnIndex == 10 && e.Value is DateTime)
             {
-                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
                 e.FormattingApplied = true;
             }
 
             if (e.ColumnIndex == 14 && e.Value is DateTime)
             {
-                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
                 e.FormattingApplied = true;
             }
 
-            if (e.ColumnIndex == 18 && e.Value is DateTime)
+            if (e.ColumnIndex == 17 && e.Value is DateTime)
             {
-                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
                 e.FormattingApplied = true;
             }
 
-            if (e.ColumnIndex == 21 && e.Value is DateTime)
+            if (e.ColumnIndex == 20 && e.Value is DateTime)
             {
-                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
                 e.FormattingApplied = true;
             }
 
-            if (e.ColumnIndex == 25 && e.Value is DateTime)
+            if (e.ColumnIndex == 24 && e.Value is DateTime)
             {
-                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
                 e.FormattingApplied = true;
             }
 
-            if (e.ColumnIndex == 28 && e.Value is DateTime)
+            if (e.ColumnIndex == 27 && e.Value is DateTime)
             {
-                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
                 e.FormattingApplied = true;
             }
 
-            if (e.ColumnIndex == 32 && e.Value is DateTime)
+            if (e.ColumnIndex == 30 && e.Value is DateTime)
             {
-                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
                 e.FormattingApplied = true;
             }
 
-            if (e.ColumnIndex == 35 && e.Value is DateTime)
+            if (e.ColumnIndex == 34 && e.Value is DateTime)
             {
-                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
                 e.FormattingApplied = true;
             }
 
-            if (e.ColumnIndex == 39 && e.Value is DateTime)
+            if (e.ColumnIndex == 37 && e.Value is DateTime)
             {
-                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
                 e.FormattingApplied = true;
             }
 
-            if (e.ColumnIndex == 42 && e.Value is DateTime)
+            if (e.ColumnIndex == 40 && e.Value is DateTime)
             {
-                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
                 e.FormattingApplied = true;
             }
+
+            if (e.ColumnIndex == 44 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 47 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 50 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 54 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 57 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
+                e.FormattingApplied = true;
+            }
+
+            if (e.ColumnIndex == 60 && e.Value is DateTime)
+            {
+                e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
+                e.FormattingApplied = true;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -49,7 +49,7 @@
             // 
             this.dataGridView1.Location = new System.Drawing.Point(15, 15);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(577, 300);
+            this.dataGridView1.Size = new System.Drawing.Size(575, 298);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new Wisej.Web.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
@@ -184,6 +184,7 @@
             this.button3.Size = new System.Drawing.Size(100, 37);
             this.button3.TabIndex = 13;
             this.button3.Text = "Cancel";
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // PaymentAEC
             // 
