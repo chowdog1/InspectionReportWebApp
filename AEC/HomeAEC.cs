@@ -353,11 +353,11 @@ namespace InspectionReportWebApp.AEC
         private void label2_Click(object sender, EventArgs e)
         {
             Loginpage loginForm = new Loginpage();
-            loginForm.AdminLoggedIn += (s, args) =>
+            loginForm.AdminLoggedIn += (_, args) =>
             {
                 this.Close(); // Close the current MainForm
             };
-            loginForm.RegularLoggedIn += (s, args) =>
+            loginForm.RegularLoggedIn += (_, args) =>
             {
                 this.Close(); // Close the current MainForm
             };
