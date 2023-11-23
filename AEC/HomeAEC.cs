@@ -64,6 +64,14 @@ namespace InspectionReportWebApp.AEC
             yearassessedcmbBox.SelectedIndex -= 1;
             amountpaidyearcmbBox.SelectedIndex -= 1;
 
+            doadatetimePicker.Enabled = false;
+            businessnametxtBox.Enabled = false;
+            addresstxtBox.Enabled = false;
+            nameownertxtBox.Enabled = false;
+            brgycmbBox.Enabled = false;
+            natureofbusinesscmbBox.Enabled = false;
+            businesstypecmbBox.Enabled = false;
+
             doadatetimePicker.Format = DateTimePickerFormat.Custom;
             doadatetimePicker.CustomFormat = "--/--/----";
             doadatetimePicker.ValueChanged += doadatetimePicker_ValueChanged;
@@ -106,35 +114,90 @@ namespace InspectionReportWebApp.AEC
             {
                 con.Open();
 
-                string insert = "INSERT INTO AECData (AccountNo, DateofApplication, BusinessName, NameofOwner, Address, Barangay, NatureofBusiness, BusinessType, ApplicationStatus) " +
-                                "VALUES (@AccountNo, @DateofApplication, @BusinessName, @NameofOwner, @Address, @Barangay, @NatureofBusiness, @BusinessType, @ApplicationStatus)";
-
-                using (SqlCommand cmd = new SqlCommand(insert, con))
+                if (applicationstatuscmbBox.Text == "NEW")
                 {
-                    cmd.Parameters.AddWithValue("@AccountNo", accountnotxtBox.Text);
-                    if (dateapplication.HasValue)
-                    {
-                        cmd.Parameters.AddWithValue("@DateofApplication", doadatetimePicker.Value);
-                    }
-                    else
-                    {
-                        cmd.Parameters.AddWithValue("@DateofApplication", DBNull.Value);
-                    }
-                    cmd.Parameters.AddWithValue("@BusinessName", businessnametxtBox.Text);
-                    cmd.Parameters.AddWithValue("@NameofOwner", nameownertxtBox.Text);
-                    cmd.Parameters.AddWithValue("@Address", addresstxtBox.Text);
-                    cmd.Parameters.AddWithValue("@Barangay", brgycmbBox.Text);
-                    cmd.Parameters.AddWithValue("@NatureofBusiness", natureofbusinesscmbBox.Text);
-                    cmd.Parameters.AddWithValue("@BusinessType", businesstypecmbBox.Text);
-                    cmd.Parameters.AddWithValue("@ApplicationStatus", applicationstatuscmbBox.Text);
+                    string insert = "INSERT INTO AECData (AccountNo, DateofApplication, BusinessName, NameofOwner, Address, Barangay, NatureofBusiness, BusinessType) " +
+                                    "VALUES (@AccountNo, @DateofApplication, @BusinessName, @NameofOwner, @Address, @Barangay, @NatureofBusiness, @BusinessType)";
 
+                    using (SqlCommand cmd = new SqlCommand(insert, con))
+                    {
+                        cmd.Parameters.AddWithValue("@AccountNo", accountnotxtBox.Text);
+                        if (dateapplication.HasValue)
+                        {
+                            cmd.Parameters.AddWithValue("@DateofApplication", doadatetimePicker.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@DateofApplication", DBNull.Value);
+                        }
+                        cmd.Parameters.AddWithValue("@BusinessName", businessnametxtBox.Text);
+                        cmd.Parameters.AddWithValue("@NameofOwner", nameownertxtBox.Text);
+                        cmd.Parameters.AddWithValue("@Address", addresstxtBox.Text);
+                        cmd.Parameters.AddWithValue("@Barangay", brgycmbBox.Text);
+                        cmd.Parameters.AddWithValue("@NatureofBusiness", natureofbusinesscmbBox.Text);
+                        cmd.Parameters.AddWithValue("@BusinessType", businesstypecmbBox.Text);
 
+                        int assessedselectedYear = Convert.ToInt32(yearassessedcmbBox.SelectedItem);
+                        int paidselectedYear = Convert.ToInt32(amountpaidyearcmbBox.SelectedItem);
+                        string insertPayment = $"INSERT INTO Payments (AccountNo, BusinessName, NameofOwner, BusinessAddress, " +
+                                               $"AssessedDate{assessedselectedYear}, AssessedAmount{assessedselectedYear}, AssessedFor{assessedselectedYear}, " +
+                                               $"DatePaid{paidselectedYear}, AmountPaid{paidselectedYear}, OR{paidselectedYear}, PaidForYear{paidselectedYear}) " +
+                                               $"VALUES (@AccountNo, @BusinessName, @NameofOwner, @BusinessAddress, @AssessedDate, @AssessedAmount, @AssessedForYear, " +
+                                               $"@DatePaid, @AmountPaid, @OR, @PaidForYear)";
+
+                        using (SqlCommand cmd2 = new SqlCommand(insertPayment, con))
+                        {
+                            cmd2.Parameters.AddWithValue("@AccountNo", accountnotxtBox.Text);
+                            cmd2.Parameters.AddWithValue("@BusinessName", businessnametxtBox.Text);
+                            cmd2.Parameters.AddWithValue("@NameofOwner", nameownertxtBox.Text);
+                            cmd2.Parameters.AddWithValue("@BusinessAddress", businessnametxtBox.Text);
+                            if (dateassessed.HasValue)
+                            {
+                                cmd2.Parameters.AddWithValue("@AssessedDate", dateassesseddatetimePicker.Value);
+                            }
+                            else
+                            {
+                                cmd2.Parameters.AddWithValue("@AssessedDate", DBNull.Value);
+                            }
+                            cmd2.Parameters.AddWithValue("@AssessedAmount", amountassessedtxtBox.Text);
+                            cmd2.Parameters.AddWithValue("@AssessedForYear", yearassessedcmbBox.Text);
+                            if (datepaid.HasValue)
+                            {
+                                cmd2.Parameters.AddWithValue("@DatePaid", datepaiddatetimePicker.Value);
+                            }
+                            else
+                            {
+                                cmd2.Parameters.AddWithValue("@DatePaid", DBNull.Value);
+                            }
+                            cmd2.Parameters.AddWithValue("@AmountPaid", amountpaidtxtBox.Text);
+                            cmd2.Parameters.AddWithValue("@OR", ornotxtBox.Text);
+                            cmd2.Parameters.AddWithValue("@PaidForYear", amountpaidyearcmbBox.Text);
+
+                            try
+                            {
+                                cmd.ExecuteNonQuery();
+                                cmd2.ExecuteNonQuery();
+                                MessageBox.Show("Successfully Saved!");
+                                ClearForm();
+                                PopulateDataGridView();
+                            }
+                            catch (SqlException ex)
+                            {
+                                Console.WriteLine("Sql Error: " + ex.Message);
+                            }
+                        }
+                    }
+                }
+                else if (applicationstatuscmbBox.Text == "RENEWAL")
+                {
                     int assessedselectedYear = Convert.ToInt32(yearassessedcmbBox.SelectedItem);
                     int paidselectedYear = Convert.ToInt32(amountpaidyearcmbBox.SelectedItem);
-                    string insertPayment = $"INSERT INTO Payments (AccountNo, BusinessName, NameofOwner, BusinessAddress, " +
-                                           $"AssessedDate{assessedselectedYear}, AssessedAmount{assessedselectedYear}, AssessedFor{assessedselectedYear}, " +
-                                           $"DatePaid{paidselectedYear}, AmountPaid{paidselectedYear}, OR{paidselectedYear}, PaidForYear{paidselectedYear}) " +
-                                           $"VALUES (@AccountNo, @BusinessName, @NameofOwner, @BusinessAddress, @AssessedDate, @AssessedAmount, @AssessedForYear, @DatePaid, @AmountPaid, @OR, @PaidForYear)";
+                    string insertPayment = $"UPDATE Payments SET " +
+                                           $"BusinessName = @BusinessName, NameofOwner = @NameofOwner, " +
+                                           $"BusinessAddress = @BusinessAddress, " +
+                                           $"AssessedDate{assessedselectedYear} = @AssessedDate, AssessedAmount{assessedselectedYear} = @AssessedAmount, AssessedFor{assessedselectedYear} = @AssessedForYear, " +
+                                           $"DatePaid{paidselectedYear} = @DatePaid, AmountPaid{paidselectedYear} = @AmountPaid, OR{paidselectedYear} = @OR, PaidForYear{paidselectedYear} = @PaidForYear " +
+                                           $"WHERE AccountNo = @AccountNo";
 
                     using (SqlCommand cmd2 = new SqlCommand(insertPayment, con))
                     {
@@ -166,7 +229,6 @@ namespace InspectionReportWebApp.AEC
 
                         try
                         {
-                            cmd.ExecuteNonQuery();
                             cmd2.ExecuteNonQuery();
                             MessageBox.Show("Successfully Saved!");
                             ClearForm();
@@ -180,6 +242,7 @@ namespace InspectionReportWebApp.AEC
                 }
             }
         }
+
         private void clearBtn_Click(object sender, EventArgs e)
         {
             ClearForm();
@@ -233,6 +296,82 @@ namespace InspectionReportWebApp.AEC
             {
                 e.Value = ((DateTime)e.Value).ToString("yyyy/MM/dd");
                 e.FormattingApplied = true;
+            }
+        }
+        private void RetrieveData(string accountno)
+        {
+            using(SqlConnection con = new SqlConnection("Data Source=DESKTOP-HTKIB76\\SQLEXPRESS01;Initial Catalog=AEC;Integrated Security=True"))
+            {
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM AECData WHERE AccountNo = @AccountNo", con))
+                {
+                    cmd.Parameters.AddWithValue("@AccountNo", accountno);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            doadatetimePicker.Value = Convert.ToDateTime(reader["DateofApplication"]);
+                            businessnametxtBox.Text = reader["BusinessName"].ToString();
+                            addresstxtBox.Text = reader["Address"].ToString();
+                            nameownertxtBox.Text = reader["NameofOwner"].ToString();
+                            brgycmbBox.Text = reader["Barangay"].ToString();
+                            natureofbusinesscmbBox.Text = reader["NatureofBusiness"].ToString();
+                            businesstypecmbBox.Text = reader["BusinessType"].ToString();
+                        }
+                    }
+                }
+            }
+        }
+        private void applicationstatuscmbBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(applicationstatuscmbBox.Text == "NEW")
+            {
+                doadatetimePicker.Enabled = true;
+                businessnametxtBox.Enabled = true;
+                addresstxtBox.Enabled = true;
+                nameownertxtBox.Enabled = true;
+                brgycmbBox.Enabled = true;
+                natureofbusinesscmbBox.Enabled = true;
+                businesstypecmbBox.Enabled = true;
+            }
+            else if(applicationstatuscmbBox.Text == "RENEWAL")
+            {
+                doadatetimePicker.Enabled = false;
+                businessnametxtBox.Enabled = false;
+                addresstxtBox.Enabled = false;
+                nameownertxtBox.Enabled = false;
+                brgycmbBox.Enabled = false;
+                natureofbusinesscmbBox.Enabled = false;
+                businesstypecmbBox.Enabled = false;
+                string accountno = accountnotxtBox.Text;
+                RetrieveData(accountno);
+            }    
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Loginpage loginForm = new Loginpage();
+            loginForm.AdminLoggedIn += (s, args) =>
+            {
+                this.Close(); // Close the current MainForm
+            };
+            loginForm.RegularLoggedIn += (s, args) =>
+            {
+                this.Close(); // Close the current MainForm
+            };
+            loginForm.ShowDialog();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Are you sure you want to logout?", "Confirm Logout", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                this.Close();
+                Loginpage Loginpage = new Loginpage();
+                Loginpage.Show();
             }
         }
     }

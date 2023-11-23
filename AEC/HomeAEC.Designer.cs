@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new Wisej.Web.Panel();
-            this.label4 = new Wisej.Web.Label();
             this.label3 = new Wisej.Web.Label();
             this.label2 = new Wisej.Web.Label();
             this.label1 = new Wisej.Web.Label();
@@ -75,7 +74,6 @@
             // panel1
             // 
             this.panel1.BorderStyle = Wisej.Web.BorderStyle.Solid;
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -84,17 +82,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(187, 603);
             this.panel1.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Cursor = Wisej.Web.Cursors.Hand;
-            this.label4.Font = new System.Drawing.Font("Nirmala UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label4.Location = new System.Drawing.Point(69, 191);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 22);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Exit";
             // 
             // label3
             // 
@@ -106,6 +93,7 @@
             this.label3.Size = new System.Drawing.Size(58, 22);
             this.label3.TabIndex = 2;
             this.label3.Text = "Logout";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -117,6 +105,7 @@
             this.label2.Size = new System.Drawing.Size(121, 22);
             this.label2.TabIndex = 1;
             this.label2.Text = "Switch Account";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -134,7 +123,7 @@
             // 
             this.dataGridView1.Location = new System.Drawing.Point(205, 17);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(988, 223);
+            this.dataGridView1.Size = new System.Drawing.Size(984, 219);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellFormatting += new Wisej.Web.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
@@ -296,6 +285,7 @@
             // 
             // doadatetimePicker
             // 
+            this.doadatetimePicker.Enabled = false;
             this.doadatetimePicker.Format = Wisej.Web.DateTimePickerFormat.DateTime;
             this.doadatetimePicker.Location = new System.Drawing.Point(341, 301);
             this.doadatetimePicker.Name = "doadatetimePicker";
@@ -305,6 +295,7 @@
             // 
             // businessnametxtBox
             // 
+            this.businessnametxtBox.Enabled = false;
             this.businessnametxtBox.Location = new System.Drawing.Point(341, 337);
             this.businessnametxtBox.Name = "businessnametxtBox";
             this.businessnametxtBox.Size = new System.Drawing.Size(173, 22);
@@ -312,6 +303,7 @@
             // 
             // nameownertxtBox
             // 
+            this.nameownertxtBox.Enabled = false;
             this.nameownertxtBox.Location = new System.Drawing.Point(341, 378);
             this.nameownertxtBox.Name = "nameownertxtBox";
             this.nameownertxtBox.Size = new System.Drawing.Size(173, 22);
@@ -319,6 +311,7 @@
             // 
             // addresstxtBox
             // 
+            this.addresstxtBox.Enabled = false;
             this.addresstxtBox.Location = new System.Drawing.Point(341, 418);
             this.addresstxtBox.Name = "addresstxtBox";
             this.addresstxtBox.Size = new System.Drawing.Size(173, 22);
@@ -326,6 +319,7 @@
             // 
             // brgycmbBox
             // 
+            this.brgycmbBox.Enabled = false;
             this.brgycmbBox.Items.AddRange(new object[] {
             "Addition Hills",
             "Balong Bato",
@@ -355,6 +349,7 @@
             // 
             // natureofbusinesscmbBox
             // 
+            this.natureofbusinesscmbBox.Enabled = false;
             this.natureofbusinesscmbBox.Items.AddRange(new object[] {
             "ADMIN OFFICE",
             "ANIMAL CLINICS AND SERVICES",
@@ -426,6 +421,7 @@
             // 
             // businesstypecmbBox
             // 
+            this.businesstypecmbBox.Enabled = false;
             this.businesstypecmbBox.Items.AddRange(new object[] {
             "LOWRISK",
             "HIGHRISK"});
@@ -443,6 +439,7 @@
             this.applicationstatuscmbBox.Name = "applicationstatuscmbBox";
             this.applicationstatuscmbBox.Size = new System.Drawing.Size(173, 22);
             this.applicationstatuscmbBox.TabIndex = 25;
+            this.applicationstatuscmbBox.SelectedIndexChanged += new System.EventHandler(this.applicationstatuscmbBox_SelectedIndexChanged);
             // 
             // dateassesseddatetimePicker
             // 
@@ -617,7 +614,6 @@
         #endregion
 
         private Wisej.Web.Panel panel1;
-        private Wisej.Web.Label label4;
         private Wisej.Web.Label label3;
         private Wisej.Web.Label label2;
         private Wisej.Web.Label label1;
