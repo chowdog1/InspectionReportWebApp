@@ -553,6 +553,10 @@ namespace InspectionReportWebApp
                                     });
                                 }
                             }
+                            else
+                            {
+                                MessageBox.Show("No record found for the specified Account No.", "No Record Found");
+                            }
                         }
                     }
                 }
